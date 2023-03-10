@@ -15,10 +15,10 @@ int main()
 
     //표현하기 위한 자료형  이름
     //ex)
-    //자료형           이름
-        int         Att;
-        int         Def;
-        int         MonsterHp;
+    //자료형           이름          연산자             값
+        int         Att                 =               10;
+        int         Def                 =               5;
+        int         MonsterHp           =               8;
     
     //자료형의 의미
     // 1. byte 크기
