@@ -15,10 +15,10 @@ int main()
 
     //표현하기 위한 자료형  이름
     //ex)
-    //자료형       이름
-        int        Att;
-        int        Def;
-        int        MonsterHp;
+    //자료형           이름
+        int         Att;
+        int         Def;
+        int         MonsterHp;
     
     //자료형의 의미
     // 1. byte 크기
@@ -27,6 +27,5 @@ int main()
     //이름의 의미
     // 1. 위치 <= 내프로그램의 시작위치에서 n Byte 떨어진 곳에 만듬 : 상대적 위치
         //주소값으로 치환 <= Ram에서의 물리적 위치
-
 
 }
