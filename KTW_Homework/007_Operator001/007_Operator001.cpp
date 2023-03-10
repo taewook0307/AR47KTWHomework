@@ -19,9 +19,11 @@
     Result = Left % Right;
     Result -= Left;
     Result += Left;
+    //전위, 전치
     Result = ++Left;
-    Result = Left++;
     Result = --Left;
+    //후위, 후치
+    Result = Left++;
     Result = Left--;
 
     //연산자 순서
