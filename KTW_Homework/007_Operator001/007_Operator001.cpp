@@ -38,12 +38,12 @@
     bResult = false;
 
     //비교 연산자 / 관계 연산자
-    bResult = Left == Right;
-    bResult = Left != Right;
-    bResult = Left < Right;
-    bResult = Left > Right;
-    bResult = Left <= Right;
-    bResult = Left >= Right;
+    bResult = Left == Right;        //false
+    bResult = Left != Right;        //true
+    bResult = Left < Right;         //false
+    bResult = Left > Right;         //true
+    bResult = Left <= Right;        //false
+    bResult = Left >= Right;        //true
 
     //논리 연산자
     //and : 둘 다 참이면 참, 하나라도 거짓이면 거짓
