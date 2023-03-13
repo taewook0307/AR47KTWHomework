@@ -18,8 +18,9 @@ int main()
 
     // Unname scope
     {
-        int Value = 10;     //Unname scope 메모리 영역(스택 영역) 내에서 존재하다가 Unname scope가 끝나면 같이 사라짐
+        int Value = 10;     //Unname scope 메모리(스택 영역) 내에서 존재하다가 Unname scope가 끝나면 같이 사라짐
                             //그래서 Unname scope 밖에서는 사용 불가능
+        //main함수 내 Value와 Unname scope 내 Value는 서로 다른 메모리에 생성되기 때문에 서로 같은 변수가 아님
     }
 
     //함수 실행 방법
