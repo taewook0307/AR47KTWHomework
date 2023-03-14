@@ -21,22 +21,33 @@
         //주소값             100   101   102    103    104  <= bool은 1바이트
         //int ArrayValue = { 0,  1,  2,  3,  4 }
         //주소값            100 104 108 112 116     <= int는 4바이트
+    }
+
+    //문자의 배열은 축약형 표현을 사용 가능
+    {
+        char ArrValue[5] = { 'a','b','c' };
+
+        //쌍따옴표를 이용하여 축약 표현 가능
+        char ArrValue1[5] = "abc";
+
+        //[] <= 랜덤 인덱스 연산자
+        //모든 이름은 시작 위치를 표현
 
         ArrValue[2];
         //ArrValue[정수]
         //ArrValue 시작위치 + sizeof(자료형) * 정수
         //위치의 데이터에 접근하겠다라는 뜻
 
-        ArrValue2[3];
+        ArrValue1[3];
         //ArrValue2 == 100번지
-        //100 + sizeof(char) * 3 => 100 + 1 * 3 => 103번지
+        //100 + sizeof(char) * 3 => 100 + 1 * 3 => 103번지 
     }
 
-    //문자의 배열은 축약한 표현을 사용 가능
+    //Homework
     {
-        char ArrValue[5] = { 'a','b','c' };
+        char arrTest[10] = "abcdefghi";
 
-        //쌍따옴표를 이용하여 축약 표현 가능
-        char ArrValue1[5] = "abc";
+        char getValue = arrTest[6];     //getValue = g
+        char getValue1 = arrTest[3];    //getValue1 = d
     }
 }
