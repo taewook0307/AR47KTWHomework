@@ -1,5 +1,22 @@
 ﻿#include <iostream>
 
+void Test(int _1, int _2, int _3)
+{
+    int* ValuePtr0 = &_1;
+    int* ValuePtr1 = &_2;
+    int* ValuePtr2 = &_3;
+
+    __int64 Address0 = 0;
+    __int64 Address1 = 0;
+    __int64 Address2 = 0;
+
+    Address0 = (__int64)ValuePtr0;
+    Address1 = (__int64)ValuePtr1;
+    Address2 = (__int64)ValuePtr2;
+
+    int a = 1;
+}
+
 int main()
 {
     {
@@ -9,6 +26,14 @@ int main()
         //& : 특정 변수의 메모리 영역의 주소값을 끌어내는 것
         int* ValuePtr0 = &Value0;
         int* ValuePtr1 = &Value1;
+
+        __int64 Address0 = 0;
+        __int64 Address1 = 0;
+
+        Address0 = (__int64)ValuePtr0;
+        Address1 = (__int64)ValuePtr1;
+
+        int a = 1;
     }
 
     {
@@ -25,5 +50,11 @@ int main()
         Address0 = (__int64)ValuePtr0;
         Address1 = (__int64)ValuePtr1;
         Address2 = (__int64)ValuePtr2;
+
+        int a = 1;
+    }
+
+    {
+        Test(312, 312, 312);
     }
 }

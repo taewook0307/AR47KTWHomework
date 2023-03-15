@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{a15dd174-3bca-4c5b-8577-b5d4053f24fa}</ProjectGuid>
-    <RootNamespace>My019Inline</RootNamespace>
+    <ProjectGuid>{dbcf228b-4515-43ea-8271-56918a17dc06}</ProjectGuid>
+    <RootNamespace>My019Inline001</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="019_Inline.cpp" />
+    <ClCompile Include="019_Inline001.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

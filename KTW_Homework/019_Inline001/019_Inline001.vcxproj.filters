@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="019_Inline.cpp">
+    <ClCompile Include="019_Inline001.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
