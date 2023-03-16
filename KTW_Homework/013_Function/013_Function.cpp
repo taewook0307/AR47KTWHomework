@@ -4,7 +4,7 @@
 
 //함수는 만들면 만들수록 느려짐
 
-//리턴값     이름      인자(이 함수에 넘길 메모리)
+//리턴값     이름      인자(이 함수에 넘길 메모리 = 매개변수 = parameter)
 void    Function      ()
 {//Function 함수의 시작
     return;
@@ -45,6 +45,7 @@ void Test(int _Value) {     //필요한 메모리 비용 : 4byte(인자 _Value�
 int main()
 {
     Plus(20, 30);   //4byte를 메모리에서 사용한 것
+    //20, 30 처럼 함수를 호출할 때 사용하는 값 : 인수
 
     int ReturnResult = sizeof(Plus(20, 30));
     //void는 sizeof를 할 수 없음
