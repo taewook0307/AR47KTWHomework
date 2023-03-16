@@ -9,7 +9,7 @@ int main()
     //보통은 nullptr로 초기화
     int* Ptr = nullptr;
 
-    //넣어줄 주소값이 있으면 바로 넣어줌.
+    //가리킬 주소값이 있으면 바로 가리킴.
     int* Ptr1 = &Value;
 
     //int* Ptr = 0;     <= c스타일
