@@ -13,6 +13,7 @@ void Test(int _1, int _2, int _3)
     Address0 = (__int64)ValuePtr0;
     Address1 = (__int64)ValuePtr1;
     Address2 = (__int64)ValuePtr2;
+    //함수 인자의 주소값은 8씩 차이가 남
 
     int a = 1;
 }
@@ -50,6 +51,7 @@ int main()
         Address0 = (__int64)ValuePtr0;
         Address1 = (__int64)ValuePtr1;
         Address2 = (__int64)ValuePtr2;
+        //int형 배열이므로 주소값은 4씩 차이가 남
 
         int a = 1;
     }
