@@ -1,4 +1,4 @@
-﻿#include <iostream>
+﻿ #include <iostream>
 
 int main()
 {
@@ -7,7 +7,11 @@ int main()
 
 		bool bValue = true;
 		int AValue = 12345678;
+
+		AValue = bValue;
+		//자료형이 다른데 대입이 됨 => 암시적 형변환
 	}
+
 	{
 		//아예 변환을 허용하지 않는 자료형 관계
 		int Value = 0;
@@ -15,6 +19,7 @@ int main()
 		//Value = Ptr;
 		//Ptr = Value;
 	}
+
 	{
 		//메모리가 생기면 자료형이 존재
 		int Arr[10] = {};		//배열의 자료형 : int [10]

@@ -5,7 +5,7 @@ void MyPrintf(const char* const _ptr)
     int Count = 0;
     while (0 != _ptr[Count])
     {
-        char Ch = _ptr[Count];
+        char Ch = _ptr[Count];          //값을 확인하는 습관
 
         putchar(Ch);
         Count += 1;
@@ -13,6 +13,19 @@ void MyPrintf(const char* const _ptr)
     /*putchar(_ptr[0]);
     putchar(_ptr[1]);
     putchar(_ptr[2]);*/
+}
+
+void MyPrintf0(const char* const _ptr)
+{
+    int Count = 0;
+
+    char Ch = 0;
+
+    while (Ch = _ptr[Count], 0 != _ptr[Count])
+    {
+        putchar(Ch);
+        Count++;
+    }
 }
 
 int main()
@@ -33,7 +46,8 @@ int main()
     char ch7 = Ptr[7];
     char ch8 = Ptr[8];
 
-    MyPrintf("aaa");
+    MyPrintf("aaa\n");
+    MyPrintf0("aaaaa\n");
 
     //printf_s("aaa", 1, 2, 3, 4);
     //가변 인자

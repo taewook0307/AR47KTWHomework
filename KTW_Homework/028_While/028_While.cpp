@@ -14,17 +14,24 @@ int main()
 
     // while (특정 메모리 영역이 참인가 거짓인가)
     {
-        while (printf_s("조건문\n"), true)
+        int Value = 5;
+
+        while (printf_s("조건문\n"), Value)
         {
+            --Value;
             printf_s("실행코드\n");
         }
     }
 
     {
         //실행코드가 먼저 실행
+        int Value = 5;
+
         do
         {
+            --Value;
             printf_s("실행코드\n");
         } while (printf_s("조건문\n"), true);
     }
+    //실행코드가 무조건 한 번은 실행되어야 한다면 do while문을 이용
 }
