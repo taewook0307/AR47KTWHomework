@@ -26,27 +26,56 @@ void TestFunction(int _1, int _2, int _3)
     int a = 0;
 }
 
+//인자의 이름이 필요할 때는 그걸 이름을 사용할 때 뿐입니다.
+//이름을 넣어주지 않아도 인자를 사용 가능
 void TestFunction2(int _1, ...)
 {
     int* Ptr = &_1;
 
-    int Value0 = Ptr[0];
-    int Value1 = Ptr[2];
-    int Value2 = Ptr[4];
-    int Value3 = Ptr[6];
-    int Value4 = Ptr[8];
-    int Value5 = Ptr[10];
+    int Count = 2;
+
+    while (_1--)
+    {
+        int Value = Ptr[Count];
+        Count += 2;
+    }
+
+    int a = 0;
 }
+
+// 가변인자를 사용하면 컴파일러가 해당 인자의 개수만큼의 함수를 만들게 됨 <= 컴파일 시간이 길어짐
+// void TestFunction2(int _1, int, int, int, int, int)
+// {
+//     int* Ptr = &_1;
+// 
+//     int Count = 2;
+// 
+//     while (_1--)
+//     {
+//         int Value = Ptr[Count];
+//         Count += 2;
+//     }
+// 
+//     int a = 0;
+// }
+
 
 int main()
 {
-    VarFunction(2, 3, 4, 5);
+    // VarFunction(2, 3, 4, 5);
 
-    VarFunction("1", "1", "1", "1", "1");
+    // VarFunction("1", "1", "1", "1", "1");
 
-    VarFunction("1", 1, 2);
+    // VarFunction("1", 1, 2);
 
-    TestFunction(1, 2, 3);
+    // TestFunction(10, 20, 30);
 
-    TestFunction2(5, 1, 2, 3, 4, 5);
+    // TestFunction2(5, 1, 2, 3, 4, 5);
+
+    // %를 사용하게 되면 이는 포매팅 문자라고 해서
+    // 숫자나 다양한 다른 변수들을 사용해서 출력을 요청
+    // %d : 정수, %s : 문자열, %c : 문자
+    printf_s("%d %s", 1, "asdf");
+
+    int a = 0;
 }

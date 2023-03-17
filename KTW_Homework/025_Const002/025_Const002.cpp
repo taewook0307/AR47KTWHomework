@@ -40,4 +40,9 @@ int main()
         // 자료형* const : 포인터 변수가 가리키는 주소값을 바꾸지 못하게 함
         // Chr = &Test1;    <= 오류 발생 : * 뒤에 const가 붙어있기 때문에
     }
+
+    {
+        // const int Value; <= 반드시 초기화를 해줘야 함
+        const int Value = 0;
+    }
 }
