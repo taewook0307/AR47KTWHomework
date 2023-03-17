@@ -13,11 +13,11 @@ inline int MyPrintf(const char* const _Value, ...)
 
     int Count = 0;
 
-    while (0 != _Value)
+    while (0 != _Value[Count])
     {
         char Value = _Value[Count];
         
-        if ('%' != Value)
+        if ('%' == Value)
         {
             ++Count;
             char Format = _Value[Count];

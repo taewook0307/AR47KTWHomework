@@ -12,7 +12,7 @@ int main()
 
 	const int ArrSize1 = 20;
 
-	int Value[ArrSize1] = {};
+	int Value0[ArrSize1] = {};
 
 	// 특정 자료형 앞에 const 키워드를 붙이면 그 메모리의 비트적 상수화를 시킨다.
 	// ArrSize1 = 30;	<= const를 붙이면 해당 메모리(변수)는 상수화 : 변경 불가능
