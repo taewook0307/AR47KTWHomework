@@ -14,13 +14,13 @@ int main()
 
 		switch (Value)
 		{
-			// case 뒤에는 상수 메모리(상수, 문자, const형 변수)만 가능
-			// case Value: <= 변수 사용 불가능
+		// case 뒤에는 상수 메모리(상수, 문자, const형 변수)만 가능
+		// case Value: <= 변수 사용 불가능
 		case 0:
 			printf_s("Value = 0\n");
 			break;
 
-			// case 안에서 변수를 선언하려면 따로 지역을 분류해야됨
+		// case 안에서 변수를 선언하려면 따로 지역을 분류해야됨
 		case 1:
 		{
 			int a = 0;
@@ -33,7 +33,7 @@ int main()
 			printf_s("Value = 0\n");
 			break;
 
-			// case에서 같은 메모리 영역이 없을 시 default 실행
+		// case에서 같은 메모리 영역이 없을 시 default 실행
 		default:
 			break;
 		}

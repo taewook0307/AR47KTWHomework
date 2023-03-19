@@ -26,10 +26,12 @@ int TrimDelete(char* _String)
     while (_String[check])
     {
         char ch = _String[check];
-        if ((int)ch == 32)
+
+        if ((int)ch == 32)          //가져온 문자가 띄어쓰기(빈칸)일 경우
         {
             check++;
         }
+
         else
         {
             _String[num] = _String[check];
@@ -101,6 +103,7 @@ int StringToInt(const char* _String)
                 break;
             }
         }
+
         //Result값이 0일때
         else
         {

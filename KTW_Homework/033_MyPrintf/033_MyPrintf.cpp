@@ -7,9 +7,9 @@ inline int MyPrintf(const char* const _Value, ...)
 
     Ptr += 8;
 
-    int* PtrInt = (int*)Ptr;
+    int* IntPtr = (int*)Ptr;
 
-    int Value0 = *PtrInt;
+    int Value0 = *IntPtr;
 
     int Count = 0;
 
