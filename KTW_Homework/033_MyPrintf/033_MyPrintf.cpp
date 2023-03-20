@@ -25,7 +25,10 @@ inline int MyPrintf(const char* const _Value, ...)
             switch (Format)
             {
             case 'd':
+            {
+
                 break;
+            }
             case 's':
                 break;
             default:

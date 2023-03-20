@@ -27,7 +27,7 @@ int TrimDelete(char* _String)
     {
         char ch = _String[check];
 
-        if ((int)ch == 32)          //가져온 문자가 띄어쓰기(빈칸)일 경우
+        if ((int)ch == 32)          // 가져온 문자가 띄어쓰기(빈칸)일 경우
         {
             check++;
         }
@@ -46,7 +46,7 @@ int TrimDelete(char* _String)
     return 0;
 }
 
-//문자열을 정수형으로 변환
+// 문자열을 정수형으로 변환
 int StringToInt(const char* _String)
 {
     int Count = 0;
@@ -57,7 +57,7 @@ int StringToInt(const char* _String)
     {
         char Check = _String[Count];
 
-        //Result값이 0이 아닐 때
+        // Result값이 0이 아닐 때
         if (Result != 0)
         {
             switch (Check)
@@ -104,7 +104,7 @@ int StringToInt(const char* _String)
             }
         }
 
-        //Result값이 0일때
+        // Result값이 0일때
         else
         {
             switch (Check)
