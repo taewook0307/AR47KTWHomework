@@ -3,13 +3,7 @@
 inline int MyPrintf(const char* const _Value, ...)
 {
     __int64 Address = (__int64)&_Value;
-    char* Ptr = (char*)Address;
-
-    Ptr += 8;
-
-    int* IntPtr = (int*)Ptr;
-
-    int Value0 = *IntPtr;
+    Address += 8;
 
     int Count = 0;
 
@@ -26,7 +20,9 @@ inline int MyPrintf(const char* const _Value, ...)
             {
             case 'd':
             {
-
+                int* ValuePtr = (int*)Address;
+                int Value = *ValuePtr;
+                printf_s("%d", Value);
                 break;
             }
             case 's':
