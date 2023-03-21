@@ -26,8 +26,8 @@ void TestFunction(int _1, int _2, int _3)
     int a = 0;
 }
 
-//인자의 이름이 필요할 때는 그걸 이름을 사용할 때 뿐입니다.
-//이름을 넣어주지 않아도 인자를 사용 가능
+// 인자의 이름이 필요할 때는 그걸 이름을 사용할 때 뿐입니다.
+// 이름을 넣어주지 않아도 인자를 사용 가능
 void TestFunction2(int _1, ...)
 {
     int* Ptr = &_1;
@@ -43,21 +43,20 @@ void TestFunction2(int _1, ...)
     int a = 0;
 }
 
-// 가변인자를 사용하면 컴파일러가 해당 인자의 개수만큼의 함수를 만들게 됨 <= 컴파일 시간이 길어짐
-// void TestFunction2(int _1, int, int, int, int, int)
-// {
-//     int* Ptr = &_1;
-// 
-//     int Count = 2;
-// 
-//     while (_1--)
-//     {
-//         int Value = Ptr[Count];
-//         Count += 2;
-//     }
-// 
-//     int a = 0;
-// }
+/*  가변인자를 사용하면 컴파일러가 해당 인자의 개수만큼의 함수를 만들게 됨 <= 컴파일 시간이 길어짐
+    void TestFunction2(int _1, int, int, int, int, int)
+    {
+        int* Ptr = &_1;
+
+        int Count = 2;
+
+        while(_1--)
+        {
+            int Value = Ptr[Count];
+            Count += 2;
+        }
+    }
+*/
 
 
 int main()

@@ -7,12 +7,13 @@ int ReturnValue()
 
 int main()
 {
-    // if(메모리 영역)
-    // {
-    //      실행코드
-    // }
-    // 메모리 영역이 참이면 실행코드가 실행
-    // 거짓이면 실행코드가 실행되지 않음
+    /*  if문 구조
+        if(메모리 영역)
+        {
+            실행코드
+        }
+    */
+    // 메모리 영역이 참이면 실행코드가 실행, 거짓이면 실행코드가 실행되지 않음
 
     int Value = 10;
 
@@ -23,27 +24,26 @@ int main()
         int a = 0;
     }
 
-    // 이렇게 사용도 가능하긴 함
-    // if (int Value0 = ReturnValue())
-    // {
-    //     printf_s("실행코드");
-       
-    //     int a = 0;
-    // }
+    /*  이렇게 사용도 가능하긴 함
+        if(int Value0 = ReturnValue())
+        {
+            printf_s("실행코드");
+        }
+    */
 
-    // 값을 확인하는 습관이 중요
-    // int Value0 = ReturnValue();
-    // 
-    // if (Value0)
-    // {
-    //     printf_s("실행코드");
+    /*  값을 확인하는 습관이 중요
+        int Value0 = ReturnValue();
 
-    //     int a = 0;
-    // }
+        if(Value0)
+        {
+            printf_s("실행코드");
+        }
+    */
 
-    // 한줄치기 하지 말기(가독성 저하)
-    // if (Value)
-    //     printf_s("실행");
+    /*  한줄치기 하지 말기(가독성 저하)
+        if(Value)
+            printf_s("실행");
+    */
 
     if (Value)
     {

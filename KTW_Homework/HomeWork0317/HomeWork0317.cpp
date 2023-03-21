@@ -146,6 +146,49 @@ int StringToInt(const char* _String)
     return Result;
 }
 
+// 문자열을 정수형으로 변환(switch 사용 안 하고 간단하게)
+int StringToIntShortly(const char* _String)
+{
+    int Count = 0;
+
+    int Result = 0;
+
+    while (_String[Count] && _String[Count] >= '0' && _String[Count] <= '9')
+    {
+        char Check = _String[Count];
+
+        Result = Result * 10 + ((int)_String[Count] - 48);
+        Count++;
+    }
+
+    return Result;
+}
+
+// 숫자 외 다른 문자가 들어간 문자열에서 숫자를 빼와 정수형으로 변환
+int StringCheckInt(const char* _String)
+{
+    int Count = 0;
+
+    int Result = 0;
+
+    while (_String[Count])
+    {
+        if (_String[Count] >= '0' && _String[Count] <= '9')
+        {
+            char Check = _String[Count];
+
+            Result = Result * 10 + ((int)_String[Count] - 48);
+            Count++;
+        }
+        else
+        {
+            Count++;
+        }
+    }
+
+    return Result;
+}
+
 int main()
 {
     int Return0 = StringCount("aaaa");
@@ -167,4 +210,19 @@ int main()
     int RValue1 = StringToInt("432");
     int RValue2 = StringToInt("4523312");
     int RValue3 = StringToInt("432231");
+
+    // StringToInt 함수를 switch 안 쓰고 간략하게
+    int IValue0 = StringToIntShortly("111");
+    int IValue1 = StringToIntShortly("432");
+    int IValue2 = StringToIntShortly("532");
+    int IValue3 = StringToIntShortly("645");
+
+    // 영어나 다른 문자가 섞여 들어가 있는 곳에서 숫자만 순서대로 출력
+    int UValue0 = StringCheckInt("1a 34 2");
+    int UValue1 = StringCheckInt("uao 342 45 4kd");
+    int UValue2 = StringCheckInt("59 kkle 23k3");
+    int UValue3 = StringCheckInt("sl2k3i4k k33");
+    int UValue4 = StringCheckInt("나23$2i {:12");
+
+    int a = 0;
 }
