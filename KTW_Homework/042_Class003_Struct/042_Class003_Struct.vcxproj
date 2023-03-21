@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{1821838a-2516-4bf0-89ad-02af2a3db54c}</ProjectGuid>
-    <RootNamespace>My041UserAccess</RootNamespace>
+    <ProjectGuid>{32429ebc-8b59-4337-8748-479d5cacf302}</ProjectGuid>
+    <RootNamespace>My042Class003Struct</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="041_UserAccess.cpp" />
+    <ClCompile Include="042_Class003_Struct.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
