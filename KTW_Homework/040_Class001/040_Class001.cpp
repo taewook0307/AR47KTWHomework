@@ -39,7 +39,7 @@ int main()
     // 개념을 생각하고 객체를 만듬
     // class로 정의 내리고 NewPlayer를 만듬
     // NewPlayer가 객체
-    Player NewPlayer0 = Player();    // class를 이용해서 Player 하나를 만든 것
+    Player NewPlayer0 = Player();    // class(개념)를 이용해서 Player 하나를 만든 것
     Player NewPlayer1 = Player();
     Player NewPlayer2 = Player();
 
@@ -48,7 +48,7 @@ int main()
     // 체력
 }
 
-/* 플레이어는 이러이러한 존재야
+/* '플레이어는 이러이러한 존재야' 라는 개념
 class Player
 {
     int Hp;

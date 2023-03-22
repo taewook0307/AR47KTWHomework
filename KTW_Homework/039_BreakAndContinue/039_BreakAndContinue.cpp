@@ -2,12 +2,12 @@
 
 int main()
 {
-    int num = 5;
+    int num = 2;
 
     while (num)
     {
         for (int i = 0; i < 100; i++) {
-            if (i > 50) {
+            if (i > 5) {
                 // switch문의 브레이크와 다름
                 // 반복문에서의 break는 가장 가까운 반복문을 탈출
                 break;      // 가장 가까운 반복문 : for문

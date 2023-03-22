@@ -32,4 +32,7 @@ int main()
 {
     Player newPlayer = Player();
     Monster newMonster = Monster();
+
+    // newPlayer.   <= 선언한 멤버변수가 나오지 않음(선언한 멤버변수 모두 사용 불가능 : private가 디폴트 접근제한 지정자라서)
+    // newMonster.  <= 선언한 멤버변수가 모두 나옴(선언한 멤버변수 모두 사용 가능 : public이 디폴트 접근제한 지정자라서)
 }

@@ -1,0 +1,6 @@
+if(true)
+	printf_s("aaa");	한줄치기 금지
+
+namespace 사용 금지
+만약에 사용하게 되더라도 namespace 생략 금지
+	=> using namespace			

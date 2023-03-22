@@ -40,4 +40,9 @@ int main()
 {
     // 외부 코드
     Player newPlayer = Player();
+
+    // 객체의 사용법 : 객체이름.객체내부요소
+
+    // 보통 행동만 public으로 제작
+
 }
