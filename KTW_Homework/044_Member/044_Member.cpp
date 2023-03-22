@@ -16,10 +16,10 @@ void Test()
 class Player
 {
 private:        // 명확하게 선언
-    int Hp;     // 멤버 변수
+    int Hp;     // 멤버 안에 선언된 변수 : 멤버 변수
 
 public:
-    void setHp(int _A)      // 멤버 함수
+    void setHp(int _A)      // 멤버 안에 선언된 함수 : 멤버 함수
     {
         Hp = _A;        // 멤버 함수 내부는 지역
     }

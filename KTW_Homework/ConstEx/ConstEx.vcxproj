@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{9a0ca712-2632-4cfe-9b41-1e95fc677af2}</ProjectGuid>
-    <RootNamespace>My043Array002</RootNamespace>
+    <ProjectGuid>{1ce8a41e-d8a2-454d-be2d-1d2db8e21f2f}</ProjectGuid>
+    <RootNamespace>ConstEx</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="043_Array002.cpp" />
+    <ClCompile Include="ConstEx.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
