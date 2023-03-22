@@ -110,6 +110,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "045_NameSpace", "045_NameSp
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "046_BytePadding", "046_BytePadding\046_BytePadding.vcxproj", "{021E8267-2FEA-462D-947E-EA77C08C4555}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etc", "Etc", "{AD94DE9A-7677-4DC5-A253-06AB1F8962A0}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConstEx", "ConstEx\ConstEx.vcxproj", "{1CE8A41E-D8A2-454D-BE2D-1D2DB8E21F2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -502,6 +506,14 @@ Global
 		{021E8267-2FEA-462D-947E-EA77C08C4555}.Release|x64.Build.0 = Release|x64
 		{021E8267-2FEA-462D-947E-EA77C08C4555}.Release|x86.ActiveCfg = Release|Win32
 		{021E8267-2FEA-462D-947E-EA77C08C4555}.Release|x86.Build.0 = Release|Win32
+		{1CE8A41E-D8A2-454D-BE2D-1D2DB8E21F2F}.Debug|x64.ActiveCfg = Debug|x64
+		{1CE8A41E-D8A2-454D-BE2D-1D2DB8E21F2F}.Debug|x64.Build.0 = Debug|x64
+		{1CE8A41E-D8A2-454D-BE2D-1D2DB8E21F2F}.Debug|x86.ActiveCfg = Debug|Win32
+		{1CE8A41E-D8A2-454D-BE2D-1D2DB8E21F2F}.Debug|x86.Build.0 = Debug|Win32
+		{1CE8A41E-D8A2-454D-BE2D-1D2DB8E21F2F}.Release|x64.ActiveCfg = Release|x64
+		{1CE8A41E-D8A2-454D-BE2D-1D2DB8E21F2F}.Release|x64.Build.0 = Release|x64
+		{1CE8A41E-D8A2-454D-BE2D-1D2DB8E21F2F}.Release|x86.ActiveCfg = Release|Win32
+		{1CE8A41E-D8A2-454D-BE2D-1D2DB8E21F2F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -509,6 +521,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{EDE7E660-CD30-4349-B519-DB9C343343BF} = {78FD3CA1-A2DE-4CAB-9E78-6C85DBA3C6C1}
 		{9BA30A88-CCC2-4F4F-8201-C03D2B29A383} = {78FD3CA1-A2DE-4CAB-9E78-6C85DBA3C6C1}
+		{1CE8A41E-D8A2-454D-BE2D-1D2DB8E21F2F} = {AD94DE9A-7677-4DC5-A253-06AB1F8962A0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F286CD72-DA50-41AE-ADCB-4D83D9F578E4}
