@@ -10,14 +10,14 @@ void StatusRender(
     printf_s("%s 의 스테이터스 ------------\n", _Name);
     printf_s("공격력 : %d\n", _Att);
     printf_s("체력 : %d\n", _Hp);
-    printf_s("---------------------------\n");
+    printf_s("----------------------------------\n");
 }
 
 void Damage(
     const char* const _AttName,     // 공격자의 이름
-    const char* const _DefName,     // 방어자의 이름
     const int& _Att,                // 공격자의 공격력
     const int& _AttHp,              // 공격자의 체력
+    const char* const _DefName,     // 방어자의 이름
     const int& _DefAtt,             // 방어자의 공격력
     int& _DefHp                     // 방어자의 체력
 )
@@ -63,7 +63,7 @@ int main()
         StatusRender("Monster", MonsterAtt, MonsterHp);
         _getch();
 
-        Damage("Player", "Monster", PlayerAtt, PlayerHp, MonsterAtt, MonsterHp);
+        Damage("Player", PlayerAtt, PlayerHp, "Monster", MonsterAtt, MonsterHp);
         _getch();
 
         if (0 >= MonsterHp)
@@ -74,7 +74,7 @@ int main()
             break;
         }
 
-        Damage("Monster", "Player", MonsterAtt, MonsterHp, PlayerAtt, PlayerHp);
+        Damage("Monster", MonsterAtt, MonsterHp, "Player", PlayerAtt, PlayerHp);
         _getch();
 
         if (0 >= PlayerHp)
