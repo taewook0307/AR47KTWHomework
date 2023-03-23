@@ -62,6 +62,11 @@ int main()
     __int64* __Int64Ptr = &NewTest.Value1;
     __int64 AddressValue1 = (__int64)__Int64Ptr;                // AddressValue1 = 208
 
+/*
+ 200    201    202    203    204    205    206    207    208    209    210    211    212    213    214    215
+Value                      |Value0        |             Value1                                
+*/
+
 
 
     char* CharPtr0 = &NewTest0.Num;
@@ -78,6 +83,11 @@ int main()
 
     __int64* __Int64Ptr0 = &NewTest0.Num3;
     __int64 AddressNum3 = (__int64)__Int64Ptr0;                 // AddressNum3 = 216
+
+/*
+200    201    202    203    204    205    206    207    208    209    210    211    212    213    214    215    216    217    218    219    220    221    222    223
+Num |                       Num0                      | Num1        | Num2 |                                    Num3
+*/
 
 
 
@@ -101,6 +111,11 @@ int main()
 
     int* ArmorPtr = &NewPlayer.Armor;
     __int64 AddressArmor = (__int64)ArmorPtr;                   // AddressArmor = 228
+
+/*
+200    201    202    203    204    205    206    207    208    209    210    211    212    213    214    215    216    217    218    219    220    221    222    223    224    225    226    227    228
+Name  |                                                  Hp                                                    |Att                        |Def                       |Speed        |SubN  |       Armor
+*/
     
     int a = 0;
 }
