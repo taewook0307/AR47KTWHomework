@@ -15,7 +15,7 @@ void Test()
 // 사용자 정의 자료형 내부의 공간 : 멤버공간
 class Player
 {
-private:        // 명확하게 선언
+public:        // 명확하게 선언
     int Hp;     // 멤버 안에 선언된 변수 : 멤버 변수
 
 public:
@@ -28,5 +28,9 @@ public:
 // main 전역함수
 int main()
 {
-    
+    // 500번지의 플레이러를 대표하는 NewPlayer
+    Player NewPlayer = Player();
+
+    // 500번지의 Hp값을 가져와라
+    NewPlayer.Hp = 0;
 }
