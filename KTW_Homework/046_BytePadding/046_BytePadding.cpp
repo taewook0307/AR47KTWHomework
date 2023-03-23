@@ -27,16 +27,31 @@ public:
     __int64 Num3;
 };
 
+class Player
+{
+public:
+    char Name;
+    __int64 Hp;
+    int Att;
+    int Def;
+    short Speed;
+    char SubName;
+    int Armor;
+};
+
 int main()
 {
     Test NewTest = Test();
     Test0 NewTest0 = Test0();
+    Player NewPlayer = Player();
 
     int Size = sizeof(Test);            // Size = 16
     int Size0 = sizeof(Test0);          // Size = 24
+    int SizeP = sizeof(Player);
 
     printf_s("%d\n", Size);
-    printf_s("%d", Size0);
+    printf_s("%d\n", Size0);
+    printf_s("%d", SizeP);
 
     int* IntPtr = &NewTest.Value;
     __int64 AddressValue = (__int64)IntPtr;                     // AddressValue = 200 이라 가정
@@ -64,5 +79,28 @@ int main()
     __int64* __Int64Ptr0 = &NewTest0.Num3;
     __int64 AddressNum3 = (__int64)__Int64Ptr0;                 // AddressNum3 = 216
 
+
+
+    char* NamePtr = &NewPlayer.Name;
+    __int64 AddressName = (__int64)NamePtr;                     // AddressName = 200 이라 가정
+
+    __int64* HpPtr = &NewPlayer.Hp;
+    __int64 AddressHp = (__int64)HpPtr;                         // AddressHp = 208
+
+    int* AttPtr = &NewPlayer.Att;
+    __int64 AddressAtt = (__int64)AttPtr;                       // AddressAtt = 216
+
+    int* DefPtr = &NewPlayer.Def;
+    __int64 AddressDef = (__int64)DefPtr;                       // AddressDef = 220
+
+    short* SpeedPtr = &NewPlayer.Speed;
+    __int64 AddressSpeed = (__int64)SpeedPtr;                   // AddressSpeed = 224
+
+    char* SubNamePtr = &NewPlayer.SubName;
+    __int64 AddressSubName = (__int64)SubNamePtr;               // AddressSubName = 226
+
+    int* ArmorPtr = &NewPlayer.Armor;
+    __int64 AddressArmor = (__int64)ArmorPtr;                   // AddressArmor = 228
+    
     int a = 0;
 }
