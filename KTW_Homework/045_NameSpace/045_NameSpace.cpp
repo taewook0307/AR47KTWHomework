@@ -4,7 +4,7 @@
 // Player가 만들어질때의 내부는 코드 영역
 class Player
 {
-    int Att;    // Player::Att
+    int Att = 10;    // Player::Att
 };
 
 /* 같은 이름의 클래스를 사용 불가능
@@ -16,12 +16,12 @@ class Player
 
 class Monster
 {
-    int Att;    // Monster::Att
+    int Att = 5;    // Monster::Att
 };
 
 void Test()
 {
-    int Att;    // Test::Att
+    int Att = 0;    // Test::Att
 }
 
 // 범위 확인(스코프 확인)

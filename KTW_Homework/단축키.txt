@@ -15,3 +15,6 @@ Ctrl + Space bar
 
 Ctrl + Shift + g
   #include <파일명>의 내용으로 이동
+
+Ctrl + r + r
+  특정 
