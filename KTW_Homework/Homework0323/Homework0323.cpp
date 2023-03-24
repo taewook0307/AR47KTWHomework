@@ -218,48 +218,65 @@ int main()
 
 	NewNumber = 5;							// NewNumber.Value = 5
 	NewNumber.operator=(10);				// NewNumber.Value = 10
+
 	Result = NewNumber + 10;				// Result = 20
 	Result = NewNumber.operator+(3);		// Result = 13
+
 	Result = NewNumber - 10;				// Result = 0
 	Result = NewNumber.operator-(3);		// Result = 7
+
 	Result = NewNumber * 10;				// Result = 100
 	Result = NewNumber.operator*(3);		// Result = 30
+
 	Result = NewNumber / 10;				// Result = 1
 	Result = NewNumber.operator/(3);		// Result = 3
+
 	Result = NewNumber % 3;					// Result = 1
 	Result = NewNumber.operator%(2);		// Result = 0
 
+
 	Result = ++NewNumber;					// Result = 11, NewNumber.Value = 11
 	Result = NewNumber.operator++();		// Result = 12, NewNumber.Value = 12
+
 	Result = --NewNumber;					// Result = 11, NewNumber.Value = 11
 	Result = NewNumber.operator--();		// Result = 10, NewNumber.Value = 10
+
 
 	bool bResult = true;
 
 	bResult = NewNumber == 0;				// bResult = false;
 	bResult = NewNumber.operator==(0);		// bResult = false;
+
 	bResult = NewNumber != 0;				// bResult = true;
 	bResult = NewNumber.operator!=(0);		// bResult = true;
+
 	bResult = NewNumber >= 0;				// bResult = true;
 	bResult = NewNumber.operator>=(0);		// bResult = true;
+
 	bResult = NewNumber <= 0;				// bResult = false;
 	bResult = NewNumber.operator<=(0);		// bResult = false;
+
 	bResult = NewNumber > 0;				// bResult = true;
 	bResult = NewNumber.operator>(0);		// bResult = true;
+
 	bResult = NewNumber < 0;				// bResult = false;
 	bResult = NewNumber.operator<(0);		// bResult = false;
 
+
 	bResult = NewNumber && true;			// bResult = true;
 	bResult = NewNumber.operator&&(true);	// bResult = true;
+
 	bResult = NewNumber && false;			// bResult = false;
 	bResult = NewNumber.operator&&(false);	// bResult = false;
+
 	bResult = NewNumber || true;			// bResult = true;
 	bResult = NewNumber.operator||(true);	// bResult = true;
-	NewNumber = 0;							// NewNumber.Value = 0
+	NewNumber = false;							// NewNumber.Value = 0
 	bResult = NewNumber || true;			// bResult = true;
 	bResult = NewNumber.operator||(true);	// bResult = true;
 	bResult = NewNumber || false;			// bResult = false;
 	bResult = NewNumber.operator||(false);	// bResult = false;
+
 
 	NewNumber = 5;							// NewNumber.Value = 5
 	Result = NewNumber & 3;
@@ -304,16 +321,23 @@ int main()
 	Result          = 0b00000000000000000000000000000010			Result = 2
 	*/
 
+
 	NewNumber += 10;						// NewNumber.Value = 26
 	NewNumber.operator+=(10);				// NewNumber.Value = 36
+
 	NewNumber -= 10;						// NewNumber.Value = 26
 	NewNumber.operator-=(10);				// NewNumber.Value = 16
+
 	NewNumber *= 10;						// NewNumber.Value = 160
 	NewNumber.operator*=(10);				// NewNumber.Value = 1600
+
 	NewNumber /= 10;						// NewNumber.Value = 160
 	NewNumber.operator/=(10);				// NewNumber.Value = 16
+
 	NewNumber %= 3;							// NewNumber.Value = 1
 	NewNumber.operator%=(3);				// NewNumber.Value = 1
+
+
 	NewNumber &= 2;
 	/*
 	NewNumber.Value = 0b00000000000000000000000000000001
@@ -326,6 +350,7 @@ int main()
 	2               = 0b00000000000000000000000000000010
 	NewNumber.Value = 0b00000000000000000000000000000000			NewNumber.Value = 0
 	*/
+
 	NewNumber |= 2;
 	/*
 	NewNumber.Value = 0b00000000000000000000000000000000
@@ -338,6 +363,7 @@ int main()
 	2               = 0b00000000000000000000000000000010
 	NewNumber.Value = 0b00000000000000000000000000000010			NewNumber.Value = 2
 	*/
+
 	NewNumber ^= 7;
 	/*
 	NewNumber.Value = 0b00000000000000000000000000000010
@@ -350,6 +376,7 @@ int main()
 	2               = 0b00000000000000000000000000000010
 	NewNumber.Value = 0b00000000000000000000000000000111			NewNumber.Value = 7
 	*/
+
 	NewNumber <<= 2;
 	/*
 	NewNumber.Value = 0b00000000000000000000000000000111
@@ -360,6 +387,7 @@ int main()
 	NewNumber.Value = 0b00000000000000000000000000011100
 	NewNumber.Value = 0b00000000000000000000000001110000			NewNumber.Value = 112
 	*/
+
 	NewNumber >>= 2;
 	/*
 	NewNumber.Value = 0b00000000000000000000000001110000
