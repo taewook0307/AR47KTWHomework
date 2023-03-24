@@ -1,6 +1,12 @@
 ﻿#include <iostream>
 #include <conio.h>
+
 int main()
 {
-    printf_s("%d\n", _getch());
+    while (true)
+    {
+        char Ch = _getch();
+
+        printf_s("%c\n", Ch);
+    }
 }
