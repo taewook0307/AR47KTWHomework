@@ -10,204 +10,279 @@ public:
 		: Value(_Value)
 	{
 	}
+	 
+#pragma region 대입 연산자
 
-// 대입 연산자
-	void operator=(int _Value)
+	Number& operator=(const int _Value)
 	{
 		Value = _Value;
+		return *this;
 	}
 
+#pragma endregion
 
-// 산술 연산자
+#pragma region 산술 연산자
 
 	// 더하기
-	int operator+(int _Value)
+	inline int operator+(const int _Value)
 	{
-		return Value + _Value;
+		int result = Value + _Value;
+		return result;
 	}
 
 	// 빼기
-	int operator-(int _Value)
+	inline int operator-(const int _Value)
 	{
-		return Value - _Value;
+		int result = Value - _Value;
+		return result;
 	}
 
 	// 곱하기
-	int operator*(int _Value)
+	inline int operator*(const int _Value)
 	{
-		return Value * _Value;
+		int result = Value * _Value;
+		return result;
 	}
 
 	// 나누기
-	int operator/(int _Value)
+	inline int operator/(const int _Value)
 	{
-		return Value / _Value;
+		int result = Value / _Value;
+		return result;
 	}
 
 	// 나머지
-	int operator%(int _Value)
+	inline int operator%(const int _Value)
 	{
-		return Value % _Value;
+		int result = Value % _Value;
+		return result;
 	}
 
+#pragma endregion
+
+#pragma region 증감 연산자
 
 // 전위 증감 연산자
-	int operator++()
+	Number& operator++()
 	{
-		return ++Value;
+		++Value;
+		return *this;
 	}
 
-	int operator--()
+	Number& operator--()
 	{
-		return --Value;
+		--Value;
+		return *this;
 	}
 
+// 후위 증감 연산자
+	int operator++(int)
+	{
+		int result = Value;
+		Value += 1;
+		return result;
+	}
+
+	int operator--(int)
+	{
+		int result = Value;
+		Value -= 1;
+		return result;
+	}
+
+#pragma endregion
+
+#pragma region 비교 연산자 & 관계 연산자
 
 // 비교 연산자 / 관계 연산자
 	bool operator==(int _Value)
 	{
-		return Value == _Value;
+		bool result = Value == _Value;
+		return result;
 	}
 
 	bool operator!=(int _Value)
 	{
-		return Value != _Value;
+		bool result = Value != _Value;
+		return result;
 	}
 
 	bool operator>=(int _Value)
 	{
-		return Value >= _Value;
+		bool result = Value >= _Value;
+		return result;
 	}
 
 	bool operator<=(int _Value)
 	{
-		return Value <= _Value;
+		bool result = Value <= _Value;
+		return result;
 	}
 
 	bool operator>(int _Value)
 	{
-		return Value > _Value;
+		bool result = Value > _Value;
+		return result;
 	}
 
 	bool operator<(int _Value)
 	{
-		return Value < _Value;
+		bool result = Value < _Value;
+		return result;
 	}
 
+#pragma endregion
 
-// 논리 연산자
+#pragma region 논리 연산자
 
 	// and
 	bool operator&&(bool _Value)
 	{
-		return Value && _Value;
+		bool result = Value && _Value;
+		return result;
 	}
 
 	// or
 	bool operator||(bool _Value)
 	{
-		return Value || _Value;
+		bool result = Value || _Value;
+		return result;
 	}
 
+	// not
+	bool operator!()
+	{
+		bool result = !Value;
+		return result;
+	}
 
-// 비트 단위 연산자
+#pragma endregion
+
+#pragma region 비트 단위 연산자
 
 	// and
-	int operator&(int _Value)
+	int operator&(const int _Value)
 	{
-		return Value & _Value;
+		int result = Value & _Value;
+		return result;
 	}
 
 	// or
-	int operator|(int _Value)
+	int operator|(const int _Value)
 	{
-		return Value | _Value;
+		int result = Value | _Value;
+		return result;
 	}
 
 	// not
 	int operator~()
 	{
-		return ~Value;
+		int result = ~Value;
+		return result;
 	}
 
 	// xor
-	int operator^(int _Value)
+	int operator^(const int _Value)
 	{
-		return Value ^ _Value;
+		int result = Value ^ _Value;
+		return result;
 	}
 
 	// Shift
-	int operator<<(int _Value)
+	int operator<<(const int _Value)
 	{
-		return Value << _Value;
+		int result = Value << _Value;
+		return result;
 	}
 
-	int operator>>(int _Value)
+	int operator>>(const int _Value)
 	{
-		return Value >> _Value;
+		int result = Value >> _Value;
+		return result;
 	}
 
+#pragma endregion
 
-// 복합 대입 연산자
+#pragma region 복합 대입 연산자
 	
 	// 더하기
-	void operator+=(int _Value)
+	Number& operator+=(int _Value)
 	{
 		Value = Value + _Value;
+		return *this;
 	}
 
 	// 빼기
-	void operator-=(int _Value)
+	Number& operator-=(int _Value)
 	{
 		Value = Value - _Value;
+		return *this;
 	}
 
 	// 곱하기
-	void operator*=(int _Value)
+	Number& operator*=(int _Value)
 	{
 		Value = Value * _Value;
+		return *this;
 	}
 
 	// 나누기
-	void operator/=(int _Value)
+	Number& operator/=(int _Value)
 	{
 		Value = Value / _Value;
+		return *this;
 	}
 
 	// 나머지
-	void operator%=(int _Value)
+	Number& operator%=(int _Value)
 	{
 		Value = Value % _Value;
+		return *this;
 	}
 
 	// 비트 and
-	void operator&=(int _Value)
+	Number& operator&=(int _Value)
 	{
 		Value = Value & _Value;
+		return *this;
 	}
 
 	// 비트 or
-	void operator|=(int _Value)
+	Number& operator|=(int _Value)
 	{
 		Value = Value | _Value;
+		return *this;
 	}
 
 	// 비트 xor
-	void operator^=(int _Value)
+	Number& operator^=(int _Value)
 	{
 		Value = Value ^ _Value;
+		return *this;
 	}
 
 	// shift
-	void operator<<= (int _Value)
+	Number& operator<<= (int _Value)
 	{
 		Value = Value << _Value;
+		return *this;
 	}
 
-	void operator>>= (int _Value)
+	Number& operator>>= (int _Value)
 	{
 		Value = Value >> _Value;
+		return *this;
 	}
+
+#pragma endregion
+
+#pragma region 구분 연산자
+	int operator,(const int _Value)
+	{
+		int result = _Value;
+		return result;
+	}
+#pragma endregion
 };
 
 int main()
@@ -234,12 +309,12 @@ int main()
 	Result = NewNumber % 3;					// Result = 1
 	Result = NewNumber.operator%(2);		// Result = 0
 
+	Number NewResult = Number(0);
+	NewResult = ++NewNumber;					// Result = 11, NewNumber.Value = 11
+	NewResult = NewNumber.operator++();		// Result = 12, NewNumber.Value = 12
 
-	Result = ++NewNumber;					// Result = 11, NewNumber.Value = 11
-	Result = NewNumber.operator++();		// Result = 12, NewNumber.Value = 12
-
-	Result = --NewNumber;					// Result = 11, NewNumber.Value = 11
-	Result = NewNumber.operator--();		// Result = 10, NewNumber.Value = 10
+	NewResult = --NewNumber;					// Result = 11, NewNumber.Value = 11
+	NewResult = NewNumber.operator--();		// Result = 10, NewNumber.Value = 10
 
 
 	bool bResult = true;
