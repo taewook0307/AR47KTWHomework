@@ -8,6 +8,8 @@
 // 안해도 되는 숙제
 // 숙제3 : 장애물 만들고 배치하기
 // 숙제4 : f를 누르면 폭탄이 설치되고 눈에 보여야 함.
+// ------------------------------------------------------------------------- 숙제 구현 
+// 
 // 숙제5 : 일정시간이 지나고 폭탄이 터지면서
 
 int main()
@@ -28,6 +30,18 @@ int main()
 	int PlayerY = ScreenYSize / 2;
 	int PlayerX = ScreenXSize / 2;
 
+	char LastClickButton = '0';
+
+#pragma region 장애물 설치
+	for (int WallCount = 10; WallCount > 0; --WallCount)
+	{
+		int x = rand() % ScreenXSize;
+		int y = rand() % ScreenYSize;
+
+		Arr[y][x] = 'X';
+	}
+#pragma endregion
+
 	while (true)
 	{
 		system("cls");
@@ -43,76 +57,154 @@ int main()
 			printf_s("\n");
 		}
 
-		// 키를 눌렀다는것을 체크해주는 함수 : 키를 눌렀으면 1, 아니라면 0을 리턴
-		// 정지하지 않음
 		if (0 == _kbhit())		// 키를 누르지 않았다면
 		{
-			Sleep(200);			// 0.3초간 멈춘다.
+			Sleep(200);
 
 			continue;
 		}
 
-		// 어떤 키를 눌렀는지 알려주는 함수
+#pragma region 키 입력
 		char Ch = _getch();
 
-		// A 키를 눌렀을 때
-		if (Ch == 'a' || Ch == 'A') {
-			if (PlayerX == 0)						// 플레이어가 제일 좌측에 위치했을 경우
-			{
-				PlayerX = 0;
-			}
-			else
-			{
-				PlayerX -= 1;
-				Arr[PlayerY][PlayerX + 1] = 'a';
-			}
-			continue;
-		}
-
-		// D 키를 눌렀을 때
-		else if (Ch == 'd' || Ch == 'D')
+		switch (Ch)
 		{
-			if (PlayerX == ScreenXSize - 1)			// 플레이어가 제일 우측에 위치했을 경우
+		case 'a':
+		case 'A':
+			if (Arr[PlayerY][PlayerX - 1] == '@' || Arr[PlayerY][PlayerX - 1] == 'X')		// 플레이어가 폭탄 혹은 장애물쪽으로 가려고 할 경우
 			{
-				PlayerX = ScreenXSize - 1;
+				break;
 			}
 			else
 			{
-				PlayerX += 1;
-				Arr[PlayerY][PlayerX - 1] = 'a';
+				if (PlayerX == 0)						// 플레이어가 제일 좌측에 위치했을 경우
+				{
+					PlayerX = 0;
+					LastClickButton = 'a';
+				}
+				else
+				{
+					PlayerX -= 1;
+					Arr[PlayerY][PlayerX + 1] = 'a';
+					LastClickButton = 'a';
+				}
+				break;
 			}
-			continue;
-		}
+		case 'd':
+		case 'D':
+			if (Arr[PlayerY][PlayerX + 1] == '@' || Arr[PlayerY][PlayerX + 1] == 'X')		// 플레이어가 폭탄 혹은 장애물쪽으로 가려고 할 경우
+			{
+				break;
+			}
+			else
+			{
+				if (PlayerX == ScreenXSize - 1)			// 플레이어가 제일 우측에 위치했을 경우
+				{
+					PlayerX = ScreenXSize - 1;
+					LastClickButton = Ch;
+				}
+				else
+				{
+					PlayerX += 1;
+					Arr[PlayerY][PlayerX - 1] = 'a';
+					LastClickButton = Ch;
+				}
+				break;
+			}
+		case 's':
+		case 'S':
+			if (Arr[PlayerY + 1][PlayerX] == '@' || Arr[PlayerY + 1][PlayerX] == 'X')		// 플레이어가 폭탄 혹은 장애물쪽으로 가려고 할 경우
+			{
+				break;
+			}
+			else
+			{
+				if (PlayerY == ScreenYSize - 1)			// 플레이어가 제일 아래쪽에 위치했을 경우
+				{
+					PlayerY = ScreenYSize - 1;
+					LastClickButton = Ch;
+				}
+				else
+				{
+					PlayerY += 1;
+					Arr[PlayerY - 1][PlayerX] = 'a';
+					LastClickButton = Ch;
+				}
+				break;
+			}
+		case 'w':
+		case 'W':
+			if (Arr[PlayerY - 1][PlayerX] == '@' || Arr[PlayerY - 1][PlayerX] == 'X')		// 플레이어가 폭탄 혹은 장애물쪽으로 가려고 할 경우
+			{
+				break;
+			}
+			else
+			{
 
-		// S 키를 눌렀을 때
-		else if (Ch == 's' || Ch == 'S')
-		{
-			if (PlayerY == ScreenYSize - 1)			// 플레이어가 제일 아래쪽에 위치했을 경우
-			{
-				PlayerY = ScreenYSize - 1;
+				if (PlayerY == 0)						// 플레이어가 제일 위쪽에 위치했을 경우
+				{
+					PlayerY = 0;
+					LastClickButton = Ch;
+				}
+				else
+				{
+					PlayerY -= 1;
+					Arr[PlayerY + 1][PlayerX] = 'a';
+					LastClickButton = Ch;
+				}
+				break;
 			}
-			else
+		case 'f':										// 폭탄 설치
+		case 'F':
+			if (LastClickButton == 'a')					// 마지막으로 누른 키가 a일 경우
 			{
-				PlayerY += 1;
-				Arr[PlayerY - 1][PlayerX] = 'a';
+				if (PlayerX == 0)
+				{
+					break;
+				}
+				else
+				{
+					Arr[PlayerY][PlayerX - 1] = '@';
+				}
 			}
-			continue;
+			else if (LastClickButton == 'd')				// 마지막으로 누른 키가 d일 경우
+			{
+				if (PlayerX == ScreenXSize - 1)
+				{
+					break;
+				}
+				else
+				{
+					Arr[PlayerY][PlayerX + 1] = '@';
+				}
+			}
+			else if (LastClickButton == 's')			// 마지막으로 누른 키가 s일 경우
+			{
+				if (PlayerY == ScreenYSize - 1)
+				{
+					break;
+				}
+				else
+				{
+					Arr[PlayerY + 1][PlayerX] = '@';
+				}
+			}
+			else if (LastClickButton == 'w')			// 마지막으로 누른 키가 w일 경우
+			{
+				if (PlayerY == 0)
+				{
+					break;
+				}
+				else
+				{
+					Arr[PlayerY - 1][PlayerX] = '@';
+				}
+			}
+			break;
+		default:
+			break;
 		}
-
-		// W 키를 눌렀을 때
-		else if (Ch == 'w' || Ch == 'W')
-		{
-			if (PlayerY == 0)						// 플레이어가 제일 위쪽에 위치했을 경우
-			{
-				PlayerY = 0;
-			}
-			else
-			{
-				PlayerY -= 1;
-				Arr[PlayerY + 1][PlayerX] = 'a';
-			}
-			continue;
-		}
+#pragma endregion
 
 		Sleep(200);
 	}
