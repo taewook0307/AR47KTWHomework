@@ -4,6 +4,9 @@ Ctrl a
 Ctrl k + c
   선택범위 주석 처리
 
+Ctrl k + u
+  선택범위 주석 헤제
+
 Ctrl k + f
   선택범위 문법 정렬
 
