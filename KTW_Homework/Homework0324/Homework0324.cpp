@@ -10,12 +10,14 @@
 // 숙제4 : f를 누르면 폭탄이 설치되고 눈에 보여야 함.
 // 
 // --------------------------------------------------------- 숙제4까지 완료
-// 숙제5 : 일정시간이 지나고 폭탄이 터지면서
+// 숙제5 : 일정시간이 지나고 폭탄이 터지기
 
 int main()
 {
 	const int ScreenYSize = 11;
 	const int ScreenXSize = 11;
+
+	char Floor = ' ';
 
 	char Arr[ScreenYSize][ScreenXSize] = { 0, };
 
@@ -23,7 +25,7 @@ int main()
 	{
 		for (size_t x = 0; x < ScreenXSize; x++)
 		{
-			Arr[y][x] = 'a';
+			Arr[y][x] = Floor;
 		}
 	}
 
@@ -33,7 +35,9 @@ int main()
 	char PlayerDirection = 'L';
 
 #pragma region 장애물
-	for (int WallCount = 10; WallCount > 0; --WallCount)
+	srand(time(0));
+
+	for (int WallCount = 10; WallCount > 0; --WallCount)			// 장애물 위치를 랜덤하게 정해줌
 	{
 		int x = rand() % ScreenXSize;
 		int y = rand() % ScreenYSize;
@@ -93,7 +97,7 @@ int main()
 				else
 				{
 					PlayerX -= 1;
-					Arr[PlayerY][PlayerX + 1] = 'a';
+					Arr[PlayerY][PlayerX + 1] = Floor;
 				}
 				break;
 			}
@@ -120,7 +124,7 @@ int main()
 				else
 				{
 					PlayerX += 1;
-					Arr[PlayerY][PlayerX - 1] = 'a';
+					Arr[PlayerY][PlayerX - 1] = Floor;
 				}
 				break;
 			}
@@ -147,7 +151,7 @@ int main()
 				else
 				{
 					PlayerY += 1;
-					Arr[PlayerY - 1][PlayerX] = 'a';
+					Arr[PlayerY - 1][PlayerX] = Floor;
 				}
 				break;
 			}
@@ -175,16 +179,16 @@ int main()
 				else
 				{
 					PlayerY -= 1;
-					Arr[PlayerY + 1][PlayerX] = 'a';
+					Arr[PlayerY + 1][PlayerX] = Floor;
 				}
 				break;
 			}
 
 		case 'f':										// 폭탄 설치
 		case 'F':
-			if (PlayerDirection == 'L')					// 플레이어가 좌측을 보고 있는 경우
+			if (PlayerDirection == 'L' && Arr[PlayerY][PlayerX - 1] != 'X')					// 플레이어가 좌측을 보고 있는 경우 or 폭탄을 놓을 위치에 장애물이 있는 경우
 			{
-				if (PlayerX == 0)						// 플레이어가 맵에서 가장 좌측 라인에 있을 경우
+				if (PlayerX == 0)															// 플레이어가 맵에서 가장 좌측 라인에 있을 경우
 				{
 					break;
 				}
@@ -194,9 +198,9 @@ int main()
 				}
 			}
 
-			else if (PlayerDirection == 'R')				// 플레이어가 우측을 보고 있는 경우
+			else if (PlayerDirection == 'R' && Arr[PlayerY][PlayerX + 1] != 'X')				// 플레이어가 우측을 보고 있는 경우 or 폭탄을 놓을 위치에 장애물이 있는 경우
 			{
-				if (PlayerX == ScreenXSize - 1)			// 플레이어가 맵에서 가장 우측 라인에 있을 경우
+				if (PlayerX == ScreenXSize - 1)													// 플레이어가 맵에서 가장 우측 라인에 있을 경우
 				{
 					break;
 				}
@@ -206,9 +210,9 @@ int main()
 				}
 			}
 
-			else if (PlayerDirection == 'D')			// 플레이어가 아래를 보고 있는 경우
+			else if (PlayerDirection == 'D' && Arr[PlayerY + 1][PlayerX] != 'X')			// 플레이어가 아래를 보고 있는 경우 or 폭탄을 놓을 위치에 장애물이 있는 경우
 			{
-				if (PlayerY == ScreenYSize - 1)			// 플레이어가 맵에서 가장 아래쪽 라인에 있을 경우
+				if (PlayerY == ScreenYSize - 1)												// 플레이어가 맵에서 가장 아래쪽 라인에 있을 경우
 				{
 					break;
 				}
@@ -218,9 +222,9 @@ int main()
 				}
 			}
 
-			else if (PlayerDirection == 'U')			// 플레이어가 위를 보고 있는 경우
+			else if (PlayerDirection == 'U' && Arr[PlayerY - 1][PlayerX] != 'X')			// 플레이어가 위를 보고 있는 경우 or 폭탄을 놓을 위치에 장애물이 있는 경우
 			{
-				if (PlayerY == 0)						// 플레이어가 맵에서 가장 위쪽 라인에 있을 경우
+				if (PlayerY == 0)															// 플레이어가 맵에서 가장 위쪽 라인에 있을 경우
 				{
 					break;
 				}
