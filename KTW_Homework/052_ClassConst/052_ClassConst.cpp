@@ -15,8 +15,12 @@ public:
 
     void PrintStatus() const
     {
-        // 함수 뒤에 const를 붙이는 것 : Player* const this -> const Player* const this
-        printf_s("능력치 출력");
+        // 멤버 함수 뒤에 const를 붙이는 것 : Player* const this -> const Player* const this
+        // 즉 객체 자신이 const화 되는 것
+        printf_s("능력치 출력-----------------------------------\n");
+        printf_s("체  력 : %d\n", Hp);
+        printf_s("공격력 : %d\n", Att);
+        printf_s("----------------------------------------------\n");
     }
 
     int GetHp() const
@@ -47,5 +51,7 @@ private:
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Player newPlayer = Player();
+
+    newPlayer.PrintStatus();
 }
