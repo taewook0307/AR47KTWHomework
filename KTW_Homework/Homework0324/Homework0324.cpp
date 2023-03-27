@@ -77,20 +77,15 @@ int main()
 		{
 		case 'a':
 		case 'A':
+		{
 			if (Arr[PlayerY][PlayerX - 1] == '@' || Arr[PlayerY][PlayerX - 1] == 'X')		// 플레이어가 폭탄 혹은 장애물쪽으로 가려고 할 경우
 			{
 				break;
 			}
 
-			else if (PlayerDirection != 'L')			// 플레이어가 좌측을 보고 있지 않을 경우
-			{
-				PlayerDirection = 'L';
-				break;
-			}
-
 			else
 			{
-				if (PlayerX == 0)						// 플레이어가 제일 좌측에 위치했을 경우
+				if (PlayerX == 0)															// 플레이어가 제일 좌측에 위치했을 경우
 				{
 					PlayerX = 0;
 				}
@@ -98,26 +93,28 @@ int main()
 				{
 					PlayerX -= 1;
 					Arr[PlayerY][PlayerX + 1] = Floor;
+					PlayerDirection = 'L';
 				}
 				break;
 			}
+		}
+
+		case 'j':																			// 플레이어가 왼쪽을 바라보도록 하는 키
+		case 'J':
+			PlayerDirection = 'L';
+			break;
 
 		case 'd':
 		case 'D':
+		{
 			if (Arr[PlayerY][PlayerX + 1] == '@' || Arr[PlayerY][PlayerX + 1] == 'X')		// 플레이어가 폭탄 혹은 장애물쪽으로 가려고 할 경우
 			{
 				break;
 			}
 
-			else if (PlayerDirection != 'R')			// 플레이어가 우측을 보고 있지 않을 경우
-			{
-				PlayerDirection = 'R';
-				break;
-			}
-
 			else
 			{
-				if (PlayerX == ScreenXSize - 1)			// 플레이어가 제일 우측에 위치했을 경우
+				if (PlayerX == ScreenXSize - 1)												// 플레이어가 제일 우측에 위치했을 경우
 				{
 					PlayerX = ScreenXSize - 1;
 				}
@@ -125,26 +122,27 @@ int main()
 				{
 					PlayerX += 1;
 					Arr[PlayerY][PlayerX - 1] = Floor;
+					PlayerDirection = 'R';
 				}
 				break;
 			}
+		}
+
+		case 'l':																			// 플레이어가 오른쪽을 바라보도록 하는 키
+		case 'L':
+			PlayerDirection = 'R';
+			break;
 
 		case 's':
 		case 'S':
+		{
 			if (Arr[PlayerY + 1][PlayerX] == '@' || Arr[PlayerY + 1][PlayerX] == 'X')		// 플레이어가 폭탄 혹은 장애물쪽으로 가려고 할 경우
 			{
 				break;
 			}
-
-			else if (PlayerDirection != 'D')			// 플레이어가 아래측을 보고 있지 않을 경우
-			{
-				PlayerDirection = 'D';
-				break;
-			}
-
 			else
 			{
-				if (PlayerY == ScreenYSize - 1)			// 플레이어가 제일 아래쪽에 위치했을 경우
+				if (PlayerY == ScreenYSize - 1)												// 플레이어가 제일 아래쪽에 위치했을 경우
 				{
 					PlayerY = ScreenYSize - 1;
 				}
@@ -152,27 +150,29 @@ int main()
 				{
 					PlayerY += 1;
 					Arr[PlayerY - 1][PlayerX] = Floor;
+					PlayerDirection = 'D';
 				}
 				break;
 			}
+		}
+
+		case 'k':																			// 플레이어가 아래쪽을 바라보도록 하는 키
+		case 'K':
+			PlayerDirection = 'D';
+			break;
 
 		case 'w':
 		case 'W':
+		{
 			if (Arr[PlayerY - 1][PlayerX] == '@' || Arr[PlayerY - 1][PlayerX] == 'X')		// 플레이어가 폭탄 혹은 장애물쪽으로 가려고 할 경우
 			{
-				break;
-			}
-
-			else if (PlayerDirection != 'U')			// 플레이어가 위쪽을 보고 있지 않을 경우
-			{
-				PlayerDirection = 'U';
 				break;
 			}
 
 			else
 			{
 
-				if (PlayerY == 0)						// 플레이어가 제일 위쪽에 위치했을 경우
+				if (PlayerY == 0)															// 플레이어가 제일 위쪽에 위치했을 경우
 				{
 					PlayerY = 0;
 				}
@@ -180,9 +180,16 @@ int main()
 				{
 					PlayerY -= 1;
 					Arr[PlayerY + 1][PlayerX] = Floor;
+					PlayerDirection = 'U';
 				}
 				break;
 			}
+		}
+			
+		case 'i':																			// 플레이어가 위쪽을 바라보도록 하는 키
+		case 'I':
+			PlayerDirection = 'U';
+			break;
 
 		case 'f':	// 폭탄 설치
 		case 'F':
