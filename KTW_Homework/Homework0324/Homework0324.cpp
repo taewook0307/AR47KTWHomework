@@ -17,13 +17,13 @@ int main()
 	const int ScreenYSize = 11;
 	const int ScreenXSize = 11;
 
-	char Floor = ' ';
+	char Floor = ' ';												// 바닥 표현 모양
 
 	char Arr[ScreenYSize][ScreenXSize] = { 0, };
 
-	for (size_t y = 0; y < ScreenYSize; y++)
+	for (int y = 0; y < ScreenYSize; y++)
 	{
-		for (size_t x = 0; x < ScreenXSize; x++)
+		for (int x = 0; x < ScreenXSize; x++)
 		{
 			Arr[y][x] = Floor;
 		}
@@ -32,7 +32,7 @@ int main()
 	int PlayerY = ScreenYSize / 2;
 	int PlayerX = ScreenXSize / 2;
 
-	char PlayerDirection = 'L';
+	char PlayerDirection = 'L';										// 처음 플레이어가 바라보는 방향 (U : Up, D : Down, L : Left, R : Right)
 
 #pragma region 장애물
 	srand(time(0));
@@ -184,7 +184,7 @@ int main()
 				break;
 			}
 
-		case 'f':										// 폭탄 설치
+		case 'f':	// 폭탄 설치
 		case 'F':
 			if (PlayerDirection == 'L' && Arr[PlayerY][PlayerX - 1] != 'X')					// 플레이어가 좌측을 보고 있는 경우 or 폭탄을 놓을 위치에 장애물이 있는 경우
 			{
