@@ -17,7 +17,7 @@ int main()
 	const int ScreenYSize = 11;
 	const int ScreenXSize = 11;
 
-	char Floor = ' ';												// 바닥 표현 모양
+	const char Floor = ' ';												// 바닥 표현 모양
 
 	char Arr[ScreenYSize][ScreenXSize] = { 0, };
 
