@@ -25,8 +25,8 @@ public:
 class ConsoleGameScreen
 {
 public:
-	static const int ScreenYSize = 10;
-	static const int ScreenXSize = 20;
+	static const int ScreenYSize = 3;
+	static const int ScreenXSize = 3;
 
 	static int2 GetScreenSize()
 	{
