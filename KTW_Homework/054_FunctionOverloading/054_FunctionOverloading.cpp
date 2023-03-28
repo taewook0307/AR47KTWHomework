@@ -22,5 +22,9 @@ void Function(short _Value)
 // 함수라고 불리는 모든 것에 적용 가능 ex) 생성자, 멤버 함수, ...
 int main()
 {
-    std::cout << "Hello World!\n";
+    Function();
+    Function((int)10);
+    Function((short)20);
+
+    int a = 0;
 }
