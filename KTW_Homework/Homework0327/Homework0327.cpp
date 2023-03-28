@@ -57,7 +57,7 @@ public:
 		}
 	}
 
-	bool IsScreenOver(const int2& _Pos)
+	bool IsScreenOver(const int2& _Pos) const
 	{
 		if (0 > _Pos.X)
 		{
@@ -111,10 +111,8 @@ public:
 		Pos = _Value;
 	}
 
-	void Input()
+	void Input(const ConsoleGameScreen& NewConsoleGameScreen)
 	{
-		ConsoleGameScreen NewConsoleGameScreen;
-
 		if (0 == _kbhit())
 		{
 			Sleep(InterFrame);
@@ -127,15 +125,15 @@ public:
 		{
 		case 'a':
 		case 'A':
-			if (NewConsoleGameScreen.IsScreenOver({ Pos.X - 1, Pos.Y }))
-			{
-				break;
-			}
-			else
+		{
+			int2 NextPos = Pos;
+			NextPos.X -= 1;
+			if (NewConsoleGameScreen.IsScreenOver(NextPos) == false)
 			{
 				Pos.X -= 1;
-				break;
 			}
+			break;
+		}
 		case 'd':
 		case 'D':
 			if (NewConsoleGameScreen.IsScreenOver({ Pos.X + 1, Pos.Y }))
@@ -205,6 +203,6 @@ int main()
 
 		NewScreen.ScreenPrint();
 
-		NewPlayer.Input();
+		NewPlayer.Input(NewScreen);
 	}
 }
