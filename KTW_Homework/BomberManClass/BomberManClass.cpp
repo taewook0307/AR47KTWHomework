@@ -1,4 +1,11 @@
 ﻿#include <iostream>
+#include <conio.h>
+
+class int2
+{
+public:
+    
+};
 
 class Screen
 {
@@ -18,5 +25,5 @@ private:
 
 int main()
 {
-    
+
 }
