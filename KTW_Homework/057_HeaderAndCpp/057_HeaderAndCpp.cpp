@@ -1,4 +1,6 @@
-﻿#include <iostream>
+﻿// c++ 차원에서 지원하는 클래스들이나 외부에서 사용하는 것 <>
+// 내가 만든 건 ""
+#include <iostream>
 #include "Player.h"
 #include "Monster.h"
 
