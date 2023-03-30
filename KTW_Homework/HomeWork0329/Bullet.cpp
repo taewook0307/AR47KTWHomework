@@ -23,17 +23,8 @@ void Bullet::BulletFire()
 
 			ConsoleGameScreen::GetMainScreen().ScreenPrint();
 
-			int Time = time(0);
-
-			if ((int)time(0) >= Time)
-			{
-				Pos.X += 1;
-				ConsoleGameScreen::GetMainScreen().SetScreenAnything({ Pos.X - 1, Pos.Y }, ConsoleGameScreen::Floor);
-			}
-			else
-			{
-				break;
-			}
+			Pos.X += 1;
+			ConsoleGameScreen::GetMainScreen().SetScreenAnything({ Pos.X - 1, Pos.Y }, ConsoleGameScreen::Floor);
 		}
 	}
 	else
