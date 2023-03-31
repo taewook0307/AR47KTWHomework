@@ -14,10 +14,7 @@ void Player::Input()
 {
 	if (0 == _kbhit())
 	{
-		// 0.5초간 멈춘다.
 		Sleep(InterFrame);
-		// 일부러 멈추게 만들겁니다.
-		// continue; 반복문 내부에서만 사용가능
 		return;
 	}
 
