@@ -65,7 +65,7 @@ void Player::Input()
 		break;
 	case 'f':
 	case 'F':
-		if (ShootCount < Bullet::ArrBulletCount)
+		if (ShootCount < Bullet::ArrBulletCount)		// 자신이 쏜 총알의 수가 전체 총알 수보다 작을경우
 		{
 			CheckShoot();
 			CountShoot();

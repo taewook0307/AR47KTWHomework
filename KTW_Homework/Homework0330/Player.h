@@ -48,6 +48,6 @@ private:
 
 	Bullet* BulletPtr;
 
-	int ShootCount = 0;
+	int ShootCount = 0;		// 플레이어 본인이 총을 쏜 횟수
 };
 
