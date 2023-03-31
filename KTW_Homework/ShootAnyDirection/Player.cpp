@@ -90,6 +90,6 @@ void Player::Render()
 
 void Player::CheckShoot()
 {
-	BulletPtr[GetShootCount()].SetPos(Pos);
-	BulletPtr[GetShootCount()].FireOn(GetPlayerDirection());
+	BulletPtr[ShootCount].SetPos(Pos);
+	BulletPtr[ShootCount].FireOn(GetPlayerDirection());
 }
