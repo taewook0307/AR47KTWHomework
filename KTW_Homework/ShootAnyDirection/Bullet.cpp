@@ -39,26 +39,36 @@ Bullet::Bullet()
 
 }
 
-void Bullet::Render()
+void Bullet::SetBulletShape(char _Value)
 {
 	if (true == Fire && GetBulletDirection() == 'L')
 	{
-		Screen::GetMainScreen().SetScreenCharacter(Pos, '<');
+		BulletShape = '<';
 	}
 
 	if (true == Fire && GetBulletDirection() == 'R')
 	{
-		Screen::GetMainScreen().SetScreenCharacter(Pos, '>');
+		BulletShape = '>';
 	}
 
 	if (true == Fire && GetBulletDirection() == 'U')
 	{
-		Screen::GetMainScreen().SetScreenCharacter(Pos, '^');
+		BulletShape = '^';
 	}
 
 	if (true == Fire && GetBulletDirection() == 'D')
 	{
-		Screen::GetMainScreen().SetScreenCharacter(Pos, 'v');
+		BulletShape = 'v';
+	}
+}
+
+void Bullet::Render()
+{
+	SetBulletShape(GetBulletDirection());
+
+	if (true == Fire)
+	{
+		Screen::GetMainScreen().SetScreenCharacter(Pos, GetBulletShape());
 	}
 }
 

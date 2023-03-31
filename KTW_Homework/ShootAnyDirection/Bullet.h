@@ -43,6 +43,13 @@ public:
 		BulletDirection = _Value;
 	}
 
+	inline char GetBulletShape() const
+	{
+		return BulletShape;
+	}
+
+	void SetBulletShape(char _Value);
+
 	void Render();
 
 	void Update();
@@ -58,5 +65,7 @@ private:
 	int2 Pos = int2(0, 0);
 
 	char BulletDirection = 'U';
+	
+	char BulletShape = 'U';
 };
 

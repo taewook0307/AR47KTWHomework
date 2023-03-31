@@ -58,7 +58,7 @@ private:
 
 	Bullet* BulletPtr;
 
-	int ShootCount = 0;		// 플레이어 본인이 총을 쏜 횟수
+	int ShootCount = 0;					// 플레이어 본인이 총을 쏜 횟수
 
-	char PlayerDirection = 'U';
+	char PlayerDirection = 'U';			// 플레이어 본인이 보고 있는 방향
 };
