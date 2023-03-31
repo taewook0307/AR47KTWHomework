@@ -24,5 +24,5 @@ class Weapon : public Item
 
 int main()
 {
-    
+     
 }
