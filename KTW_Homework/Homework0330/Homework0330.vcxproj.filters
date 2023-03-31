@@ -15,7 +15,7 @@
       <Filter>Level0</Filter>
     </ClCompile>
     <ClCompile Include="ShootingGame.cpp">
-      <Filter>Level3</Filter>
+      <Filter>Level2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -32,7 +32,7 @@
       <Filter>Level0</Filter>
     </ClInclude>
     <ClInclude Include="ShootingGame.h">
-      <Filter>Level3</Filter>
+      <Filter>Level2</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -44,9 +44,6 @@
     </Filter>
     <Filter Include="Level2">
       <UniqueIdentifier>{0e81ad91-e601-4514-8089-fc422019a9f7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level3">
-      <UniqueIdentifier>{92a6806f-0ba1-496d-abdf-2023b0a345fc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
