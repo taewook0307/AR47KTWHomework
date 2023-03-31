@@ -43,10 +43,9 @@ public:
 		BulletDirection = _Value;
 	}
 
-	void Update();
-
 	void Render();
 
+	void Update();
 protected:
 
 private:
