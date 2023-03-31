@@ -17,19 +17,9 @@ public:
 		return Pos;
 	}
 
-	inline void CountShoot()
-	{
-		++ShootCount;
-	}
-
 	inline int GetShootCount() const
 	{
 		return ShootCount;
-	}
-
-	inline void SetPlayerDirection(char _Value)
-	{
-		PlayerDirection = _Value;
 	}
 
 	inline char GetPlayerDirection() const
@@ -46,7 +36,6 @@ public:
 		BulletPtr = _BulletPtr;
 	}
 
-
 	void CheckShoot();
 
 protected:
@@ -61,4 +50,14 @@ private:
 	int ShootCount = 0;					// 플레이어 본인이 총을 쏜 횟수
 
 	char PlayerDirection = 'U';			// 플레이어 본인이 보고 있는 방향
+
+	inline void CountShoot()
+	{
+		++ShootCount;
+	}
+
+	inline void SetPlayerDirection(char _Value)
+	{
+		PlayerDirection = _Value;
+	}
 };

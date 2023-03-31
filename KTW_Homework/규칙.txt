@@ -3,4 +3,13 @@ if(true)
 
 namespace 사용 금지
 만약에 사용하게 되더라도 namespace 생략 금지
-	=> using namespace			
+	=> using namespace
+
+화면에서 안 나오게 하는 것 : On(), Off()
+메모리에서 아예 지우는 것 : IsDeath()
+활동을 안 한다면 : IsUpdate() == false
+
+bool IsUpdate()
+{
+	return UpdateValue;
+}

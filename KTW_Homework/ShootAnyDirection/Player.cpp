@@ -19,7 +19,7 @@ void Player::Input()
 	}
 
 	char Ch = _getch();
-
+	
 	int2 NextPos = { 0, 0 };
 
 	switch (Ch)
