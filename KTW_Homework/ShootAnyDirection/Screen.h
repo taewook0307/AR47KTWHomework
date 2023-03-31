@@ -6,6 +6,7 @@ class Screen
 public:
 	static const int ScreenYSize = 10;
 	static const int ScreenXSize = 20;
+	static const char Floor = 'a';
 
 	static Screen& GetMainScreen()
 	{
