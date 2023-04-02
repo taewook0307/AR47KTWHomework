@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{78b52478-2157-4d2d-b753-d3b6b5fee328}</ProjectGuid>
-    <RootNamespace>ShootAnyDirection</RootNamespace>
+    <ProjectGuid>{4f10ff52-030b-41ba-a067-84cdd721ee90}</ProjectGuid>
+    <RootNamespace>Individual</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,19 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Position.cpp" />
-    <ClCompile Include="Screen.cpp" />
-    <ClCompile Include="ShootAnyDirection.cpp" />
-    <ClCompile Include="ShootingGame.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Bullet.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Position.h" />
-    <ClInclude Include="Screen.h" />
-    <ClInclude Include="ShootingGame.h" />
+    <ClCompile Include="Individual.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
