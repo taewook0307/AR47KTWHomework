@@ -23,7 +23,7 @@ public:
 protected:
 
 private:
-	static Bullet ArrBullet[Bullet::ArrBulletCount];
+	static Bullet ArrBullet[ArrBulletCount];
 
 	Bullet();
 };
