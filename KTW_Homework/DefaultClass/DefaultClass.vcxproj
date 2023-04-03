@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{64747bc6-6212-437f-a28a-d87638c335ee}</ProjectGuid>
-    <RootNamespace>My47ClassDefault</RootNamespace>
+    <ProjectGuid>{8d625e56-fed9-441f-8555-cc1c7e98e465}</ProjectGuid>
+    <RootNamespace>DefaultClass</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,11 +127,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="47ClassDefault.cpp" />
-    <ClCompile Include="ADefaultClass.cpp" />
+    <ClCompile Include="DefaultClass.cpp" />
+    <ClCompile Include="Test.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ADefaultClass.h" />
+    <ClInclude Include="DefaultClass.h" />
+    <ClInclude Include="Test.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
