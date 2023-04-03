@@ -57,7 +57,7 @@ namespace BProgramer
 }
 */
 
-// using namespace AProgramer;     <= namespace를 생략할 수 있다면 생략해라.
+// using namespace AProgramer;     <= 'namespace를 생략할 수 있다면 생략해라' 라는 의미
 
 int main()
 {

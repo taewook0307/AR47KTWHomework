@@ -2,12 +2,12 @@
 
 void ValueChange(int num)
 {
-    num = 20;
+    num = 10;
 }
 
 void ValueChangePtr(int* Ptr)
 {
-    *Ptr = 0;
+    *Ptr = 30;
 }
 
 int main()
@@ -32,5 +32,6 @@ int main()
         // ValueChangePtr의 인자가 받는 값이 Value의 주소값
         // ValueChangePtr에서 *Ptr을 통해 포인터변수 내 값을 변경시키면
         // main에서의 Value값을 변경하는 것
+        int a = 0;
     }
 }
