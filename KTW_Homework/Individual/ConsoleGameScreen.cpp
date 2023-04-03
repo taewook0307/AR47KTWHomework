@@ -1,6 +1,5 @@
 #include <iostream>
 
-#include "Position.h"
 #include "ConsoleGameScreen.h"
 
 ConsoleGameScreen ConsoleGameScreen::MainScreen;
@@ -10,17 +9,12 @@ ConsoleGameScreen::ConsoleGameScreen()
 
 }
 
-Position ConsoleGameScreen::GetScreenSize()
+ConsoleGameScreen& ConsoleGameScreen::GetMainScreen()
 {
-	return { ScreenXSize, ScreenYSize };
+	return MainScreen;
 }
 
-void ConsoleGameScreen::ScreenRenderSomething(const Position& _Pos, char _Ch)
-{
-	ArrScreen[_Pos.Y][_Pos.X] = _Ch;
-}
-
-void ConsoleGameScreen::ScreenClear()
+void ConsoleGameScreen::Clear()
 {
 	for (size_t i = 0; i < ScreenYSize; i++)
 	{
@@ -31,7 +25,7 @@ void ConsoleGameScreen::ScreenClear()
 	}
 }
 
-void ConsoleGameScreen::ScreenRender() const
+void ConsoleGameScreen::Render()
 {
 	for (size_t i = 0; i < ScreenYSize; i++)
 	{
@@ -43,27 +37,28 @@ void ConsoleGameScreen::ScreenRender() const
 	}
 }
 
-bool ConsoleGameScreen::IsScreenOver(Position& _Pos)
+void ConsoleGameScreen::ScreenRenderSomething(int2 _Pos, char _Ch)
 {
-	if(_Pos.X < 0)
+	ArrScreen[_Pos.Y][_Pos.X] = _Ch;
+}
+
+bool ConsoleGameScreen::IsScreenOver(int2 _Pos)
+{
+	if (_Pos.X < 0)
 	{
 		return true;
 	}
-
 	if (_Pos.Y < 0)
 	{
 		return true;
 	}
-
 	if (_Pos.X >= ScreenXSize)
 	{
 		return true;
 	}
-
 	if (_Pos.Y >= ScreenYSize)
 	{
 		return true;
 	}
-
 	return false;
 }

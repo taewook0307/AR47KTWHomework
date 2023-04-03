@@ -2,11 +2,11 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Individual.cpp" />
+    <ClCompile Include="ConsoleGameMath.cpp">
+      <Filter>Level0</Filter>
+    </ClCompile>
     <ClCompile Include="ConsoleGameScreen.cpp">
       <Filter>Level1</Filter>
-    </ClCompile>
-    <ClCompile Include="Position.cpp">
-      <Filter>Level0</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Level2</Filter>
@@ -14,27 +14,13 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>Level2</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Level1</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Level0">
-      <UniqueIdentifier>{6641cb7a-cccc-47aa-9f22-0f8be59ad590}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level1">
-      <UniqueIdentifier>{cf8a51bb-798d-488e-adb9-ff12a5948aa0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level2">
-      <UniqueIdentifier>{0b48d121-6b87-479c-b20d-8633e692c657}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="ConsoleGameMath.h">
+      <Filter>Level0</Filter>
+    </ClInclude>
     <ClInclude Include="ConsoleGameScreen.h">
       <Filter>Level1</Filter>
-    </ClInclude>
-    <ClInclude Include="Position.h">
-      <Filter>Level0</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Level2</Filter>
@@ -42,8 +28,16 @@
     <ClInclude Include="Bullet.h">
       <Filter>Level2</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Level1</Filter>
-    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Level0">
+      <UniqueIdentifier>{e7a7fece-973d-40c4-8738-a13a87b9401a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level1">
+      <UniqueIdentifier>{828610ea-9b04-49d0-8590-07a1e180f126}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level2">
+      <UniqueIdentifier>{8c0627a9-8988-4587-8254-6fe5c44dc31c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

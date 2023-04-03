@@ -2,35 +2,28 @@
 
 #include "ConsoleGameScreen.h"
 #include "Player.h"
-#include "Bullet.h"
 
 int main()
 {
-	// 맵 전체 세팅
-	ConsoleGameScreen::GetMainScreen().ScreenClear();
-	// 맵 전체 출력
-	ConsoleGameScreen::GetMainScreen().ScreenRender();
+    ConsoleGameScreen::GetMainScreen().Clear();
+    ConsoleGameScreen::GetMainScreen().Render();
 
-	// Player 생성
-	Player NewPlayer;
-	// 생성된 플레이어를 맵 중앙부분에 위치
-	NewPlayer.SetPos(ConsoleGameScreen::GetMainScreen().GetScreenSize().Half());
+    Player NewPlayer;
+    NewPlayer.SetPos(ConsoleGameScreen::GetMainScreen().GetScreenSize().Half());
 
-	while (true)
-	{
-		// 콘솔창 클리어
-		system("cls");
+    while (true)
+    {
+        ConsoleGameScreen::GetMainScreen().Clear();
 
-		// 맵 전체 세팅
-		ConsoleGameScreen::GetMainScreen().ScreenClear();
+        ConsoleGameScreen::GetMainScreen().ScreenRenderSomething(NewPlayer.GetPos(), NewPlayer.GetCh());
 
-		// Player 위치 다시 세팅
-		ConsoleGameScreen::GetMainScreen().ScreenRenderSomething(NewPlayer.GetPos(), NewPlayer.GetRenderChar());
+        system("cls");
 
-		// 맵 전체 출력
-		ConsoleGameScreen::GetMainScreen().ScreenRender();
+        ConsoleGameScreen::GetMainScreen().Render();
 
-		// 플레이어 작동에 관한 키 입력
-		NewPlayer.Input();
-	}
+        NewPlayer.Input();
+    }
+
+    int a = 0;
 }
+

@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{0466fa06-190c-44d1-a947-ae092b11d645}</ProjectGuid>
-    <RootNamespace>Individual</RootNamespace>
+    <ProjectGuid>{73aaa840-3dd7-43aa-b1b4-31f5f2fa4bf0}</ProjectGuid>
+    <RootNamespace>My062VirtualSize</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,17 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="ConsoleGameMath.cpp" />
-    <ClCompile Include="ConsoleGameScreen.cpp" />
-    <ClCompile Include="Individual.cpp" />
-    <ClCompile Include="Player.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Bullet.h" />
-    <ClInclude Include="ConsoleGameMath.h" />
-    <ClInclude Include="ConsoleGameScreen.h" />
-    <ClInclude Include="Player.h" />
+    <ClCompile Include="062_VirtualSize.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

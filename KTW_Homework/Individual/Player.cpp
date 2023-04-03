@@ -2,51 +2,49 @@
 
 #include "ConsoleGameScreen.h"
 #include "Player.h"
-#include "Bullet.h"
 
 void Player::Input()
 {
 	char Ch = _getch();
 
-	Position MovePos = Position();
+	int2 Pos2;
+
+	Pos2 = Pos;
 
 	switch (Ch)
 	{
 	case 'a':
 	case 'A':
-		MovePos = { Pos.X - 1, Pos.Y };
-		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver(MovePos))
+		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver({ Pos2.X - 1, Pos2.Y }))
 		{
 			Pos.X -= 1;
 		}
 		break;
+
 	case 'd':
 	case 'D':
-		MovePos = { Pos.X + 1, Pos.Y };
-		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver(MovePos))
+		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver({ Pos2.X + 1, Pos2.Y }))
 		{
 			Pos.X += 1;
 		}
 		break;
+
 	case 'w':
 	case 'W':
-		MovePos = { Pos.X, Pos.Y - 1 };
-		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver(MovePos))
+		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver({ Pos2.X, Pos2.Y - 1 }))
 		{
 			Pos.Y -= 1;
 		}
 		break;
+
 	case 's':
 	case 'S':
-		MovePos = { Pos.X, Pos.Y + 1 };
-		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver(MovePos))
+		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver({ Pos2.X, Pos2.Y + 1 }))
 		{
 			Pos.Y += 1;
 		}
 		break;
-	case 'f':
-	case 'F':
-		break;
+
 	default:
 		break;
 	}

@@ -1,34 +1,37 @@
 #pragma once
-class Position;
+
+#include "ConsoleGameMath.h"
 
 class ConsoleGameScreen
 {
 public:
-	static const int ScreenXSize = 21;
-	static const int ScreenYSize = 11;
-	const char Floor = 'a';
+    static const int ScreenXSize = 3;
+    static const int ScreenYSize = 3;
+    static const char Floor = 'a';
 
-	static ConsoleGameScreen& GetMainScreen()
-	{
-		return MainScreen;
-	}
+    static ConsoleGameScreen& GetMainScreen();
 
-	static Position GetScreenSize();
+    int2 GetScreenSize()
+    {
+        return { ScreenXSize, ScreenYSize };
+    }
 
-	void ScreenRenderSomething(const Position& _Pos, char _Ch);
+    void Clear();
 
-	void ScreenClear();
+    void Render();
 
-	void ScreenRender() const;
+    void ScreenRenderSomething(int2 _Pos, char _Ch);
 
-	bool IsScreenOver(Position& _Pos);
+    bool IsScreenOver(int2 _Pos);
+
 protected:
 
 private:
-	static ConsoleGameScreen MainScreen;
+    char ArrScreen[ScreenYSize][ScreenXSize] = {};
 
-	ConsoleGameScreen();
+    static ConsoleGameScreen MainScreen;
 
-	char ArrScreen[ScreenYSize][ScreenXSize] = {};
+    ConsoleGameScreen();
 };
+
 

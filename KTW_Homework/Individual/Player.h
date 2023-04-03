@@ -1,26 +1,31 @@
 #pragma once
 
-#include "GameObject.h"
+#include "ConsoleGameMath.h"
 
-class Player : public GameObject
+class Player
 {
 public:
-	// 생성자
-	Player()
+	int2 GetPos() const
 	{
-		RenderChar = '*';
+		return Pos;
 	}
 
-	// 플레이어 모양을 가져오기 위한 함수
-	char GetRenderChar() const
+	void SetPos(int2 _Pos)
 	{
-		return RenderChar;
+		Pos.X = _Pos.X;
+		Pos.Y = _Pos.Y;
 	}
 
-	// 플레이어 작동에 관한 함수
+	char GetCh() const
+	{
+		return PlayerCh;
+	}
+
 	void Input();
 protected:
 
 private:
+	int2 Pos;
+	char PlayerCh = '*';
 };
 
