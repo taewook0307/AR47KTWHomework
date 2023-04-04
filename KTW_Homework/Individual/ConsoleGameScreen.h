@@ -5,8 +5,8 @@
 class ConsoleGameScreen
 {
 public:
-    static const int ScreenXSize = 3;
-    static const int ScreenYSize = 3;
+    static const int ScreenXSize = 5;
+    static const int ScreenYSize = 5;
     static const char Floor = 'a';
 
     int2 GetScreenSize()
@@ -18,7 +18,7 @@ public:
 
     void Clear();
 
-    void Render();
+    void Render() const;
 
     void ScreenRenderSomething(int2 _Pos, char _Ch);
 

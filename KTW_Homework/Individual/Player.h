@@ -29,7 +29,7 @@ public:
 protected:
 
 private:
-	void ShootCount()
+	inline void ShootCount()
 	{
 		++FireCount;
 	}

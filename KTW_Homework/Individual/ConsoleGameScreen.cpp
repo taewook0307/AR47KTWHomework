@@ -25,7 +25,7 @@ void ConsoleGameScreen::Clear()
 	}
 }
 
-void ConsoleGameScreen::Render()
+void ConsoleGameScreen::Render() const
 {
 	for (size_t i = 0; i < ScreenYSize; i++)
 	{

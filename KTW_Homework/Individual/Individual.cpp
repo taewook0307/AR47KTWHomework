@@ -6,11 +6,13 @@
 
 int main()
 {
-    Player NewPlayer;
+    Player NewPlayer = Player();
+
+    NewPlayer.SetBulletPtr(Bullet::GetArrBullet());
+
     NewPlayer.SetPos(ConsoleGameScreen::GetMainScreen().GetScreenSize().Half());
 
     Bullet::BulletAllOff();
-    NewPlayer.SetBulletPtr(Bullet::GetArrBullet());
 
     while (true)
     {

@@ -24,10 +24,8 @@ void Bullet::BulletAllRender()
 		{
 			continue;
 		}
-		else if (ArrBullet[i].IsUpadate() == true)
-		{
-			ConsoleGameScreen::GetMainScreen().ScreenRenderSomething(ArrBullet[i].Pos, ArrBullet[i].Ch);
-		}
+		
+		ConsoleGameScreen::GetMainScreen().ScreenRenderSomething(ArrBullet[i].Pos, ArrBullet[i].Ch);
 	}
 }
 

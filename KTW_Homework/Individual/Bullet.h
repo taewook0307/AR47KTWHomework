@@ -20,7 +20,10 @@ public:
 
 	void UpdatePos()
 	{
-		--Pos.Y;
+		if (true == IsUpadate())
+		{
+			--Pos.Y;
+		}
 	}
 
 protected:

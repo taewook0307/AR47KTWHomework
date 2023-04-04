@@ -1,4 +1,5 @@
 #include <conio.h>
+#include <Windows.h>
 
 #include "ConsoleGameScreen.h"
 #include "Player.h"
@@ -6,16 +7,18 @@
 
 void Player::Input()
 {
-	if (_kbhit())
+	if (0 == _kbhit())
 	{
+		Sleep(500);
+
 		return;
 	}
 
 	char Ch = _getch();
 
-	int2 Pos2;
+	int2 Pos2 = { 0, 0 };
 
-	Pos2 = Pos;
+	Pos2.SetPos(Pos.X, Pos.Y);
 
 	switch (Ch)
 	{
@@ -53,8 +56,11 @@ void Player::Input()
 
 	case 'f':
 	case 'F':
-		ShootCheck();
-		ShootCount();
+		if (FireCount < Bullet::BulletCount)
+		{
+			ShootCheck();
+			ShootCount();
+		}
 		break;
 
 	default:
@@ -64,9 +70,6 @@ void Player::Input()
 
 void Player::ShootCheck()
 {
-	if (FireCount < Bullet::BulletCount)
-	{
-		BulletPtr[FireCount].SetPos(Pos);
-		BulletPtr[FireCount].On();
-	}
+	BulletPtr[FireCount].SetPos(Pos);
+	BulletPtr[FireCount].On();
 }
