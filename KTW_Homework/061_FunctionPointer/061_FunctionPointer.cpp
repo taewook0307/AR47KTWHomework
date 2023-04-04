@@ -20,6 +20,7 @@ int main()
 
     Ptr = PlayerMove;
 
+
     Ptr();
 
 	int Value = sizeof(Ptr);		// 함수 포인터도 포인터이기 때문에 크기는 8바이트

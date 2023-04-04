@@ -1,31 +1,40 @@
 #pragma once
 
 #include "ConsoleGameMath.h"
+#include "GameObject.h"
 
-class Player
+class Bullet;
+class Player : public GameObject
 {
 public:
-	int2 GetPos() const
+	Player()
 	{
-		return Pos;
+		Ch = '*';
 	}
 
-	void SetPos(int2 _Pos)
+	void SetBulletPtr(Bullet* _BulletPtr)
 	{
-		Pos.X = _Pos.X;
-		Pos.Y = _Pos.Y;
+		BulletPtr = _BulletPtr;
 	}
 
-	char GetCh() const
+	Bullet* GetBulletPtr() const
 	{
-		return PlayerCh;
+		return BulletPtr;
 	}
 
 	void Input();
+
+	void ShootCheck();
+
 protected:
 
 private:
-	int2 Pos;
-	char PlayerCh = '*';
+	void ShootCount()
+	{
+		++FireCount;
+	}
+
+	Bullet* BulletPtr;
+	int FireCount = 0;
 };
 

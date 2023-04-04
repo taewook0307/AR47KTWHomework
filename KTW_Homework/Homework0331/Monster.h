@@ -14,17 +14,13 @@ public:
 
 	void SetDir()
 	{
-		if (Dir == 1)
+		if (Dir != 1 && Dir != -1)
 		{
-			Dir = -1;
-		}
-		else if (Dir == -1)
-		{
-			Dir = 1;
+			return;
 		}
 		else
 		{
-			return;
+			Dir *= -1;
 		}
 	}
 

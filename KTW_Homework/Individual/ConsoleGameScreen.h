@@ -9,12 +9,12 @@ public:
     static const int ScreenYSize = 3;
     static const char Floor = 'a';
 
-    static ConsoleGameScreen& GetMainScreen();
-
     int2 GetScreenSize()
     {
         return { ScreenXSize, ScreenYSize };
     }
+
+    static ConsoleGameScreen& GetMainScreen();
 
     void Clear();
 

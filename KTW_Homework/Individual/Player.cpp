@@ -2,9 +2,15 @@
 
 #include "ConsoleGameScreen.h"
 #include "Player.h"
+#include "Bullet.h"
 
 void Player::Input()
 {
+	if (_kbhit())
+	{
+		return;
+	}
+
 	char Ch = _getch();
 
 	int2 Pos2;
@@ -45,7 +51,22 @@ void Player::Input()
 		}
 		break;
 
+	case 'f':
+	case 'F':
+		ShootCheck();
+		ShootCount();
+		break;
+
 	default:
 		break;
+	}
+}
+
+void Player::ShootCheck()
+{
+	if (FireCount < Bullet::BulletCount)
+	{
+		BulletPtr[FireCount].SetPos(Pos);
+		BulletPtr[FireCount].On();
 	}
 }
