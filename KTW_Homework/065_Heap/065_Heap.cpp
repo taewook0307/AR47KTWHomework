@@ -1,7 +1,11 @@
 ﻿#include <iostream>
+#include <crtdbg.h>
 
 int main()
 {
+    // 윈도우 전용 삭제하지 않은 힙 메모리 출력에 표시
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
     // 가장 자유롭게 메모리를 할당할 수 있는 영역 : 힙 영역
 
     // 연산자  자료형  생성자
