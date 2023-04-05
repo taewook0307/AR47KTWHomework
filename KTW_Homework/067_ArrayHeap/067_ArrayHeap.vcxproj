@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{df4c4e2e-2868-4e3b-92da-7822748f0fa1}</ProjectGuid>
-    <RootNamespace>Individual</RootNamespace>
+    <ProjectGuid>{6c25d916-c5c0-4076-a289-5aa9f08917d2}</ProjectGuid>
+    <RootNamespace>My067ArrayHeap</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,19 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="GameScreen.cpp" />
-    <ClCompile Include="Individual.cpp" />
-    <ClCompile Include="Location.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="ShootingGame.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Bullet.h" />
-    <ClInclude Include="GameScreen.h" />
-    <ClInclude Include="Location.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="ShootingGame.h" />
+    <ClCompile Include="067_ArrayHeap.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,75 +1,70 @@
 #include <conio.h>
+#include <iostream>
+
 #include <Windows.h>
 
-#include "ConsoleGameScreen.h"
+#include "GameScreen.h"
 #include "Player.h"
 #include "Bullet.h"
 
-void Player::Input()
+void Player::Render()
+{
+	GameScreen::GetMainScreen().ScreenRenderAnything(Pos, Ch);
+}
+
+void Player::Act(Bullet* _Bullet)
 {
 	if (0 == _kbhit())
 	{
-		Sleep(500);
+		Sleep(200);
 
 		return;
 	}
 
-	char Ch = _getch();
+	char InputKey = _getch();
 
-	int2 Pos2 = { 0, 0 };
+	Location NextPos;
 
-	Pos2.SetPos(Pos.X, Pos.Y);
-
-	switch (Ch)
+	switch (InputKey)
 	{
 	case 'a':
 	case 'A':
-		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver({ Pos2.X - 1, Pos2.Y }))
+		NextPos = { Pos.X - 1, Pos.Y };
+		if (false == GameScreen::GetMainScreen().ScreenOver(NextPos))
 		{
 			Pos.X -= 1;
 		}
 		break;
-
 	case 'd':
 	case 'D':
-		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver({ Pos2.X + 1, Pos2.Y }))
+		NextPos = { Pos.X + 1, Pos.Y };
+		if (false == GameScreen::GetMainScreen().ScreenOver(NextPos))
 		{
 			Pos.X += 1;
 		}
 		break;
-
 	case 'w':
 	case 'W':
-		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver({ Pos2.X, Pos2.Y - 1 }))
+		NextPos = { Pos.X, Pos.Y - 1 };
+		if (false == GameScreen::GetMainScreen().ScreenOver(NextPos))
 		{
 			Pos.Y -= 1;
 		}
 		break;
-
 	case 's':
 	case 'S':
-		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver({ Pos2.X, Pos2.Y + 1 }))
+		NextPos = { Pos.X, Pos.Y + 1 };
+		if (false == GameScreen::GetMainScreen().ScreenOver(NextPos))
 		{
 			Pos.Y += 1;
 		}
 		break;
-
 	case 'f':
 	case 'F':
-		if (FireCount < Bullet::BulletCount)
-		{
-			ShootCheck();
-			ShootCount();
-		}
+		_Bullet[0].On();
+		_Bullet[0].SetPos(Pos);
 		break;
-
 	default:
 		break;
 	}
-}
-
-void Player::ShootCheck()
-{
-	BulletPtr[FireCount].SetPos(Pos);
-	BulletPtr[FireCount].On();
 }

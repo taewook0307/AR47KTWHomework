@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{df4c4e2e-2868-4e3b-92da-7822748f0fa1}</ProjectGuid>
-    <RootNamespace>Individual</RootNamespace>
+    <ProjectGuid>{ed395512-3ff2-469b-9b80-b485738660e9}</ProjectGuid>
+    <RootNamespace>My066DeleteHeap</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,19 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="GameScreen.cpp" />
-    <ClCompile Include="Individual.cpp" />
-    <ClCompile Include="Location.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="ShootingGame.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Bullet.h" />
-    <ClInclude Include="GameScreen.h" />
-    <ClInclude Include="Location.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="ShootingGame.h" />
+    <ClCompile Include="066_DeleteHeap.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

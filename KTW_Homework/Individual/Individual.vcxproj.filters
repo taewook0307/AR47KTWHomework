@@ -2,48 +2,48 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Individual.cpp" />
-    <ClCompile Include="ConsoleGameMath.cpp">
-      <Filter>Level0</Filter>
-    </ClCompile>
-    <ClCompile Include="ConsoleGameScreen.cpp">
+    <ClCompile Include="GameScreen.cpp">
       <Filter>Level1</Filter>
     </ClCompile>
+    <ClCompile Include="Location.cpp">
+      <Filter>Level0</Filter>
+    </ClCompile>
     <ClCompile Include="Player.cpp">
+      <Filter>Level2</Filter>
+    </ClCompile>
+    <ClCompile Include="ShootingGame.cpp">
       <Filter>Level2</Filter>
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>Level2</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Level1</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ConsoleGameMath.h">
-      <Filter>Level0</Filter>
-    </ClInclude>
-    <ClInclude Include="ConsoleGameScreen.h">
+    <ClInclude Include="GameScreen.h">
       <Filter>Level1</Filter>
     </ClInclude>
+    <ClInclude Include="Location.h">
+      <Filter>Level0</Filter>
+    </ClInclude>
     <ClInclude Include="Player.h">
+      <Filter>Level2</Filter>
+    </ClInclude>
+    <ClInclude Include="ShootingGame.h">
       <Filter>Level2</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>Level2</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Level1</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level0">
-      <UniqueIdentifier>{e7a7fece-973d-40c4-8738-a13a87b9401a}</UniqueIdentifier>
+      <UniqueIdentifier>{a2311369-e45f-44b7-bc68-210fc237623e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Level1">
-      <UniqueIdentifier>{828610ea-9b04-49d0-8590-07a1e180f126}</UniqueIdentifier>
+      <UniqueIdentifier>{f45519a0-8e5e-4930-9e35-d3718612b596}</UniqueIdentifier>
     </Filter>
     <Filter Include="Level2">
-      <UniqueIdentifier>{8c0627a9-8988-4587-8254-6fe5c44dc31c}</UniqueIdentifier>
+      <UniqueIdentifier>{34f144dc-3c13-4c13-aa37-0d875965dcf2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

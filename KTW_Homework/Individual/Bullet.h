@@ -1,36 +1,46 @@
 #pragma once
 
-#include "GameObject.h"
+#include "Location.h"
 
-class Bullet : public GameObject
+class Bullet
 {
 public:
-	static const int BulletCount = 10;
-
-	static Bullet* GetArrBullet()
+	inline void SetPos(Location _Pos)
 	{
-		return ArrBullet;
+		Pos.X = _Pos.X;
+		Pos.Y = _Pos.Y;
 	}
 
-	static void BulletAllUpdate();
-
-	static void BulletAllOff();
-
-	static void BulletAllRender();
-
-	void UpdatePos()
+	inline Location GetPos() const
 	{
-		if (true == IsUpadate())
-		{
-			--Pos.Y;
-		}
+		return Pos;
 	}
 
-protected:
+	inline void On()
+	{
+		UpdateValue = true;
+	}
+
+	inline void Off()
+	{
+		UpdateValue = false;
+	}
+
+	inline bool GetUpdate() const
+	{
+		return UpdateValue;
+	}
+
+	inline void PosUpdate()
+	{
+		--Pos.Y;
+	}
+
+	void Render();
 
 private:
-	static Bullet ArrBullet[BulletCount];
-
-	Bullet();
+	Location Pos;
+	const char Ch = '^';
+	bool UpdateValue = false;
 };
 
