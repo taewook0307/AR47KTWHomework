@@ -14,7 +14,6 @@ int main()
     
     // 동적 바인딩
     // 힙을 사용하는 행위
-    // 
     {
         // new를 이용해서 배열을 힙에 할당
         int* ArrPtr = new int[100];
@@ -24,6 +23,7 @@ int main()
         // delete[] ArrPtr;     배열을 지우는 정석 방법
         // delete ArrPtr; => leak이 남지 않음 : 남을 수도 있으니 배열은 무조건 delete[] 로 지우기
 
+        // 안전한 삭제 방법
         if (ArrPtr != nullptr)
         {
             delete[] ArrPtr;

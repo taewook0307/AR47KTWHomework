@@ -10,7 +10,7 @@ int main()
         // Newint = new int();          새로운 int로 받을 시 원래 받았던 heap 데이터는 잃어버리게 됨
         delete Newint;
     
-        int* Newint = new int();
+        Newint = new int();
         delete Newint;
         Newint = new int();
         delete Newint;
@@ -19,14 +19,14 @@ int main()
     {
         // 힙이 한계에 도달하면 nullptr을 반환
         // 거의 없긴 함 => 확인하는 습관
-        int* Newint = new int();
+        /*int* Newint = new int();
 
         if (nullptr == Newint)
         {
             return;
         }
 
-        delete Newint;
+        delete Newint;*/
     }
 
     // 지운 거 또 지우기
@@ -38,7 +38,7 @@ int main()
         // 메모리 크러쉬 발생
         // delete Newint;
 
-        int* Newint = new int();
+        Newint = new int();
 
         // 안전한 삭제
         if (nullptr != Newint)
@@ -51,10 +51,10 @@ int main()
     {
         int* NewPtr = new int();
 
-        if (NewPtr == nullptr)
+        /*if (NewPtr == nullptr)
         {
             return;
-        }
+        }*/
 
         *NewPtr = 20;
 
