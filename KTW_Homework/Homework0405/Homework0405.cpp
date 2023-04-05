@@ -49,8 +49,9 @@ int main()
 		// Array1 = Array0;
 		// 오류 나는 이유
 		// 49번째 줄로 인해
-		// Array1의 ArrPtr이 가리키는 힙 메모리 영역이 Array0가 가리키는 힙 메모리 영역과 같아진다.
-		// 이후 코드가 끝난 후 delete를 실행할 때 같은 힙 메모리 영역을 두 번 delete 하므로
+		// Array1의 ArrPtr이랑 Array0의 ArrPtr이 같아진다.
+		// 이후 코드가 끝난 후 delete를 실행할 때
+		// 같은 힙 메모리 영역을 두 번 delete 하므로
 		// 메모리 크러쉬가 발생한다.
 	}
 
