@@ -33,7 +33,11 @@ public:
 
 	inline void PosUpdate()
 	{
-		--Pos.Y;
+		if (false == GameScreen::GetMainScreen().ScreenOver(Pos))
+		{
+			--Pos.Y;
+		}
+		return;
 	}
 
 	void Render();

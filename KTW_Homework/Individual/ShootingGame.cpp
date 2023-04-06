@@ -27,10 +27,23 @@ void ShootingGame::GameStart()
 		GameScreen::GetMainScreen().ScreenSetting();
 
 		NewPlayer.Render();
-		ArrBullet[0].Render();
-		ArrBullet[0].PosUpdate();
+		for (size_t i = 0; i < BulletCount; i++)
+		{
+			if (true == ArrBullet[i].GetUpdate())
+			{
+				ArrBullet[i].Render();
+			}
+		}
 		GameScreen::GetMainScreen().ScreenPrint();
 
 		NewPlayer.Act(ArrBullet);
+		ArrBullet[NewPlayer.GetShootCount() - 1].PosUpdate();
+		for (size_t i = 0; i < BulletCount; i++)
+		{
+			if (true == ArrBullet[i].GetUpdate())
+			{
+				ArrBullet[i].PosUpdate();
+			}
+		}
 	}
 }

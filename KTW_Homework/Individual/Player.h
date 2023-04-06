@@ -17,6 +17,11 @@ public:
 		return Pos;
 	}
 
+	inline int GetShootCount() const
+	{
+		return ShootCount;
+	}
+
 	void Render();
 
 	void Act(Bullet* _Bullet);
@@ -25,5 +30,11 @@ protected:
 private:
 	Location Pos;
 	const char Ch = '*';
+	int ShootCount = 0;
+
+	inline void PlayerShoot()
+	{
+		++ShootCount;
+	}
 };
 

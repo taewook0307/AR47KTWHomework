@@ -6,6 +6,7 @@
 #include "GameScreen.h"
 #include "Player.h"
 #include "Bullet.h"
+#include "ShootingGame.h"
 
 void Player::Render()
 {
@@ -61,8 +62,21 @@ void Player::Act(Bullet* _Bullet)
 		break;
 	case 'f':
 	case 'F':
-		_Bullet[0].On();
-		_Bullet[0].SetPos(Pos);
+		if (ShootCount < ShootingGame::BulletCount)
+		{
+			_Bullet[ShootCount].On();
+			_Bullet[ShootCount].SetPos(Pos);
+			PlayerShoot();
+		}
+		else
+		{
+			printf_s("총알이 없습니다. R키를 눌러주세요.\n");
+		}
+		break;
+
+	case 'r':
+	case 'R':
+		ShootCount = 0;
 		break;
 	default:
 		break;
