@@ -1,12 +1,11 @@
 #include "GameScreen.h"
 #include "Bullet.h"
-#include "ShootingGame.h"
 
-void Bullet::Render()
+void Bullet::PosUpdate()
 {
-	if (true == UpdateValue)
+	if (false == GameScreen::GetMainScreen().ScreenOver(Pos))
 	{
-		GameScreen::GetMainScreen().ScreenRenderAnything(Pos, Ch);
+		--Pos.Y;
 	}
 	return;
 }

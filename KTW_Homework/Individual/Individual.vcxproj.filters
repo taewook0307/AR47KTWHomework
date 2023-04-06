@@ -5,9 +5,6 @@
     <ClCompile Include="GameScreen.cpp">
       <Filter>Level1</Filter>
     </ClCompile>
-    <ClCompile Include="Location.cpp">
-      <Filter>Level0</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Level2</Filter>
     </ClCompile>
@@ -17,13 +14,16 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>Level2</Filter>
     </ClCompile>
+    <ClCompile Include="Position.cpp">
+      <Filter>Level0</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Level1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameScreen.h">
       <Filter>Level1</Filter>
-    </ClInclude>
-    <ClInclude Include="Location.h">
-      <Filter>Level0</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Level2</Filter>
@@ -33,6 +33,12 @@
     </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>Level2</Filter>
+    </ClInclude>
+    <ClInclude Include="Position.h">
+      <Filter>Level0</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Level1</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

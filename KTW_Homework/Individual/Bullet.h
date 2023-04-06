@@ -1,50 +1,16 @@
 #pragma once
 
-#include "Location.h"
+#include "GameObject.h"
 
-class Bullet
+class Bullet : public GameObject
 {
 public:
-	inline void SetPos(Location _Pos)
+	Bullet()
 	{
-		Pos.X = _Pos.X;
-		Pos.Y = _Pos.Y;
+		Ch = '^';
 	}
-
-	inline Location GetPos() const
-	{
-		return Pos;
-	}
-
-	inline void On()
-	{
-		UpdateValue = true;
-	}
-
-	inline void Off()
-	{
-		UpdateValue = false;
-	}
-
-	inline bool GetUpdate() const
-	{
-		return UpdateValue;
-	}
-
-	inline void PosUpdate()
-	{
-		if (false == GameScreen::GetMainScreen().ScreenOver(Pos))
-		{
-			--Pos.Y;
-		}
-		return;
-	}
-
-	void Render();
+	void PosUpdate();
 
 private:
-	Location Pos;
-	const char Ch = '^';
-	bool UpdateValue = false;
 };
 

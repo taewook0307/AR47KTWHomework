@@ -128,17 +128,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameScreen.cpp" />
     <ClCompile Include="Individual.cpp" />
-    <ClCompile Include="Location.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Position.cpp" />
     <ClCompile Include="ShootingGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameScreen.h" />
-    <ClInclude Include="Location.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Position.h" />
     <ClInclude Include="ShootingGame.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

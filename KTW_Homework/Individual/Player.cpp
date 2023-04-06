@@ -8,11 +8,6 @@
 #include "Bullet.h"
 #include "ShootingGame.h"
 
-void Player::Render()
-{
-	GameScreen::GetMainScreen().ScreenRenderAnything(Pos, Ch);
-}
-
 void Player::Act(Bullet* _Bullet)
 {
 	if (0 == _kbhit())
@@ -24,7 +19,7 @@ void Player::Act(Bullet* _Bullet)
 
 	char InputKey = _getch();
 
-	Location NextPos;
+	Position NextPos;
 
 	switch (InputKey)
 	{

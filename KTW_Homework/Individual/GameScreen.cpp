@@ -32,7 +32,7 @@ void GameScreen::ScreenPrint()
 	}
 }
 
-bool GameScreen::ScreenOver(Location _Pos)
+bool GameScreen::ScreenOver(Position _Pos)
 {
 	if (_Pos.X < 0)
 	{
@@ -57,7 +57,7 @@ bool GameScreen::ScreenOver(Location _Pos)
 	return false;
 }
 
-void GameScreen::ScreenRenderAnything(Location _Pos, char _Ch)
+void GameScreen::ScreenRenderAnything(Position _Pos, char _Ch)
 {
 	Screen[_Pos.Y][_Pos.X] = _Ch;
 }

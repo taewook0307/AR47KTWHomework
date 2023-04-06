@@ -1,20 +1,15 @@
 #pragma once
 
-#include "Location.h"
+#include "GameObject.h"
 
+class GameObject;
 class Bullet;
-class Player
+class Player : public GameObject
 {
 public:
-	inline void SetPos(Location _Pos)
+	Player()
 	{
-		Pos.X = _Pos.X;
-		Pos.Y = _Pos.Y;
-	}
-
-	inline Location GetPos() const
-	{
-		return Pos;
+		Ch = '*';
 	}
 
 	inline int GetShootCount() const
@@ -22,14 +17,10 @@ public:
 		return ShootCount;
 	}
 
-	void Render();
-
 	void Act(Bullet* _Bullet);
 protected:
 
 private:
-	Location Pos;
-	const char Ch = '*';
 	int ShootCount = 0;
 
 	inline void PlayerShoot()

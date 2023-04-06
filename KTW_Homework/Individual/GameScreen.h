@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Location.h"
+#include "Position.h"
 
 class GameScreen
 {
@@ -14,18 +14,18 @@ public:
 		return MainScreen;
 	}
 
-	inline Location GetScreenSize() const
+	inline Position GetScreenSize() const
 	{
-		return Location{ ScreenXSize, ScreenYSize };
+		return Position{ ScreenXSize, ScreenYSize };
 	}
 
 	void ScreenSetting();
 
 	void ScreenPrint();
 
-	bool ScreenOver(Location _Pos);
+	bool ScreenOver(Position _Pos);
 
-	void ScreenRenderAnything(Location _Pos, char _Ch);
+	void ScreenRenderAnything(Position _Pos, char _Ch);
 protected:
 
 private:

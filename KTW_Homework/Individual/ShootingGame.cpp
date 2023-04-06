@@ -13,6 +13,11 @@ void ShootingGame::GameSetting()
 	GameScreen::GetMainScreen().ScreenSetting();
 
 	ShootingGame::NewPlayer.SetPos(GameScreen::GetMainScreen().GetScreenSize().Half());
+
+	for (size_t i = 0; i < BulletCount; i++)
+	{
+		ArrBullet[i].Off();
+	}
 }
 
 void ShootingGame::GameStart()
