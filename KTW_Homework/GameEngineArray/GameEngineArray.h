@@ -107,5 +107,3 @@ private:
 	size_t ArrCount;
 	DataType* ArrPtr = nullptr;
 };
-
-

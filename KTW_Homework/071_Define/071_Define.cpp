@@ -1,6 +1,9 @@
 ﻿#include <iostream>
 
+// #define 단어 뒤 Enter치기 전까지 부분을 그대로 복사
 #define Ten 10
+
+// #define Test 10;
 
 // 함수형
 // 매크로 함수
@@ -12,6 +15,10 @@
 
 int main()
 {
+    int Value = Ten* Ten;
+
+    // Test * Test == 10; * 10;
+
     // define 보다 inline을 사용하도록 추천
     // inline 사용 시 컴파일러가 검사를 하기 때문에 더 안전
 }
