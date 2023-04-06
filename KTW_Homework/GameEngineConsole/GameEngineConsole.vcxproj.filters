@@ -10,5 +10,6 @@
     <ClInclude Include="ConsoleGameMath.h" />
     <ClInclude Include="ConsoleGameObject.h" />
     <ClInclude Include="ConsoleGameScreen.h" />
+    <ClInclude Include="GameEngineArray.h" />
   </ItemGroup>
 </Project>
