@@ -6,5 +6,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameEngineArray.h" />
+    <ClInclude Include="MsgBox.h" />
   </ItemGroup>
 </Project>

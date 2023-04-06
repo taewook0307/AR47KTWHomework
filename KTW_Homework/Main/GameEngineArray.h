@@ -1,5 +1,11 @@
 #pragma once
 
+#include <GameEngineBase/GameEngineDebug.h>
+
+// #include <> => 포함 디렉터리에 들어가 있는 파일을 호출
+// #include "" => 포함 디렉터리에 들어가 있지 않는 파일을 호출
+// 포함 디렉토리 : 프로젝트 속성 => VC++ 디렉터리
+
 typedef int DataType;
 
 class GameEngineArray
@@ -16,7 +22,10 @@ public:
 		: ArrPtr(new DataType[_Value])
 		, ArrCount(_Value)
 	{
-
+		if (0 >= _Value)
+		{
+			MsgBoxAssert("0 크기의 배열을 만들 수 없음");
+		}
 	}
 
 	~GameEngineArray()
