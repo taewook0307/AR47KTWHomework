@@ -1,6 +1,9 @@
 #include <iostream>
+#include <conio.h>
+#include <Windows.h>
 
-#include "GameScreen.h"
+#include <GameEngineConsole/ConsoleGameScreen.h>
+
 #include "Player.h"
 #include "Bullet.h"
 #include "ShootingGame.h"
@@ -10,9 +13,9 @@ Bullet ShootingGame::ArrBullet[BulletCount];
 
 void ShootingGame::GameSetting()
 {
-	GameScreen::GetMainScreen().ScreenSetting();
+	ConsoleGameScreen::GetMainScreen().ScreenClear();
 
-	ShootingGame::NewPlayer.SetPos(GameScreen::GetMainScreen().GetScreenSize().Half());
+	ShootingGame::NewPlayer.SetPos(ConsoleGameScreen::GetMainScreen().GetScreenSize().Half());
 
 	for (size_t i = 0; i < BulletCount; i++)
 	{
@@ -23,29 +26,34 @@ void ShootingGame::GameSetting()
 void ShootingGame::GameStart()
 {
 	NewPlayer.Render();
-	GameScreen::GetMainScreen().ScreenPrint();
+	ConsoleGameScreen::GetMainScreen().ScreenPrint();
 
 	while (true)
 	{
 		system("cls");
 
-		GameScreen::GetMainScreen().ScreenSetting();
+		ConsoleGameScreen::GetMainScreen().ScreenClear();
 
 		NewPlayer.Render();
 		for (size_t i = 0; i < BulletCount; i++)
 		{
-			if (true == ArrBullet[i].GetUpdate())
+			if (true == ArrBullet[i].IsUpdate())
 			{
 				ArrBullet[i].Render();
 			}
 		}
-		GameScreen::GetMainScreen().ScreenPrint();
+		ConsoleGameScreen::GetMainScreen().ScreenPrint();
+
+		if (0 == _kbhit())
+		{
+			Sleep(300);
+		}
 
 		NewPlayer.Act(ArrBullet);
 		ArrBullet[NewPlayer.GetShootCount() - 1].PosUpdate();
 		for (size_t i = 0; i < BulletCount; i++)
 		{
-			if (true == ArrBullet[i].GetUpdate())
+			if (true == ArrBullet[i].IsUpdate())
 			{
 				ArrBullet[i].PosUpdate();
 			}

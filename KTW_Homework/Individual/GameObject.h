@@ -1,17 +1,17 @@
 #pragma once
 
-#include "Position.h"
+#include <GameEngineConsole/ConsoleGameMath.h>
 
 class GameObject
 {
 public:
-	inline void SetPos(Position _Pos)
+	inline void SetPos(int2 _Pos)
 	{
 		Pos.X = _Pos.X;
 		Pos.Y = _Pos.Y;
 	}
 
-	inline Position GetPos() const
+	inline int2 GetPos() const
 	{
 		return Pos;
 	}
@@ -34,7 +34,7 @@ public:
 	void Render();
 
 protected:
-	Position Pos;
+	int2 Pos;
 	char Ch = ' ';
 
 private:

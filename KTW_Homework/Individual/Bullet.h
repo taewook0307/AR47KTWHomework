@@ -1,13 +1,13 @@
 #pragma once
 
-#include "GameObject.h"
+#include <GameEngineConsole/ConsoleGameObject.h>
 
-class Bullet : public GameObject
+class Bullet : public ConsoleGameObject
 {
 public:
 	Bullet()
 	{
-		Ch = '^';
+		RenderChar = '^';
 	}
 	void PosUpdate();
 

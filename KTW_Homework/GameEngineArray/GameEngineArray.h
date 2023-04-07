@@ -6,8 +6,9 @@
 // #include "" => 포함 디렉터리에 들어가 있지 않는 파일을 호출
 // 포함 디렉토리 : 프로젝트 속성 => VC++ 디렉터리
 
-typedef int DataType;
+//typedef int DataType;
 
+template<typename DataType>
 class GameEngineArray
 {
 public:
@@ -85,8 +86,9 @@ public:
 		}*/
 
 		DataType* NewPtr = new DataType[_Value];
+		int CopySize = _Value < ArrCount ? _Value : ArrCount;
 
-		for (size_t i = 0; i < _Value; i++)
+		for (size_t i = 0; i < CopySize; i++)
 		{
 			NewPtr[i] = ArrPtr[i];
 		}

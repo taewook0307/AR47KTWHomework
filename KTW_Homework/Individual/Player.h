@@ -1,15 +1,15 @@
 #pragma once
 
-#include "GameObject.h"
+#include <GameEngineConsole/ConsoleGameObject.h>
 
 class GameObject;
 class Bullet;
-class Player : public GameObject
+class Player : public ConsoleGameObject
 {
 public:
 	Player()
 	{
-		Ch = '*';
+		RenderChar = '*';
 	}
 
 	inline int GetShootCount() const

@@ -1,9 +1,9 @@
 #include <conio.h>
 #include <iostream>
-
 #include <Windows.h>
 
-#include "GameScreen.h"
+#include <GameEngineConsole/ConsoleGameScreen.h>
+
 #include "Player.h"
 #include "Bullet.h"
 #include "ShootingGame.h"
@@ -19,14 +19,14 @@ void Player::Act(Bullet* _Bullet)
 
 	char InputKey = _getch();
 
-	Position NextPos;
+	int2 NextPos;
 
 	switch (InputKey)
 	{
 	case 'a':
 	case 'A':
 		NextPos = { Pos.X - 1, Pos.Y };
-		if (false == GameScreen::GetMainScreen().ScreenOver(NextPos))
+		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos))
 		{
 			Pos.X -= 1;
 		}
@@ -34,7 +34,7 @@ void Player::Act(Bullet* _Bullet)
 	case 'd':
 	case 'D':
 		NextPos = { Pos.X + 1, Pos.Y };
-		if (false == GameScreen::GetMainScreen().ScreenOver(NextPos))
+		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos))
 		{
 			Pos.X += 1;
 		}
@@ -42,7 +42,7 @@ void Player::Act(Bullet* _Bullet)
 	case 'w':
 	case 'W':
 		NextPos = { Pos.X, Pos.Y - 1 };
-		if (false == GameScreen::GetMainScreen().ScreenOver(NextPos))
+		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos))
 		{
 			Pos.Y -= 1;
 		}
@@ -50,7 +50,7 @@ void Player::Act(Bullet* _Bullet)
 	case 's':
 	case 'S':
 		NextPos = { Pos.X, Pos.Y + 1 };
-		if (false == GameScreen::GetMainScreen().ScreenOver(NextPos))
+		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos))
 		{
 			Pos.Y += 1;
 		}
