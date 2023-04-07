@@ -40,16 +40,9 @@ public:
 
 	GameEngineArray& operator=(const GameEngineArray& _Other)
 	{
-		if (ArrPtr != nullptr)
-		{
-			delete ArrPtr;
-			ArrPtr = nullptr;
-		}
+		ReSize(_Other.ArrCount);
 
-		ArrPtr = new DataType[_Other.ArrCount];
-		ArrCount = _Other.ArrCount;
-
-		for (size_t i = 0; i < ArrCount; i++)
+		for (size_t i = 0; i < _Other.ArrCount; i++)
 		{
 			ArrPtr[i] = _Other.ArrPtr[i];
 		}
