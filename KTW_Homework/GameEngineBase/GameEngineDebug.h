@@ -1,23 +1,25 @@
 #pragma once
 
-//class GameEngineBase
-//{
-//public:
-//	// constrcuter destructer
-//	GameEngineBase();
-//	~GameEngineBase();
-//
-//	// delete Function
-//	GameEngineBase(const GameEngineBase& _Other) = delete;
-//	GameEngineBase(GameEngineBase&& _Other) noexcept = delete;
-//	GameEngineBase& operator=(const GameEngineBase& _Other) = delete;
-//	GameEngineBase& operator=(GameEngineBase&& _Other) noexcept = delete;
-//
-//protected:
-//
-//private:
-//
-//};
+class GameEngineDebug
+{
+public:
+	// constrcuter destructer
+	GameEngineDebug();
+	~GameEngineDebug();
+
+	// delete Function
+	GameEngineDebug(const GameEngineDebug& _Other) = delete;
+	GameEngineDebug(GameEngineDebug&& _Other) noexcept = delete;
+	GameEngineDebug& operator=(const GameEngineDebug& _Other) = delete;
+	GameEngineDebug& operator=(GameEngineDebug&& _Other) noexcept = delete;
+
+	static void LeakCheck();
+
+protected:
+
+private:
+
+};
 
 #include <Windows.h>
 #include <assert.h>

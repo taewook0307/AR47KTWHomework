@@ -9,7 +9,7 @@ void ConsoleGameScreen::ScreenClear()
 	{
 		for (size_t x = 0; x < ScreenXSize; x++)
 		{
-			Arr[y][x] = 'a';
+			ArrScreen[y][x] = 'a';
 		}
 	}
 }
@@ -21,7 +21,7 @@ void ConsoleGameScreen::ScreenPrint() const
 		for (size_t x = 0; x < ScreenXSize; x++)
 		{
 			// Arr[y][x] = 'b';
-			printf_s("%c", Arr[y][x]);
+			printf_s("%c", ArrScreen[y][x]);
 		}
 		printf_s("\n");
 	}

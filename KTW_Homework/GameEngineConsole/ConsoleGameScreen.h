@@ -1,4 +1,7 @@
 #pragma once
+
+#include <GameEngineConsole/GameEngineArray.h>
+
 #include "ConsoleGameMath.h"
 
 class ConsoleGameScreen
@@ -12,7 +15,10 @@ public:
 		return MainScreen;
 	}
 
-	static int2 GetScreenSize();
+	int2 GetScreenSize()
+	{
+		return Size;
+	}
 
 	void ScreenClear();
 
@@ -25,7 +31,10 @@ public:
 protected:
 
 private:
-	char Arr[ScreenYSize][ScreenXSize] = { 0, };
+	// GameEngineArray<char>* ArrScreen
+	GameEngineArray<GameEngineArray<char>> ArrScreen;
+
+	int2 Size;
 
 	ConsoleGameScreen();
 

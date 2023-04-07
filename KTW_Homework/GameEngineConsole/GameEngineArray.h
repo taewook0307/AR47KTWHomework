@@ -8,7 +8,7 @@
 
 //typedef int DataType;
 
-template<typename Datatype>
+template<typename DataType>
 class GameEngineArray
 {
 public:
