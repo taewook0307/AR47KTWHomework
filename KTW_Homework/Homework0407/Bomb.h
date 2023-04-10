@@ -4,7 +4,6 @@
 class ConsoleGameScreen;
 class Bomb : public ConsoleGameObject
 {
-
 public:
 	// constrcuter destructer
 	Bomb();

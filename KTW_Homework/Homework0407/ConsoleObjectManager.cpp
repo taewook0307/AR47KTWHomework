@@ -24,13 +24,9 @@ void ConsoleObjectManager::ConsoleAllObjectUpdate()
 			{
 				continue;
 			}
-
 			Object->Update();
 		}
-
 	}
-
-
 }
 
 void ConsoleObjectManager::ConsoleAllObjectRender()
@@ -47,16 +43,11 @@ void ConsoleObjectManager::ConsoleAllObjectRender()
 			{
 				continue;
 			}
-
-
-
 			Object->Render();
 		}
-
 	}
 
 	ConsoleGameScreen::GetMainScreen().ScreenPrint();
-
 }
 
 void ConsoleObjectManager::ConsoleAllObjectDelete()
@@ -71,7 +62,6 @@ void ConsoleObjectManager::ConsoleAllObjectDelete()
 			{
 				continue;
 			}
-
 			delete Object;
 			Object = nullptr;
 		}

@@ -13,7 +13,7 @@
 
 int main()
 {
-	GameEngineDebug::LeakCheck();
+	GameEngineDebug::LeckCheck();
 
 	int2 ScreenSize = { 20, 10 };
 	ConsoleGameScreen::GetMainScreen().SetScreenSize(ScreenSize);
