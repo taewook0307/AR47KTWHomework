@@ -69,9 +69,6 @@ void Player::Update()
 	{
 		Bomb* NewBomb = ConsoleObjectManager::CreateConsoleObject<Bomb>(ObjectOrder::Bomb);
 		NewBomb->SetPos(GetPos());
-
-
-		// ÆøÅº¼³Ä¡ 
 		break;
 	}
 	case 'q':

@@ -2,7 +2,6 @@
 #include <GameEngineConsole/GameEngineArray.h>
 #include <GameEngineConsole/ConsoleGameObject.h>
 
-// Ό³Έν :
 class ConsoleObjectManager
 {
 public:
@@ -16,7 +15,6 @@ public:
 
 		GameEngineArray<ConsoleGameObject*>& Group = AllObject[_Order];
 		ObjectType* NewObject = new ObjectType();
-		// Player* NewObject = new Player();
 		Group.ReSize(Group.Count() + 1);
 		Group[Group.Count() - 1] = NewObject;
 

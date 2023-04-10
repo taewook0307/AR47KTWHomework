@@ -20,7 +20,6 @@ void Bomb::Update()
 	}
 }
 
-
 void Bomb::Render()
 {
 	ConsoleGameObject::Render();

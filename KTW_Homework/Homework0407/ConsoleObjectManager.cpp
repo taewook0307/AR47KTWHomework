@@ -3,7 +3,6 @@
 
 GameEngineArray<GameEngineArray<ConsoleGameObject*>> ConsoleObjectManager::AllObject;
 
-
 ConsoleObjectManager::ConsoleObjectManager()
 {
 }
