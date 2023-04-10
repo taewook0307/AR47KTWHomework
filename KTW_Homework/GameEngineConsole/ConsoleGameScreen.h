@@ -1,24 +1,18 @@
 #pragma once
-
-#include <GameEngineConsole/GameEngineArray.h>
-
 #include "ConsoleGameMath.h"
+#include "GameEngineArray.h"
 
 class ConsoleGameScreen
 {
 public:
-	static const int ScreenYSize = 10;
-	static const int ScreenXSize = 20;
-
 	static ConsoleGameScreen& GetMainScreen()
 	{
 		return MainScreen;
 	}
 
-	int2 GetScreenSize()
-	{
-		return Size;
-	}
+	int2 GetScreenSize();
+
+	void SetScreenSize(int2 _Size);
 
 	void ScreenClear();
 
@@ -31,12 +25,12 @@ public:
 protected:
 
 private:
-	// GameEngineArray<char>* ArrScreen
 	GameEngineArray<GameEngineArray<char>> ArrScreen;
 
 	int2 Size;
 
 	ConsoleGameScreen();
+	~ConsoleGameScreen();
 
 	static ConsoleGameScreen MainScreen;
 };

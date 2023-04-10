@@ -139,6 +139,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bomb.cpp" />
+    <ClCompile Include="ConsoleObjectManager.cpp" />
+    <ClCompile Include="GameEnum.cpp" />
     <ClCompile Include="Homework0407.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
@@ -151,6 +154,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bomb.h" />
+    <ClInclude Include="ConsoleObjectManager.h" />
+    <ClInclude Include="GameEnum.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

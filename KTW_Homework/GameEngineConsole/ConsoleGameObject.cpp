@@ -1,7 +1,7 @@
 #include "ConsoleGameObject.h"
 #include "ConsoleGameScreen.h"
 
-void ConsoleGameObject::Render() 
+void ConsoleGameObject::Render()
 {
 	if (false == IsUpdate())
 	{
@@ -10,3 +10,5 @@ void ConsoleGameObject::Render()
 
 	ConsoleGameScreen::GetMainScreen().SetScreenCharacter(Pos, RenderChar);
 }
+
+void ConsoleGameObject::Update() {}

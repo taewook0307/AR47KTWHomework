@@ -6,37 +6,27 @@
 #include <GameEngineConsole/ConsoleGameScreen.h>
 #include <GameEngineConsole/ConsoleGameObject.h>
 #include "Player.h"
+#include "Bomb.h"
+#include "ConsoleObjectManager.h"
+#include "GameEnum.h"
 #include <conio.h>
-
-GameEngineArray<ConsoleGameObject*> AllObject;
-
-void CreateConsoleObject()
-{
-
-}
 
 int main()
 {
-	GameEngineDebug::LeckCheck();
+	GameEngineDebug::LeakCheck();
 
-	int2 ScreenSize = { 5, 5 };
-
-	ConsoleGameObject* NewPlayer = new Player();
-
+	int2 ScreenSize = { 20, 10 };
 	ConsoleGameScreen::GetMainScreen().SetScreenSize(ScreenSize);
+
+	ConsoleObjectManager::CreateConsoleObject<Player>(ObjectOrder::Player);
 
 	while (Player::IsGameUpdate)
 	{
-		ConsoleGameScreen::GetMainScreen().ScreenClear();
-
-		if (nullptr != NewPlayer)
-		{
-			NewPlayer->Update();
-			NewPlayer->Render();
-		}
-
-		ConsoleGameScreen::GetMainScreen().ScreenPrint();
-		Sleep(500);
+		ConsoleObjectManager::ConsoleAllObjectUpdate();
+		ConsoleObjectManager::ConsoleAllObjectRender();
+		Sleep(200);
 	}
+
+	ConsoleObjectManager::ConsoleAllObjectDelete();
 }
 

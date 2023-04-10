@@ -2,12 +2,17 @@
 #include <conio.h>
 #include <Windows.h>
 #include <GameEngineConsole/ConsoleGameScreen.h>
+#include "ConsoleObjectManager.h"
+#include "Bomb.h"
+#include "GameEnum.h"
 
 bool Player::IsGameUpdate = true;
 
 Player::Player()
 {
 	RenderChar = '*';
+	SetPos(ConsoleGameScreen::GetMainScreen().GetScreenSize().Half());
+
 }
 
 void Player::Update()
@@ -62,6 +67,10 @@ void Player::Update()
 	case 'f':
 	case 'F':
 	{
+		Bomb* NewBomb = ConsoleObjectManager::CreateConsoleObject<Bomb>(ObjectOrder::Bomb);
+		NewBomb->SetPos(GetPos());
+
+
 		// ÆøÅº¼³Ä¡ 
 		break;
 	}

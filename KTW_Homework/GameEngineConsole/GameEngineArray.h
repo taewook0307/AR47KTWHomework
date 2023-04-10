@@ -1,37 +1,33 @@
 #pragma once
-
 #include <GameEngineBase/GameEngineDebug.h>
-
-// #include <> => 포함 디렉터리에 들어가 있는 파일을 호출
-// #include "" => 포함 디렉터리에 들어가 있지 않는 파일을 호출
-// 포함 디렉토리 : 프로젝트 속성 => VC++ 디렉터리
-
-//typedef int DataType;
 
 template<typename DataType>
 class GameEngineArray
 {
 public:
 	// delete Function
-	GameEngineArray(const GameEngineArray& _Other) = delete;
+	// GameEngineArray(const GameEngineArray& _Other) = delete;
 	GameEngineArray(GameEngineArray&& _Other) noexcept = delete;
 	GameEngineArray& operator=(GameEngineArray&& _Other) noexcept = delete;
 
+	GameEngineArray()
+	{
+	}
 
 	// constrcuter destructer
 	GameEngineArray(size_t _Value)
-		: ArrPtr(new DataType[_Value])
-		, ArrCount(_Value)
 	{
 		if (0 >= _Value)
 		{
-			MsgBoxAssert("0 크기의 배열을 만들 수 없음");
+			MsgBoxAssert("0크기의 배열은 만들수 없습니다.");
 		}
+
+		ReSize(_Value);
 	}
 
 	~GameEngineArray()
 	{
-		if (ArrPtr != nullptr)
+		if (nullptr != ArrPtr)
 		{
 			delete[] ArrPtr;
 			ArrPtr = nullptr;
@@ -40,18 +36,10 @@ public:
 
 	GameEngineArray& operator=(const GameEngineArray& _Other)
 	{
-		if (ArrPtr != nullptr)
+		ReSize(_Other.ArrCount);
+		for (size_t i = 0; i < _Other.ArrCount; i++)
 		{
-			delete ArrPtr;
-			ArrPtr = nullptr;
-		}
-
-		ArrPtr = new DataType[_Other.ArrCount];
-		ArrCount = _Other.ArrCount;
-
-		for (size_t i = 0; i < ArrCount; i++)
-		{
-			ArrPtr[i] = _Other.ArrPtr[i];
+			ArrPtr[i] = _Other[i];
 		}
 
 		return *this;
@@ -62,31 +50,15 @@ public:
 		return ArrCount;
 	}
 
-	DataType& operator[](size_t _Index)
+	DataType& operator[](size_t _Index) const
 	{
 		return ArrPtr[_Index];
 	}
 
-	void ReSize(int _Value)
+	void ReSize(size_t _Value)
 	{
-		/*DataType* CopyPtr = ArrPtr;
-
-		if (nullptr == ArrPtr)
-		{
-			delete[] ArrPtr;
-			ArrPtr = nullptr;
-		}
-
-		ArrPtr = new DataType[_Value];
-		ArrCount = _Value;
-
-		for (size_t i = 0; i < _Value; i++)
-		{
-			ArrPtr[i] = CopyPtr[i];
-		}*/
-
 		DataType* NewPtr = new DataType[_Value];
-		int CopySize = _Value < ArrCount ? _Value : ArrCount;
+		size_t CopySize = _Value < ArrCount ? _Value : ArrCount;
 
 		for (size_t i = 0; i < CopySize; i++)
 		{
@@ -106,6 +78,8 @@ public:
 protected:
 
 private:
-	size_t ArrCount;
+	size_t ArrCount = 0;
 	DataType* ArrPtr = nullptr;
+
 };
+
