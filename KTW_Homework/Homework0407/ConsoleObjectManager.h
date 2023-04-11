@@ -29,7 +29,14 @@ public:
 
 	static void ConsoleAllObjectUpdate();
 	static void ConsoleAllObjectRender();
+	static void ConsoleAllObjectRelease();
 	static void ConsoleAllObjectDelete();
+
+	template<typename EnumType>
+	static GameEngineArray<ConsoleGameObject*>& GetGroup(EnumType _Order)
+	{
+		return AllObject[(int)_Order];
+	}
 
 	static GameEngineArray<ConsoleGameObject*>& GetGroup(int _Order)
 	{

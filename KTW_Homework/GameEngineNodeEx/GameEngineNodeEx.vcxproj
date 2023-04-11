@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{3d7a3bc1-0e53-421d-8216-a92c98489c98}</ProjectGuid>
-    <RootNamespace>GameEngineNode</RootNamespace>
+    <ProjectGuid>{78fd6d17-a250-45ac-80f0-1ffdb37a5381}</ProjectGuid>
+    <RootNamespace>GameEngineNodeEx</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GameEngineNode.cpp" />
+    <ClCompile Include="GameEngineNodeEx.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameEngineConsole\GameEngineConsole.vcxproj">

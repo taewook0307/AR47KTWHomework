@@ -10,13 +10,25 @@ Bomb::~Bomb()
 {
 }
 
+void Bomb::Init(int _BombPower)
+{
+	MaxExpPower = _BombPower;
+	CurExpPower = 0;
+}
+
 void Bomb::Update()
 {
 	ConsoleGameObject::Update();
 
+	if (CurExpPower == MaxExpPower)
+	{
+		Death();
+		Off();
+	}
+
 	if (0 >= --BoomCount)
 	{
-		Off();
+		CurExpPower++;
 	}
 }
 
@@ -24,23 +36,16 @@ void Bomb::Render()
 {
 	ConsoleGameObject::Render();
 
-	if (6 >= BoomCount)
+	for (int i = 0; i < CurExpPower; i++)
 	{
-		int2 Pos = GetPos();
+		int2 Left = GetPos() + int2::Left * i;
+		int2 Right = GetPos() + int2::Right * i;
+		int2 Up = GetPos() + int2::Up * i;
+		int2 Down = GetPos() + int2::Down * i;
 
-		ConsoleGameScreen::GetMainScreen().SetScreenCharacter({ Pos.X + 1, Pos.Y }, '@');
-		ConsoleGameScreen::GetMainScreen().SetScreenCharacter({ Pos.X - 1, Pos.Y }, '@');
-		ConsoleGameScreen::GetMainScreen().SetScreenCharacter({ Pos.X, Pos.Y + 1 }, '@');
-		ConsoleGameScreen::GetMainScreen().SetScreenCharacter({ Pos.X, Pos.Y - 1 }, '@');
-	}
-
-	if (2 >= BoomCount)
-	{
-		int2 Pos = GetPos();
-
-		ConsoleGameScreen::GetMainScreen().SetScreenCharacter({ Pos.X + 2, Pos.Y }, '@');
-		ConsoleGameScreen::GetMainScreen().SetScreenCharacter({ Pos.X - 2, Pos.Y }, '@');
-		ConsoleGameScreen::GetMainScreen().SetScreenCharacter({ Pos.X, Pos.Y + 2 }, '@');
-		ConsoleGameScreen::GetMainScreen().SetScreenCharacter({ Pos.X, Pos.Y - 2 }, '@');
+		ConsoleGameScreen::GetMainScreen().SetScreenCharacter(Left, '#');
+		ConsoleGameScreen::GetMainScreen().SetScreenCharacter(Right, '#');
+		ConsoleGameScreen::GetMainScreen().SetScreenCharacter(Up, '#');
+		ConsoleGameScreen::GetMainScreen().SetScreenCharacter(Down, '#');
 	}
 }
