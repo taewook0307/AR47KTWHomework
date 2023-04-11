@@ -15,6 +15,36 @@ Player::Player()
 
 }
 
+bool Player::IsBomb(int2 _NextPos)
+{
+	GameEngineArray<ConsoleGameObject*>& BombGroup = ConsoleObjectManager::GetGroup(ObjectOrder::Bomb);
+
+	for (size_t i = 0; i < BombGroup.Count(); i++)
+	{
+		int2 BombPos = BombGroup[i]->GetPos();
+
+		bool DeathCheck = BombGroup[i]->IsDeath();
+		
+		if (true == DeathCheck)
+		{
+			continue;
+		}
+		else
+		{
+			bool PosCheck = BombPos == _NextPos;
+			if (true == PosCheck)
+			{
+				return true;
+			}
+			else
+			{
+				continue;
+			}
+		}
+	}
+	return false;
+}
+
 void Player::Update()
 {
 	if (0 == _kbhit())
@@ -34,7 +64,8 @@ void Player::Update()
 		NextPos = Pos;
 		NextPos.X -= 1;
 		bool ScreenOverCheck = ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos);
-		if (false == ScreenOverCheck)
+		bool BombPosCheck = IsBomb(NextPos);
+		if (false == ScreenOverCheck && false == BombPosCheck)
 		{
 			Pos.X -= 1;
 		}
@@ -46,7 +77,8 @@ void Player::Update()
 		NextPos = Pos;
 		NextPos.X += 1;
 		bool ScreenOverCheck = ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos);
-		if (false == ScreenOverCheck)
+		bool BombPosCheck = IsBomb(NextPos);
+		if (false == ScreenOverCheck && false == BombPosCheck)
 		{
 			Pos.X += 1;
 		}
@@ -58,7 +90,8 @@ void Player::Update()
 		NextPos = Pos;
 		NextPos.Y -= 1;
 		bool ScreenOverCheck = ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos);
-		if (false == ScreenOverCheck)
+		bool BombPosCheck = IsBomb(NextPos);
+		if (false == ScreenOverCheck && false == BombPosCheck)
 		{
 			Pos.Y -= 1;
 		}
@@ -70,7 +103,8 @@ void Player::Update()
 		NextPos = Pos;
 		NextPos.Y += 1;
 		bool ScreenOverCheck = ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos);
-		if (false == ScreenOverCheck)
+		bool BombPosCheck = IsBomb(NextPos);
+		if (false == ScreenOverCheck && false == BombPosCheck)
 		{
 			Pos.Y += 1;
 		}
