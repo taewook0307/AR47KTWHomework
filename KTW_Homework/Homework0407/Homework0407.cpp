@@ -23,7 +23,7 @@ int main()
 	while (Player::IsGameUpdate)
 	{
 		ConsoleObjectManager::ConsoleAllObjectUpdate();
-		ConsoleObjectManager::ConsoleAllObjectRender();
+		ConsoleObjectManager::ConsoleAllObjectRender(); 
 		Sleep(200);
 	}
 

@@ -13,6 +13,7 @@ Bullet ShootingGame::ArrBullet[BulletCount];
 
 void ShootingGame::GameSetting()
 {
+	ConsoleGameScreen::GetMainScreen().SetScreenSize(int2 { 21, 11 });
 	ConsoleGameScreen::GetMainScreen().ScreenClear();
 
 	ShootingGame::NewPlayer.SetPos(ConsoleGameScreen::GetMainScreen().GetScreenSize().Half());

@@ -11,6 +11,7 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>Level2</Filter>
     </ClCompile>
+    <ClCompile Include="ConsoleObjectManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h">
@@ -22,6 +23,7 @@
     <ClInclude Include="Bullet.h">
       <Filter>Level2</Filter>
     </ClInclude>
+    <ClInclude Include="ConsoleObjectManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level2">
