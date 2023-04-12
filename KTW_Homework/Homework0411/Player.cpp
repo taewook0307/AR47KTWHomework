@@ -1,6 +1,7 @@
 #include "Player.h"
 #include <conio.h>
 #include <Windows.h>
+#include <GameEngineConsole/ConsoleGameMath.h>
 #include <GameEngineConsole/ConsoleGameScreen.h>
 #include "ConsoleObjectManager.h"
 #include "Bomb.h"
@@ -66,8 +67,7 @@ void Player::Update()
 	case 'a':
 	case 'A':
 	{
-		NextPos = Pos;
-		NextPos.X -= 1;
+		NextPos = Pos + int2::Left;
 		bool ScreenOverCheck = ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos);
 		bool BombPosCheck = IsBomb(NextPos);
 		if (false == ScreenOverCheck && false == BombPosCheck)
@@ -79,8 +79,7 @@ void Player::Update()
 	case 'd':
 	case 'D':
 	{
-		NextPos = Pos;
-		NextPos.X += 1;
+		NextPos = Pos + int2::Right;
 		bool ScreenOverCheck = ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos);
 		bool BombPosCheck = IsBomb(NextPos);
 		if (false == ScreenOverCheck && false == BombPosCheck)
@@ -92,8 +91,7 @@ void Player::Update()
 	case 'w':
 	case 'W':
 	{
-		NextPos = Pos;
-		NextPos.Y -= 1;
+		NextPos = Pos + int2::Up;
 		bool ScreenOverCheck = ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos);
 		bool BombPosCheck = IsBomb(NextPos);
 		if (false == ScreenOverCheck && false == BombPosCheck)
@@ -105,8 +103,7 @@ void Player::Update()
 	case 's':
 	case 'S':
 	{
-		NextPos = Pos;
-		NextPos.Y += 1;
+		NextPos = Pos + int2::Down;
 		bool ScreenOverCheck = ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos);
 		bool BombPosCheck = IsBomb(NextPos);
 		if (false == ScreenOverCheck && false == BombPosCheck)
