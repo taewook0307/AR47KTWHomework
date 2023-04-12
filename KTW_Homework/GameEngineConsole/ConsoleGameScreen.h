@@ -1,6 +1,6 @@
 #pragma once
+#include <vector>
 #include "ConsoleGameMath.h"
-#include "GameEngineArray.h"
 
 class ConsoleGameScreen
 {
@@ -25,7 +25,7 @@ public:
 protected:
 
 private:
-	GameEngineArray<GameEngineArray<char>> ArrScreen;
+	std::vector<std::vector<char>> ArrScreen;
 
 	int2 Size;
 
