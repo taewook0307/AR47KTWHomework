@@ -8,7 +8,15 @@
 #include "Bullet.h"
 #include "ShootingGame.h"
 
-void Player::Act(Bullet* _Bullet)
+bool Player::IsGameUpdate = true;
+
+Player::Player()
+{
+	RenderChar = '*';
+	SetPos(ConsoleGameScreen::GetMainScreen().GetScreenSize().Half());
+}
+
+void Player::Update()
 {
 	if (0 == _kbhit())
 	{
@@ -25,7 +33,7 @@ void Player::Act(Bullet* _Bullet)
 	{
 	case 'a':
 	case 'A':
-		NextPos = { Pos.X - 1, Pos.Y };
+		NextPos = Pos + int2::Left;
 		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos))
 		{
 			Pos.X -= 1;
@@ -33,7 +41,7 @@ void Player::Act(Bullet* _Bullet)
 		break;
 	case 'd':
 	case 'D':
-		NextPos = { Pos.X + 1, Pos.Y };
+		NextPos = Pos + int2::Right;
 		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos))
 		{
 			Pos.X += 1;
@@ -41,7 +49,7 @@ void Player::Act(Bullet* _Bullet)
 		break;
 	case 'w':
 	case 'W':
-		NextPos = { Pos.X, Pos.Y - 1 };
+		NextPos = Pos + int2::Up;
 		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos))
 		{
 			Pos.Y -= 1;
@@ -49,7 +57,7 @@ void Player::Act(Bullet* _Bullet)
 		break;
 	case 's':
 	case 'S':
-		NextPos = { Pos.X, Pos.Y + 1 };
+		NextPos = Pos + int2::Down;
 		if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver(NextPos))
 		{
 			Pos.Y += 1;
@@ -57,21 +65,11 @@ void Player::Act(Bullet* _Bullet)
 		break;
 	case 'f':
 	case 'F':
-		if (ShootCount < ShootingGame::BulletCount)
-		{
-			_Bullet[ShootCount].On();
-			_Bullet[ShootCount].SetPos(Pos);
-			PlayerShoot();
-		}
-		else
-		{
-			printf_s("총알이 없습니다. R키를 눌러주세요.\n");
-		}
+		// 총알 발사
 		break;
-
 	case 'r':
 	case 'R':
-		ShootCount = 0;
+		// Reroad
 		break;
 	default:
 		break;

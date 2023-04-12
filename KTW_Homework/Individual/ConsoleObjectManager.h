@@ -1,5 +1,4 @@
 #pragma once
-
 #include <GameEngineConsole/GameEngineArray.h>
 #include <GameEngineConsole/ConsoleGameObject.h>
 
@@ -11,13 +10,11 @@ public:
 	{
 		if (_Order >= AllObject.Count())
 		{
-			AllObject.Resize(_Order + 1);
+			AllObject.ReSize(_Order + 1);
 		}
 
 		GameEngineArray<ConsoleGameObject*>& Group = AllObject[_Order];
-
 		ObjectType* NewObject = new ObjectType();
-
 		Group.ReSize(Group.Count() + 1);
 		Group[Group.Count() - 1] = NewObject;
 
@@ -32,7 +29,20 @@ public:
 
 	static void ConsoleAllObjectUpdate();
 	static void ConsoleAllObjectRender();
+	static void ConsoleAllObjectRelease();
 	static void ConsoleAllObjectDelete();
+
+	template<typename EnumType>
+	static GameEngineArray<ConsoleGameObject*>& GetGroup(EnumType _Order)
+	{
+		return AllObject[(int)_Order];
+	}
+
+	static GameEngineArray<ConsoleGameObject*>& GetGroup(int _Order)
+	{
+		return AllObject[_Order];
+	}
+
 
 private:
 	// constrcuter destructer

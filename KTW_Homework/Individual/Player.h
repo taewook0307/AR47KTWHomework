@@ -2,30 +2,16 @@
 
 #include <GameEngineConsole/ConsoleGameObject.h>
 
-class GameObject;
-class Bullet;
 class Player : public ConsoleGameObject
 {
 public:
-	Player()
-	{
-		RenderChar = '*';
-	}
+	static bool IsGameUpdate;
 
-	inline int GetShootCount() const
-	{
-		return ShootCount;
-	}
+	Player();
 
-	void Act(Bullet* _Bullet);
+	void Update() override;
 protected:
 
 private:
-	int ShootCount = 0;
-
-	inline void PlayerShoot()
-	{
-		++ShootCount;
-	}
 };
 

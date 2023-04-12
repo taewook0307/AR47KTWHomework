@@ -1,12 +1,24 @@
 ﻿#include "ConsoleObjectManager.h"
+#include <GameEngineConsole/ConsoleGameScreen.h>
+
+GameEngineArray<GameEngineArray<ConsoleGameObject*>> ConsoleObjectManager::AllObject;
+
+ConsoleObjectManager::ConsoleObjectManager()
+{
+}
+
+ConsoleObjectManager::~ConsoleObjectManager()
+{
+}
 
 void ConsoleObjectManager::ConsoleAllObjectUpdate()
 {
-	for (size_t i = 0; i < AllObject.Count(); i++)
+	for (size_t GroupIndex = 0; GroupIndex < AllObject.Count(); GroupIndex++)
 	{
-		for (size_t j = 0; j < AllObject[i].Count(); j++)
+		for (size_t ObjectIndex = 0; ObjectIndex < AllObject[GroupIndex].Count(); ObjectIndex++)
 		{
-			ConsoleGameObject* Object = AllObject[i][j];
+			ConsoleGameObject* Object = AllObject[GroupIndex][ObjectIndex];
+
 			if (nullptr == Object || false == Object->IsUpdate())
 			{
 				continue;
@@ -18,11 +30,14 @@ void ConsoleObjectManager::ConsoleAllObjectUpdate()
 
 void ConsoleObjectManager::ConsoleAllObjectRender()
 {
-	for (size_t i = 0; i < AllObject.Count(); i++)
+	ConsoleGameScreen::GetMainScreen().ScreenClear();
+
+	for (size_t GroupIndex = 0; GroupIndex < AllObject.Count(); GroupIndex++)
 	{
-		for (size_t j = 0; j < AllObject[i].Count(); j++)
+		for (size_t ObjectIndex = 0; ObjectIndex < AllObject[GroupIndex].Count(); ObjectIndex++)
 		{
-			ConsoleGameObject* Object = AllObject[i][j];
+			ConsoleGameObject* Object = AllObject[GroupIndex][ObjectIndex];
+
 			if (nullptr == Object || false == Object->IsUpdate())
 			{
 				continue;
@@ -30,21 +45,44 @@ void ConsoleObjectManager::ConsoleAllObjectRender()
 			Object->Render();
 		}
 	}
+
+	ConsoleGameScreen::GetMainScreen().ScreenPrint();
+}
+
+void ConsoleObjectManager::ConsoleAllObjectRelease()
+{
+	for (size_t GroupIndex = 0; GroupIndex < AllObject.Count(); GroupIndex++)
+	{
+		for (size_t ObjectIndex = 0; ObjectIndex < AllObject[GroupIndex].Count(); ObjectIndex++)
+		{
+			ConsoleGameObject*& Object = AllObject[GroupIndex][ObjectIndex];
+
+			if (nullptr == Object || false == Object->IsDeath())
+			{
+				continue;
+			}
+
+			delete Object;
+			Object = nullptr;
+		}
+
+	}
 }
 
 void ConsoleObjectManager::ConsoleAllObjectDelete()
 {
-	for (size_t i = 0; i < AllObject.Count(); i++)
+	for (size_t GroupIndex = 0; GroupIndex < AllObject.Count(); GroupIndex++)
 	{
-		for (size_t j = 0; j < AllObject[i].Count(); j++)
+		for (size_t ObjectIndex = 0; ObjectIndex < AllObject[GroupIndex].Count(); ObjectIndex++)
 		{
-			ConsoleGameObject* Object = AllObject[i][j];
+			ConsoleGameObject* Object = AllObject[GroupIndex][ObjectIndex];
 
 			if (nullptr == Object)
 			{
-				delete[] Object;
-				Object = nullptr;
+				continue;
 			}
+			delete Object;
+			Object = nullptr;
 		}
 	}
 }
