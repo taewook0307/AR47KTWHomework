@@ -21,6 +21,11 @@ bool Player::IsBomb(int2 _NextPos)
 
 	for (size_t i = 0; i < BombGroup.Count(); i++)
 	{
+		if (BombGroup[i] == nullptr)
+		{
+			continue;
+		}
+
 		int2 BombPos = BombGroup[i]->GetPos();
 
 		bool DeathCheck = BombGroup[i]->IsDeath();
