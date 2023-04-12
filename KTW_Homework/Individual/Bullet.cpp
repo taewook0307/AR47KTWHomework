@@ -1,9 +1,10 @@
 #include <GameEngineConsole/ConsoleGameScreen.h>
 #include "Bullet.h"
 
-void Bullet::PosUpdate()
+void Bullet::Update()
 {
-	if (false == ConsoleGameScreen::GetMainScreen().IsScreenOver(Pos))
+	bool ScreenOverCheck = ConsoleGameScreen::GetMainScreen().IsScreenOver(Pos);
+	if (false == ScreenOverCheck)
 	{
 		--Pos.Y;
 	}

@@ -4,6 +4,8 @@
 
 #include <GameEngineConsole/ConsoleGameScreen.h>
 
+#include "ConsoleObjectManager.h"
+#include "GameEnum.h"
 #include "Player.h"
 #include "Bullet.h"
 #include "ShootingGame.h"
@@ -65,6 +67,8 @@ void Player::Update()
 		break;
 	case 'f':
 	case 'F':
+		ConsoleObjectManager::CreateConsoleObject<Bullet>(ObjectOrder::Bullet);
+
 		// ÃÑ¾Ë ¹ß»ç
 		break;
 	case 'r':

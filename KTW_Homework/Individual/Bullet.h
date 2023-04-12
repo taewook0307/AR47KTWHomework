@@ -9,7 +9,8 @@ public:
 	{
 		RenderChar = '^';
 	}
-	void PosUpdate();
+
+	void Update() override;
 
 private:
 };
