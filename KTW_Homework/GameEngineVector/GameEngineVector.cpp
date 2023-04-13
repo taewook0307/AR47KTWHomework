@@ -7,8 +7,7 @@
 // 일반적인 배열은 선언과 동시에 접근이 가능
 // [][][][][][][][][][][접근]
 
-typedef int DataType;
-
+template <typename DataType>
 class MyVector
 {
 public:
