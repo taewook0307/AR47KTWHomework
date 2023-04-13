@@ -146,6 +146,7 @@
     </ClCompile>
     <ClCompile Include="GameEnum.cpp" />
     <ClCompile Include="Individual.cpp" />
+    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ShootingGame.cpp" />
   </ItemGroup>
@@ -156,6 +157,7 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="GameEnum.h" />
+    <ClInclude Include="Monster.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="ShootingGame.h" />
   </ItemGroup>

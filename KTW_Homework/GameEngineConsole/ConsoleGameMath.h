@@ -19,6 +19,11 @@ public:
 		return { X / 2, Y / 2 };
 	}
 
+	inline int2 ThreeDivision() const
+	{
+		return { X / 3, Y / 3 };
+	}
+
 	bool Check(const int2& _Other) const
 	{
 		return X == _Other.X && Y == _Other.Y;
