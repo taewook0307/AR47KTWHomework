@@ -12,19 +12,163 @@
 #include <crtdbg.h>
 #include <list>
 
+typedef int DataType;
+
+class GameEngineList
+{
+private:
+    class ListNode
+    {
+    public:
+        ListNode* Prev = nullptr;
+        ListNode* Next = nullptr;
+        DataType Value = 0;
+    public:
+        ~ListNode()
+        {
+            if (nullptr != Next)
+            {
+                delete Next;
+                Next = nullptr;
+            }
+        }
+    };
+
+public:
+    class iterator
+    {
+        friend GameEngineList;
+    public:
+        iterator()
+        {
+
+        }
+
+        iterator(ListNode* _CurNode)
+            : CurNode(_CurNode)
+        {
+            
+        }
+
+        bool operator!=(const iterator& _Other)
+        {
+            return CurNode != _Other.CurNode;
+        }
+
+        iterator& operator++()
+        {
+            CurNode = CurNode->Next;
+
+            return *this;
+        }
+
+        DataType& operator*()
+        {
+            return CurNode->Value;
+        }
+    private:
+        ListNode* CurNode = nullptr;
+    };
+
+    GameEngineList()
+    {
+        StartNode->Next = EndNode;
+        EndNode->Prev = StartNode;
+    }
+
+    ~GameEngineList()
+    {
+        if (nullptr != StartNode)
+        {
+            delete StartNode;
+            StartNode = nullptr;
+        }
+    }
+
+    iterator begin()
+    {
+        return iterator(StartNode->Next);
+    }
+
+    iterator end()
+    {
+        return iterator(EndNode);
+    }
+
+    iterator erase(iterator& _DeleteNode)
+    {
+        ListNode* DeleteNode = _DeleteNode.CurNode;
+
+        ListNode* PrevNode = DeleteNode->Prev;
+        ListNode* NextNode = DeleteNode->Next;
+
+        DeleteNode->Prev = nullptr;
+        DeleteNode->Next = nullptr;
+
+        if (nullptr != DeleteNode)
+        {
+            delete DeleteNode;
+            DeleteNode = nullptr;
+        }
+
+        PrevNode->Next = NextNode;
+        NextNode->Prev = PrevNode;
+
+        return iterator(NextNode);
+    }
+
+    void push_back(const DataType& _Value)
+    {
+        ListNode* NewListNode = new ListNode();
+        NewListNode->Value = _Value;
+
+        ListNode* PrevNode = EndNode->Prev;
+
+        PrevNode->Next = NewListNode;
+        EndNode->Prev = NewListNode;
+
+        NewListNode->Next = EndNode;
+        NewListNode->Prev = PrevNode;
+    }
+
+    void push_front(const DataType& _Value)
+    {
+        ListNode* NewListNode = new ListNode();
+        NewListNode->Value = _Value;
+
+        ListNode* NextNode = StartNode->Next;
+
+        NextNode->Prev = NewListNode;
+        StartNode->Next = NewListNode;
+
+        NewListNode->Next = NextNode;
+        NewListNode->Prev = StartNode;
+    }
+
+private:
+    ListNode* StartNode = new ListNode();
+    ListNode* EndNode = new ListNode();
+};
+
 int main()
 {
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-    std::list<int> NewList; 
+    GameEngineList NewList;
 
     NewList.push_back(9);
     NewList.push_back(5);
     NewList.push_back(4);
     NewList.push_back(7);
+    NewList.push_front(678);
+    NewList.push_front(199);
 
-    // Node형태의 자료들 중 시작점을 지정해주는 클래스
-    std::list<int>::iterator Start = NewList.begin();
-    std::list<int>::iterator End = NewList.end();
+    GameEngineList::iterator Delete = NewList.begin();
+    ++Delete;
+
+    NewList.erase(Delete);
+ 
+    GameEngineList::iterator Start = NewList.begin();
+    GameEngineList::iterator End = NewList.end();
 
     for (; Start != End; ++Start)
     {

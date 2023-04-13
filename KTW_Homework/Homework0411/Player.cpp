@@ -18,18 +18,18 @@ Player::Player()
 
 bool Player::IsBomb(int2 _NextPos)
 {
-	GameEngineArray<ConsoleGameObject*>& BombGroup = ConsoleObjectManager::GetGroup(ObjectOrder::Bomb);
+	std::list<ConsoleGameObject*>& BombGroup = ConsoleObjectManager::GetGroup(ObjectOrder::Bomb);
 
-	for (size_t i = 0; i < BombGroup.Count(); i++)
+	for (ConsoleGameObject* Ptr : BombGroup)
 	{
-		if (BombGroup[i] == nullptr)
+		if (nullptr == Ptr)
 		{
 			continue;
 		}
 
-		int2 BombPos = BombGroup[i]->GetPos();
+		int2 BombPos = Ptr->GetPos();
 
-		bool DeathCheck = BombGroup[i]->IsDeath();
+		bool DeathCheck = Ptr->IsDeath();
 		
 		if (true == DeathCheck)
 		{

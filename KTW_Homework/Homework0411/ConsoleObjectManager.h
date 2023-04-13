@@ -1,5 +1,6 @@
 #pragma once
-#include <GameEngineConsole/GameEngineArray.h>
+#include <vector>
+#include <list>
 #include <GameEngineConsole/ConsoleGameObject.h>
 
 class ConsoleObjectManager
@@ -8,15 +9,14 @@ public:
 	template<typename ObjectType>
 	static ObjectType* CreateConsoleObject(int _Order)
 	{
-		if (_Order >= AllObject.Count())
+		if (_Order >= AllObject.size())
 		{
-			AllObject.ReSize(_Order + 1);
+			AllObject.resize(_Order + 1);
 		}
 
-		GameEngineArray<ConsoleGameObject*>& Group = AllObject[_Order];
+		std::list<ConsoleGameObject*>& Group = AllObject[_Order];
 		ObjectType* NewObject = new ObjectType();
-		Group.ReSize(Group.Count() + 1);
-		Group[Group.Count() - 1] = NewObject;
+		Group.push_back(NewObject);
 
 		return NewObject;
 	}
@@ -33,12 +33,12 @@ public:
 	static void ConsoleAllObjectDelete();
 
 	template<typename EnumType>
-	static GameEngineArray<ConsoleGameObject*>& GetGroup(EnumType _Order)
+	static std::list<ConsoleGameObject*>& GetGroup(EnumType _Order)
 	{
 		return AllObject[(int)_Order];
 	}
 
-	static GameEngineArray<ConsoleGameObject*>& GetGroup(int _Order)
+	static std::list<ConsoleGameObject*>& GetGroup(int _Order)
 	{
 		return AllObject[_Order];
 	}
@@ -55,6 +55,6 @@ private:
 	ConsoleObjectManager& operator=(const ConsoleObjectManager& _Other) = delete;
 	ConsoleObjectManager& operator=(ConsoleObjectManager&& _Other) noexcept = delete;
 
-	static GameEngineArray<GameEngineArray<ConsoleGameObject*>> AllObject;
+	static std::vector<std::list<ConsoleGameObject*>> AllObject;
 };
 
