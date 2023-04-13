@@ -13,5 +13,6 @@ public:
 protected:
 
 private:
+	int ShootBulletCount = 0;
 };
 

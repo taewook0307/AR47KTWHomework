@@ -67,13 +67,18 @@ void Player::Update()
 		break;
 	case 'f':
 	case 'F':
-		ConsoleObjectManager::CreateConsoleObject<Bullet>(ObjectOrder::Bullet);
-
-		// ÃÑ¾Ë ¹ß»ç
+	{
+		if (ShootBulletCount < 10)
+		{
+			Bullet* NewBullet = ConsoleObjectManager::CreateConsoleObject<Bullet>(ObjectOrder::Bullet);
+			NewBullet->SetPos(Pos);
+			++ShootBulletCount;
+		}
 		break;
+	}
 	case 'r':
 	case 'R':
-		// Reroad
+		ShootBulletCount = 0;
 		break;
 	default:
 		break;

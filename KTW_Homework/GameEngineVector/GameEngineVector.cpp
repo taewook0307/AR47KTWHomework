@@ -96,12 +96,6 @@ int main()
         //   => vector의 최악의 사용법으로 불림 : 재할당이 일어나기 때문
     }
 
-    // Test.resize(10);             push_back 10번을 한 것과 똑같은 크기로 만들어줌
-    // 벡터에서의 공간을 확장하면서 원소 자체도 넣어주는 함수 : resize
-
-    // Test.reserve(10);
-    // 벡터에서의 공간만 확장하고 원소는 넣어주지 않는 함수 : reserve
-
     {
         printf_s("vector의 올바른 사용법\n");
         std::vector<int> Standard;
@@ -122,5 +116,30 @@ int main()
         }
 
         printf_s("size : %d", (int)Standard.size());
+    }
+
+    {
+        std::vector<int> Test1;
+
+        Test1.reserve(10);
+        // 벡터에서의 공간만 확장하고 원소는 넣어주지 않는 함수 : reserve
+
+        int Siz = Test1.size();             // Siz = 0
+        int Cap = Test1.capacity();         // Cap = 10
+
+        Test1.resize(10);
+
+        int Siz1 = Test1.size();
+        int Cap1 = Test1.capacity();
+
+        std::vector<int> Test2;
+
+        Test2.resize(10);
+        // 벡터에서의 공간을 확장하면서 원소 자체도 넣어주는 함수 : resize
+
+        int Siz2 = Test2.size();            // Siz2 = 10
+        int Cap2 = Test2.capacity();        // Cap2 = 10
+
+        int a = 0;
     }
 }
