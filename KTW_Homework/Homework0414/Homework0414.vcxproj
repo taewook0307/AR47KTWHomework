@@ -139,11 +139,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Body.cpp" />
     <ClCompile Include="GameEnum.cpp" />
+    <ClCompile Include="Head.cpp" />
     <ClCompile Include="Homework0414.cpp" />
+    <ClCompile Include="Parts.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Body.h" />
     <ClInclude Include="GameEnum.h" />
+    <ClInclude Include="Head.h" />
+    <ClInclude Include="Parts.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameEngineBase\GameEngineBase.vcxproj">

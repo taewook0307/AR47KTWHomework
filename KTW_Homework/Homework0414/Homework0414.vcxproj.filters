@@ -3,8 +3,14 @@
   <ItemGroup>
     <ClCompile Include="Homework0414.cpp" />
     <ClCompile Include="GameEnum.cpp" />
+    <ClCompile Include="Head.cpp" />
+    <ClCompile Include="Parts.cpp" />
+    <ClCompile Include="Body.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameEnum.h" />
+    <ClInclude Include="Head.h" />
+    <ClInclude Include="Parts.h" />
+    <ClInclude Include="Body.h" />
   </ItemGroup>
 </Project>
