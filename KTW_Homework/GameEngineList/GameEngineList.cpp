@@ -155,12 +155,9 @@ int main()
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
     GameEngineList NewList;
 
-    NewList.push_back(9);
-    NewList.push_back(5);
-    NewList.push_back(4);
-    NewList.push_back(7);
     NewList.push_front(678);
-    NewList.push_front(199);
+    NewList.push_front(59);
+    NewList.push_front(5);
 
     GameEngineList::iterator Delete = NewList.begin();
     ++Delete;
