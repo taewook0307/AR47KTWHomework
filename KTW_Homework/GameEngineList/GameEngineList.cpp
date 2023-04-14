@@ -170,5 +170,5 @@ int main()
     for (; Start != End; ++Start)
     {
         printf_s("%d\n", *Start);
-    }
+    } 
 }
