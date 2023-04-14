@@ -3,7 +3,7 @@
 #include <Windows.h>
 #include <GameEngineConsole/ConsoleGameMath.h>
 #include <GameEngineConsole/ConsoleGameScreen.h>
-#include "ConsoleObjectManager.h"
+#include <GameEngineConsole/ConsoleObjectManager.h>
 #include "Bomb.h"
 #include "GameEnum.h"
 

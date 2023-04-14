@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <conio.h>
 #include <GameEngineBase/GameEngineDebug.h>
 #include <GameEngineConsole/ConsoleGameScreen.h>
 #include <GameEngineConsole/ConsoleGameObject.h>
@@ -6,7 +7,6 @@
 #include "Player.h"
 #include "Bomb.h"
 #include "GameEnum.h"
-#include <conio.h>
 
 int main()
 {
