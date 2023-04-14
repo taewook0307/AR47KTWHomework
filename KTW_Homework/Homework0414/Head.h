@@ -17,9 +17,14 @@ public:
 
 	static bool IsPlay;
 
+	int2 GetDir() const
+	{
+		return Dir;
+	}
+
 protected:
 	void Update() override;
-	void IsBodyCheck();
+	bool IsBodyCheck();
 	void NewBodyCreateCheck();
 
 private:

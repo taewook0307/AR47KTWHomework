@@ -18,6 +18,8 @@ int main()
 
 	ConsoleObjectManager::CreateConsoleObject<Head>(ObjectOrder::Head);
 
+	ConsoleObjectManager::CreateConsoleObject<Body>(ObjectOrder::Body);
+
 	while (true == Head::IsPlay)
 	{
 		ConsoleObjectManager::ConsoleAllObjectUpdate();

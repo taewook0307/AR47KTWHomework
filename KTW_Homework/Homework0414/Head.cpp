@@ -1,6 +1,10 @@
 #include "Head.h"
 #include <conio.h>
 #include <GameEngineConsole/ConsoleGameScreen.h>
+#include <GameEngineConsole/ConsoleObjectManager.h>
+#include <list>
+
+#include "GameEnum.h"
 
 bool Head::IsPlay = true;
 
@@ -14,14 +18,30 @@ Head::~Head()
 {
 }
 
-void Head::IsBodyCheck()
+bool Head::IsBodyCheck()
 {
+	std::list<ConsoleGameObject*>& BodyGroup = ConsoleObjectManager::GetGroup(ObjectOrder::Body);
 
+	std::list<ConsoleGameObject*>::iterator Start = BodyGroup.begin();
+	std::list<ConsoleGameObject*>::iterator End = BodyGroup.end();
+
+	for (; Start != End; ++Start)
+	{
+		ConsoleGameObject* BodyObject = *Start;
+
+		int2 BodyPos = BodyObject->GetPos();
+		
+		if (GetPos() == BodyPos)
+		{
+			return true;
+		}
+	}
+	return false;
 }
 
 void Head::NewBodyCreateCheck()
 {
-
+	
 }
 
 void Head::Update()
@@ -70,7 +90,10 @@ void Head::Update()
 	}
 
 	SetPos(GetPos() + Dir);
-	IsBodyCheck();
+	if (true == IsBodyCheck())
+	{
+		
+	}
 	NewBodyCreateCheck();
 
 	if (true == ConsoleGameScreen::GetMainScreen().IsScreenOver(GetPos()))

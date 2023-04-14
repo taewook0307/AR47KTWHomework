@@ -2,6 +2,6 @@
 
 enum class ObjectOrder
 {
-	Head,
-	Body
+	Body,
+	Head
 };
