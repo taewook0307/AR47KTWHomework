@@ -2,7 +2,7 @@
 #include <conio.h>
 #include <Windows.h>
 #include <GameEngineConsole/ConsoleGameScreen.h>
-#include "ConsoleObjectManager.h"
+#include <GameEngineConsole/ConsoleObjectManager.h>
 #include "Bomb.h"
 #include "GameEnum.h"
 

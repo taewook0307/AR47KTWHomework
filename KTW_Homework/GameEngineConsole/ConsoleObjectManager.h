@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include <list>
-#include <GameEngineConsole/ConsoleGameObject.h>
+#include "ConsoleGameObject.h"
 
 class ConsoleObjectManager
 {

@@ -5,6 +5,7 @@
 #include <GameEngineConsole/ConsoleGameScreen.h>
 #include <GameEngineConsole/ConsoleObjectManager.h>
 #include "Bomb.h"
+#include "Item.h"
 #include "GameEnum.h"
 
 bool Player::IsGameUpdate = true;
@@ -51,6 +52,45 @@ bool Player::IsBomb(int2 _NextPos)
 	return false;
 }
 
+// 플레이어가 이동하는 위치에 아이템이 있는지 확인하는 함수
+bool Player::IsItem(int2 _Pos)
+{
+	// 아이템 그룹 가져오기
+	std::list<ConsoleGameObject*>& ItemGroup = ConsoleObjectManager::GetGroup(ObjectOrder::Item);
+
+	for (ConsoleGameObject* Ptr : ItemGroup)
+	{
+		if (nullptr == Ptr)
+		{
+			continue;
+		}
+
+		int2 ItemPos = Ptr->GetPos();
+
+		// 아이템 위치와 비교
+		bool PosCheck = ItemPos == _Pos;
+		if (true == PosCheck)
+		{
+			// 해당 아이템 Death
+			Ptr->Death();
+			return true;
+		}
+		else
+		{
+			continue;
+		}
+		return false;
+	}
+}
+
+void Player::BombPowerUpgrade()
+{
+	// 폭탄 길이 확장
+	++BombPower;
+	// 새로운 아이템 생성
+	ConsoleObjectManager::CreateConsoleObject<Item>(ObjectOrder::Item);
+}
+
 void Player::Update()
 {
 	if (0 == _kbhit())
@@ -74,6 +114,10 @@ void Player::Update()
 		{
 			Pos.X -= 1;
 		}
+		if (true == IsItem(NextPos))
+		{
+			BombPowerUpgrade();
+		}
 		break;
 	}
 	case 'd':
@@ -85,6 +129,10 @@ void Player::Update()
 		if (false == ScreenOverCheck && false == BombPosCheck)
 		{
 			Pos.X += 1;
+		}
+		if (true == IsItem(NextPos))
+		{
+			BombPowerUpgrade();
 		}
 		break;
 	}
@@ -98,6 +146,10 @@ void Player::Update()
 		{
 			Pos.Y -= 1;
 		}
+		if (true == IsItem(NextPos))
+		{
+			BombPowerUpgrade();
+		}
 		break;
 	}
 	case 's':
@@ -109,6 +161,10 @@ void Player::Update()
 		if (false == ScreenOverCheck && false == BombPosCheck)
 		{
 			Pos.Y += 1;
+		}
+		if (true == IsItem(NextPos))
+		{
+			BombPowerUpgrade();
 		}
 		break;
 	}

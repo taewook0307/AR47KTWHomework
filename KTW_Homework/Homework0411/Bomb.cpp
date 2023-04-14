@@ -23,7 +23,6 @@ void Bomb::Update()
 	if (CurExpPower == MaxExpPower)
 	{
 		Death();
-		Off();
 	}
 
 	if (0 >= --BoomCount)

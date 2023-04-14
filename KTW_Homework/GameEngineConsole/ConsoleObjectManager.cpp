@@ -1,5 +1,5 @@
 #include "ConsoleObjectManager.h"
-#include <GameEngineConsole/ConsoleGameScreen.h>
+#include "ConsoleGameScreen.h"
 
 std::vector<std::list<ConsoleGameObject*>> ConsoleObjectManager::AllObject;
 

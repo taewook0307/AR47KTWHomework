@@ -142,6 +142,10 @@
     <ClCompile Include="Bomb.cpp" />
     <ClCompile Include="GameEnum.cpp" />
     <ClCompile Include="Homework0411.cpp" />
+    <ClCompile Include="Item.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +159,10 @@
   <ItemGroup>
     <ClInclude Include="Bomb.h" />
     <ClInclude Include="GameEnum.h" />
+    <ClInclude Include="Item.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

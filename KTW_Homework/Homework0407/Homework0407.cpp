@@ -4,7 +4,7 @@
 #include <GameEngineConsole/ConsoleGameObject.h>
 #include "Player.h"
 #include "Bomb.h"
-#include "ConsoleObjectManager.h"
+#include <GameEngineConsole/ConsoleObjectManager.h>
 #include "GameEnum.h"
 #include <conio.h>
 

@@ -4,6 +4,7 @@
 #include <GameEngineConsole/ConsoleGameObject.h>
 #include <GameEngineConsole/ConsoleObjectManager.h>
 #include "Player.h"
+#include "Item.h"
 #include "Bomb.h"
 #include "GameEnum.h"
 #include <conio.h>
@@ -16,6 +17,8 @@ int main()
 	ConsoleGameScreen::GetMainScreen().SetScreenSize(ScreenSize);
 
 	ConsoleObjectManager::CreateConsoleObject<Player>(ObjectOrder::Player);
+
+	ConsoleObjectManager::CreateConsoleObject<Item>(ObjectOrder::Item);
 
 	while (Player::IsGameUpdate)
 	{
