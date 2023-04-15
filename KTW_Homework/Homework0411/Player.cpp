@@ -1,12 +1,13 @@
 #include "Player.h"
+#include "Bomb.h"
+#include "Item.h"
+#include "GameEnum.h"
+
 #include <conio.h>
 #include <Windows.h>
 #include <GameEngineConsole/ConsoleGameMath.h>
 #include <GameEngineConsole/ConsoleGameScreen.h>
 #include <GameEngineConsole/ConsoleObjectManager.h>
-#include "Bomb.h"
-#include "Item.h"
-#include "GameEnum.h"
 
 bool Player::IsGameUpdate = true;
 

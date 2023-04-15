@@ -1,10 +1,12 @@
 #include "Head.h"
+#include "GameEnum.h"
+#include "Body.h"
+
 #include <conio.h>
+#include <vector>
+#include <list>
 #include <GameEngineConsole/ConsoleGameScreen.h>
 #include <GameEngineConsole/ConsoleObjectManager.h>
-#include <list>
-
-#include "GameEnum.h"
 
 bool Head::IsPlay = true;
 
@@ -12,6 +14,7 @@ Head::Head()
 {
 	RenderChar = '$';
 	SetPos(ConsoleGameScreen::GetMainScreen().GetScreenSize().Half());
+	Snake.push_back(this);
 }
 
 Head::~Head() 
@@ -27,9 +30,9 @@ bool Head::IsBodyCheck()
 
 	for (; Start != End; ++Start)
 	{
-		ConsoleGameObject* BodyObject = *Start;
+		ConsoleGameObject* BodyNode = *Start;
 
-		int2 BodyPos = BodyObject->GetPos();
+		int2 BodyPos = BodyNode->GetPos();
 		
 		if (GetPos() == BodyPos)
 		{
@@ -39,9 +42,14 @@ bool Head::IsBodyCheck()
 	return false;
 }
 
-void Head::NewBodyCreateCheck()
+void Head::NewBodyCreate()
 {
-	
+	ConsoleObjectManager::CreateConsoleObject<Body>(ObjectOrder::Body);
+	std::list<ConsoleGameObject*>& BodyGroup = ConsoleObjectManager::GetGroup(ObjectOrder::Body);
+	std::list<ConsoleGameObject*>::iterator Start = BodyGroup.begin();
+	ConsoleGameObject* Ptr = *Start;
+	int2 _Pos = Pos;
+	Ptr->SetPos(GetPos() + (Dir * -1));
 }
 
 void Head::Update()
@@ -90,11 +98,6 @@ void Head::Update()
 	}
 
 	SetPos(GetPos() + Dir);
-	if (true == IsBodyCheck())
-	{
-		
-	}
-	NewBodyCreateCheck();
 
 	if (true == ConsoleGameScreen::GetMainScreen().IsScreenOver(GetPos()))
 	{

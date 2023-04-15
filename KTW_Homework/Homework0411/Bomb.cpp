@@ -1,4 +1,5 @@
 #include "Bomb.h"
+
 #include <GameEngineConsole/ConsoleGameScreen.h>
 
 Bomb::Bomb()

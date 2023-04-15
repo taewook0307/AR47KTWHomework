@@ -1,7 +1,8 @@
 #pragma once
 #include "Parts.h"
 
-// Ό³Έν :
+#include <vector>
+
 class Head : public Parts
 {
 public:
@@ -25,10 +26,10 @@ public:
 protected:
 	void Update() override;
 	bool IsBodyCheck();
-	void NewBodyCreateCheck();
+	void NewBodyCreate();
 
 private:
 	int2 Dir = int2::Up;
-
+	std::vector<Parts*> Snake;
 };
 
