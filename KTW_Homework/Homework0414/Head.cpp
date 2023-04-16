@@ -14,25 +14,11 @@ Head::Head()
 {
 	RenderChar = '$';
 	SetPos(ConsoleGameScreen::GetMainScreen().GetScreenSize().Half());
-	VectorPos.resize(9);
+	VectorPos.resize(30);
 }
 
 Head::~Head() 
 {
-}
-
-void Head::FullScreenBody()
-{
-	int ScreenSizeX = ConsoleGameScreen::GetMainScreen().GetScreenSize().X;
-	int ScreenSizeY = ConsoleGameScreen::GetMainScreen().GetScreenSize().Y;
-
-	int ScreenSize = ScreenSizeX * ScreenSizeY;
-
-	if ((BodyCount + 1) == ScreenSize)
-	{
-		system("cls");
-		printf_s("Game Clear");
-	}
 }
 
 void Head::IsBodyCheck()
@@ -48,12 +34,12 @@ void Head::IsBodyCheck()
 
 		int2 BodyPos = BodyPtr->GetPos();
 		
+		// 아이템 위치와 플레이어의 위치가 동일할 경우
 		if (GetPos() == BodyPos)
 		{
 			BodyPtr->Update();
+			BodyPlus();
 			ConsoleObjectManager::CreateConsoleObject<Body>(ObjectOrder::Body);
-			++BodyCount;
-			return;
 		}
 	}
 	return;
@@ -61,10 +47,12 @@ void Head::IsBodyCheck()
 
 void Head::NewBodyCreate()
 {
+	// Head의 위치를 VectorPos[0]에 저장
 	int2 Prev = VectorPos[0];
 	int2 Prev2;
 	VectorPos[0] = GetPos();
 
+	// VectorPos 내 값을 뒤로 한 칸씩 이동시키는 for문
 	for (int i = 1; i < BodyCount; i++)
 	{
 		Prev2 = VectorPos[i];
@@ -76,6 +64,7 @@ void Head::NewBodyCreate()
 
 	int i = 0;
 
+	// VectorPos의 값들을 Body의 Pos에 SetPos
 	for (ConsoleGameObject* BodyPtr : BodyGroup)
 	{
 		if (i < BodyCount)
@@ -84,6 +73,22 @@ void Head::NewBodyCreate()
 			++i;
 		}
 	}
+}
+
+// 자신의 몸통 위치에 부딪혔는지 확인하는 함수
+bool Head::CheckPos()
+{
+	int2 HeadPos = GetPos();
+
+	for (int i = 1; i < BodyCount; i++)
+	{
+		if (HeadPos == VectorPos[i])
+		{
+			return true;
+		}
+	}
+
+	return false;
 }
 
 void Head::Update()
@@ -95,9 +100,9 @@ void Head::Update()
 
 	if (0 == _kbhit())
 	{
-		// SetPos(GetPos() + Dir);
-		// IsBodyCheck();
-		// NewBodyCreateCheck();
+		/*IsBodyCheck();
+		NewBodyCreate();
+		SetPos(GetPos() + Dir);*/
 		return;
 	}
 
@@ -108,26 +113,18 @@ void Head::Update()
 	case 'a':
 	case 'A':
 		Dir = int2::Left;
-		IsBodyCheck();
-		NewBodyCreate();
 		break;
 	case 'd':
 	case 'D':
 		Dir = int2::Right;
-		IsBodyCheck();
-		NewBodyCreate();
 		break;
 	case 'w':
 	case 'W':
 		Dir = int2::Up;
-		IsBodyCheck();
-		NewBodyCreate();
 		break;
 	case 's':
 	case 'S':
 		Dir = int2::Down;
-		IsBodyCheck();
-		NewBodyCreate();
 		break;
 	case 'q':
 	case 'Q':
@@ -137,8 +134,17 @@ void Head::Update()
 		return;
 	}
 
+	IsBodyCheck();
+	NewBodyCreate();
 	SetPos(GetPos() + Dir);
 
+	// 자신의 몸통에 부딪힐 경우 게임 오버
+	if (true == CheckPos())
+	{
+		IsPlay = false;
+	}
+
+	// 스크린 밖으로 나갈 경우 게임 오버
 	if (true == ConsoleGameScreen::GetMainScreen().IsScreenOver(GetPos()))
 	{
 		IsPlay = false;

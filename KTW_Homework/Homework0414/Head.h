@@ -18,17 +18,7 @@ public:
 
 	static bool IsPlay;
 
-	int2 GetDir() const
-	{
-		return Dir;
-	}
-
-	int GetBodyCount() const
-	{
-		return BodyCount;
-	}
-
-	void FullScreenBody();
+	bool CheckPos();
 
 protected:
 	void Update() override;
@@ -41,5 +31,10 @@ private:
 	int BodyCount = 0;
 
 	std::vector<int2> VectorPos;
+
+	inline void BodyPlus()
+	{
+		++BodyCount;
+	}
 };
 

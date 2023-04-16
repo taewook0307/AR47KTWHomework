@@ -15,6 +15,19 @@ Body::Body()
 	int X = GameEngineRandom::MainRandom.RandomInt(0, ConsoleGameScreen::GetMainScreen().GetScreenSize().X - 1);
 	int Y = GameEngineRandom::MainRandom.RandomInt(0, ConsoleGameScreen::GetMainScreen().GetScreenSize().Y - 1);
 
+	while (true)
+	{
+		if (false == CheckPos({ X, Y }) && false == SameHeadPos({ X, Y }))
+		{
+			break;
+		}
+		else
+		{
+			X = GameEngineRandom::MainRandom.RandomInt(0, ConsoleGameScreen::GetMainScreen().GetScreenSize().X - 1);
+			Y = GameEngineRandom::MainRandom.RandomInt(0, ConsoleGameScreen::GetMainScreen().GetScreenSize().Y - 1);
+		}
+	}
+
 	SetPos({ X, Y });
 }
 
@@ -53,7 +66,23 @@ bool Body::SameHeadPos()
 	return false;
 }
 
-bool Body::CheckPos()
+bool Body::SameHeadPos(int2 _Pos)
+{
+	std::list<ConsoleGameObject*>& HeadGroup = ConsoleObjectManager::GetGroup(ObjectOrder::Head);
+
+	for (ConsoleGameObject* HeadPtr : HeadGroup)
+	{
+		int2 HeadPos = HeadPtr->GetPos();
+
+		if (HeadPos == _Pos)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Body::CheckPos(int2 _Pos)
 {
 	std::list<ConsoleGameObject*>& BodyGroup = ConsoleObjectManager::GetGroup(ObjectOrder::Body);
 
@@ -61,7 +90,7 @@ bool Body::CheckPos()
 	{
 		int2 BodyPos = BodyPtr->GetPos();
 
-		if (BodyPos == GetPos())
+		if (BodyPos == _Pos)
 		{
 			return true;
 		}

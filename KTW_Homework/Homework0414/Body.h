@@ -15,7 +15,8 @@ public:
 	Body& operator=(Body&& _Other) noexcept = delete;
 
 	bool SameHeadPos();
-	bool CheckPos();
+	bool SameHeadPos(int2 _Pos);
+	bool CheckPos(int2 _Pos);
 
 protected:
 	void Update() override;
