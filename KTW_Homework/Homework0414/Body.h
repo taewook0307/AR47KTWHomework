@@ -14,10 +14,13 @@ public:
 	Body& operator=(const Body& _Other) = delete;
 	Body& operator=(Body&& _Other) noexcept = delete;
 
+	bool SameHeadPos();
+	bool CheckPos();
+
 protected:
 	void Update() override;
-
+	void Render() override;
+	
 private:
-	bool IsChange;
 };
 

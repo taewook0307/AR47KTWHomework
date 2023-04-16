@@ -14,14 +14,28 @@ Head::Head()
 {
 	RenderChar = '$';
 	SetPos(ConsoleGameScreen::GetMainScreen().GetScreenSize().Half());
-	Snake.push_back(this);
+	VectorPos.resize(9);
 }
 
 Head::~Head() 
 {
 }
 
-bool Head::IsBodyCheck()
+void Head::FullScreenBody()
+{
+	int ScreenSizeX = ConsoleGameScreen::GetMainScreen().GetScreenSize().X;
+	int ScreenSizeY = ConsoleGameScreen::GetMainScreen().GetScreenSize().Y;
+
+	int ScreenSize = ScreenSizeX * ScreenSizeY;
+
+	if ((BodyCount + 1) == ScreenSize)
+	{
+		system("cls");
+		printf_s("Game Clear");
+	}
+}
+
+void Head::IsBodyCheck()
 {
 	std::list<ConsoleGameObject*>& BodyGroup = ConsoleObjectManager::GetGroup(ObjectOrder::Body);
 
@@ -30,26 +44,46 @@ bool Head::IsBodyCheck()
 
 	for (; Start != End; ++Start)
 	{
-		ConsoleGameObject* BodyNode = *Start;
+		ConsoleGameObject* BodyPtr = *Start;
 
-		int2 BodyPos = BodyNode->GetPos();
+		int2 BodyPos = BodyPtr->GetPos();
 		
 		if (GetPos() == BodyPos)
 		{
-			return true;
+			BodyPtr->Update();
+			ConsoleObjectManager::CreateConsoleObject<Body>(ObjectOrder::Body);
+			++BodyCount;
+			return;
 		}
 	}
-	return false;
+	return;
 }
 
 void Head::NewBodyCreate()
 {
-	ConsoleObjectManager::CreateConsoleObject<Body>(ObjectOrder::Body);
+	int2 Prev = VectorPos[0];
+	int2 Prev2;
+	VectorPos[0] = GetPos();
+
+	for (int i = 1; i < BodyCount; i++)
+	{
+		Prev2 = VectorPos[i];
+		VectorPos[i] = Prev;
+		Prev = Prev2;
+	}
+
 	std::list<ConsoleGameObject*>& BodyGroup = ConsoleObjectManager::GetGroup(ObjectOrder::Body);
-	std::list<ConsoleGameObject*>::iterator Start = BodyGroup.begin();
-	ConsoleGameObject* Ptr = *Start;
-	int2 _Pos = Pos;
-	Ptr->SetPos(GetPos() + (Dir * -1));
+
+	int i = 0;
+
+	for (ConsoleGameObject* BodyPtr : BodyGroup)
+	{
+		if (i < BodyCount)
+		{
+			BodyPtr->SetPos(VectorPos[i]);
+			++i;
+		}
+	}
 }
 
 void Head::Update()
@@ -69,25 +103,31 @@ void Head::Update()
 
 	char Ch = _getch();
 
-	int2 NextPos = { 0, 0 };
-
 	switch (Ch)
 	{
 	case 'a':
 	case 'A':
 		Dir = int2::Left;
+		IsBodyCheck();
+		NewBodyCreate();
 		break;
 	case 'd':
 	case 'D':
 		Dir = int2::Right;
+		IsBodyCheck();
+		NewBodyCreate();
 		break;
 	case 'w':
 	case 'W':
 		Dir = int2::Up;
+		IsBodyCheck();
+		NewBodyCreate();
 		break;
 	case 's':
 	case 'S':
 		Dir = int2::Down;
+		IsBodyCheck();
+		NewBodyCreate();
 		break;
 	case 'q':
 	case 'Q':

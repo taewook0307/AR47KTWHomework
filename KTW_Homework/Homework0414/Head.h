@@ -23,13 +23,23 @@ public:
 		return Dir;
 	}
 
+	int GetBodyCount() const
+	{
+		return BodyCount;
+	}
+
+	void FullScreenBody();
+
 protected:
 	void Update() override;
-	bool IsBodyCheck();
+	void IsBodyCheck();
 	void NewBodyCreate();
 
 private:
 	int2 Dir = int2::Up;
-	std::vector<Parts*> Snake;
+
+	int BodyCount = 0;
+
+	std::vector<int2> VectorPos;
 };
 
