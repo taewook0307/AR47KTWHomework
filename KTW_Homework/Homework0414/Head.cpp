@@ -113,9 +113,9 @@ void Head::Update()
 
 	if (0 == _kbhit())
 	{
-		/*IsBodyCheck();
+		IsBodyCheck();
 		NewBodyCreate();
-		SetPos(GetPos() + Dir);*/
+		SetPos(GetPos() + Dir);
 		return;
 	}
 
