@@ -16,7 +16,7 @@ public:
 
 	bool SameHeadPos();
 	bool SameHeadPos(int2 _Pos);
-	bool CheckPos(int2 _Pos);
+	bool SameAnotherBodyPos(int2 _Pos);
 
 protected:
 	void Update() override;

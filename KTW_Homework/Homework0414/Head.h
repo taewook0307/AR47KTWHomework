@@ -20,10 +20,12 @@ public:
 
 	bool CheckPos();
 
+
 protected:
 	void Update() override;
 	void IsBodyCheck();
 	void NewBodyCreate();
+	void CheckScreenFull();
 
 private:
 	int2 Dir = int2::Up;

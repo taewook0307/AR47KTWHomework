@@ -17,7 +17,7 @@ Body::Body()
 
 	while (true)
 	{
-		if (false == CheckPos({ X, Y }) && false == SameHeadPos({ X, Y }))
+		if (false == SameAnotherBodyPos({ X, Y }) && false == SameHeadPos({ X, Y }))
 		{
 			break;
 		}
@@ -50,22 +50,7 @@ void Body::Render()
 	ConsoleGameObject::Render();
 }
 
-bool Body::SameHeadPos()
-{
-	std::list<ConsoleGameObject*>& HeadGroup = ConsoleObjectManager::GetGroup(ObjectOrder::Head);
-
-	for (ConsoleGameObject* HeadPtr : HeadGroup)
-	{
-		int2 HeadPos = HeadPtr->GetPos();
-
-		if (HeadPos == GetPos())
-		{
-			return true;
-		}
-	}
-	return false;
-}
-
+// 함수의 파라미터가 플레이어의 위치와 같을 경우 true
 bool Body::SameHeadPos(int2 _Pos)
 {
 	std::list<ConsoleGameObject*>& HeadGroup = ConsoleObjectManager::GetGroup(ObjectOrder::Head);
@@ -82,7 +67,15 @@ bool Body::SameHeadPos(int2 _Pos)
 	return false;
 }
 
-bool Body::CheckPos(int2 _Pos)
+// 자신의 위치가 플레이어의 위치와 같을 경우 true
+bool Body::SameHeadPos()
+{
+	return SameHeadPos(GetPos());
+}
+
+
+
+bool Body::SameAnotherBodyPos(int2 _Pos)
 {
 	std::list<ConsoleGameObject*>& BodyGroup = ConsoleObjectManager::GetGroup(ObjectOrder::Body);
 

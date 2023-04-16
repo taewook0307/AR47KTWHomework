@@ -2,6 +2,8 @@
 
 Parts::Parts() 
 {
+	Prev = nullptr;
+	Next = nullptr;
 }
 
 Parts::~Parts() 

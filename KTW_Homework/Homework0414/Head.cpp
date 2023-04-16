@@ -62,16 +62,29 @@ void Head::NewBodyCreate()
 
 	std::list<ConsoleGameObject*>& BodyGroup = ConsoleObjectManager::GetGroup(ObjectOrder::Body);
 
-	int i = 0;
+	int x = 0;
 
 	// VectorPos의 값들을 Body의 Pos에 SetPos
 	for (ConsoleGameObject* BodyPtr : BodyGroup)
 	{
-		if (i < BodyCount)
+		if (x < BodyCount)
 		{
-			BodyPtr->SetPos(VectorPos[i]);
-			++i;
+			BodyPtr->SetPos(VectorPos[x]);
+			++x;
 		}
+	}
+}
+
+// 자신의 Body의 개수에 자기 자신을 더한 값이 스크린의 크기의 값과 같을경우 종료
+void Head::CheckScreenFull()
+{
+	int2 Screen = ConsoleGameScreen::GetMainScreen().GetScreenSize();
+
+	int ScreenSize = Screen.X * Screen.Y;
+
+	if ((BodyCount + 1) == ScreenSize)
+	{
+		IsPlay = false;
 	}
 }
 
@@ -142,6 +155,7 @@ void Head::Update()
 	if (true == CheckPos())
 	{
 		IsPlay = false;
+		Death();
 	}
 
 	// 스크린 밖으로 나갈 경우 게임 오버
@@ -149,4 +163,6 @@ void Head::Update()
 	{
 		IsPlay = false;
 	}
+
+	CheckScreenFull();
 }

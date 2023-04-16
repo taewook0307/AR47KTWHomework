@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <vector>
+#include <crtdbg.h>
 #include <GameEngineBase/GameEngineDebug.h>
 
 // vector는 배열을 대체
@@ -76,6 +77,7 @@ private:
 
 int main()
 {
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
     {
         std::vector<int> Test;
         int Value = (int)Test.size();       // Value = 0
