@@ -104,14 +104,14 @@ int main()
         // reserve 함수를 통해 미리 공간을 확장시켜놓은 뒤에 push_back을 통해 원소만 넣어지도록 사용
         Standard.reserve(10);       // 재할당이 계속 잃어나는 일을 방지
 
-        for (size_t i = 0; i < 10; i++)
+        for (int i = 0; i < 10; i++)
         {
             Standard.push_back(i);
             printf_s("Capacity %zd\n", Standard.capacity());
             printf_s("Size %zd\n", Standard.size());
         }
 
-        for (size_t i = 0; i < Standard.size(); i++)
+        for (int i = 0; i < Standard.size(); i++)
         {
             printf_s("Value : %d\n", Standard[i]);
         }
@@ -125,22 +125,20 @@ int main()
         Test1.reserve(10);
         // 벡터에서의 공간만 확장하고 원소는 넣어주지 않는 함수 : reserve
 
-        int Siz = Test1.size();             // Siz = 0
-        int Cap = Test1.capacity();         // Cap = 10
+        int Siz = (int)Test1.size();             // Siz = 0
+        int Cap = (int)Test1.capacity();         // Cap = 10
 
         Test1.resize(10);
 
-        int Siz1 = Test1.size();
-        int Cap1 = Test1.capacity();
+        int Siz1 = (int)Test1.size();
+        int Cap1 = (int)Test1.capacity();
 
         std::vector<int> Test2;
 
         Test2.resize(10);
         // 벡터에서의 공간을 확장하면서 원소 자체도 넣어주는 함수 : resize
 
-        int Siz2 = Test2.size();            // Siz2 = 10
-        int Cap2 = Test2.capacity();        // Cap2 = 10
-
-        int a = 0;
+        int Siz2 = (int)Test2.size();            // Siz2 = 10
+        int Cap2 = (int)Test2.capacity();        // Cap2 = 10
     }
 }

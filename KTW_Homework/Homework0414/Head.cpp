@@ -14,10 +14,10 @@ Head::Head()
 {
 	RenderChar = '$';
 	SetPos(ConsoleGameScreen::GetMainScreen().GetScreenSize().Half());
-	VectorPos.resize(30);
+	VectorPos.resize(200);
 }
 
-Head::~Head() 
+Head::~Head()
 {
 }
 
@@ -155,7 +155,6 @@ void Head::Update()
 	if (true == CheckPos())
 	{
 		IsPlay = false;
-		Death();
 	}
 
 	// 스크린 밖으로 나갈 경우 게임 오버
