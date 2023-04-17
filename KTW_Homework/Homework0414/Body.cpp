@@ -8,6 +8,9 @@
 #include <GameEngineConsole/ConsoleGameObject.h>
 #include <GameEngineConsole/ConsoleObjectManager.h>
 
+// 배열을 이용해서 맵의 빈공간을 찾아보관한 후 그 배열에서 랜덤을 돌림
+// 수정
+
 Body::Body() 
 {
 	RenderChar = 'F';
@@ -57,6 +60,11 @@ bool Body::SameHeadPos(int2 _Pos)
 
 	for (ConsoleGameObject* HeadPtr : HeadGroup)
 	{
+		if (HeadPtr == nullptr)
+		{
+			continue;
+		}
+
 		int2 HeadPos = HeadPtr->GetPos();
 
 		if (HeadPos == _Pos)
@@ -81,6 +89,11 @@ bool Body::SameAnotherBodyPos(int2 _Pos)
 
 	for (ConsoleGameObject* BodyPtr : BodyGroup)
 	{
+		if (BodyPtr == nullptr)
+		{
+			continue;
+		}
+
 		int2 BodyPos = BodyPtr->GetPos();
 
 		if (BodyPos == _Pos)
