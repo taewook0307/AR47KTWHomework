@@ -13,7 +13,7 @@ bool Head::IsPlay = true;
 
 Head::Head() 
 {
-	RenderChar = L'¡å';
+	RenderChar = L'¡ß';
 	SetPos(ConsoleGameScreen::GetMainScreen().GetScreenSize().Half());
 }
 
