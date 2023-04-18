@@ -16,17 +16,21 @@ public:
 	Parts& operator=(const Parts& _Other) = delete;
 	Parts& operator=(Parts&& _Other) noexcept = delete;
 
+	inline int2 GetPrevPos() const
+	{
+		return PrevPos;
+	}
+
 	inline Parts* GetLast()
 	{
 		if (nullptr == Next)
 		{
 			return this;
 		}
-
 		return Next->GetLast();
 	}
 
-	inline Parts* GetNext()
+	inline Parts* GetNext() const
 	{
 		return Next;
 	}
@@ -35,27 +39,33 @@ public:
 	{
 		if (nullptr == _Next)
 		{
-			MsgBoxAssert("자신의 NextNode를 nullptr로 세팅하려고 했습니다.");
+			MsgBoxAssert("nullptr을 Next로 지정하려고 했습니다.");
 		}
-
 		Next = _Next;
+
+		_Next->Prev = this;
 	}
 
-	inline int2 GetPrevPos()
+	inline Parts* GetPrev() const
 	{
-		return PrevPos;
+		return Prev;
 	}
 
-	inline void SetPos(const int2& _Value) override
+	inline void SetPrev(Parts* _Prev)
 	{
-		PrevPos = GetPos();
-		ConsoleGameObject::SetPos(_Value);
+		if (nullptr == _Prev)
+		{
+			MsgBoxAssert("nullptr을 Prev로 지정하려고 했습니다.");
+		}
+		Prev = _Prev;
+
+		_Prev->Next = this;
 	}
 
 	void NextMove();
 
+	void SetPos(const int2& _Pos) override;
 protected:
-	void Update() override;
 
 private:
 	Parts* Next;

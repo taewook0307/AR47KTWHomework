@@ -23,60 +23,66 @@ Body::~Body()
 {
 }
 
+void Body::Update()
+{
+	if (nullptr != GetPrev())
+	{
+		RenderChar = '~';
+	}
+}
+
 int2 Body::MapCheck()
 {
 	int2 ScreenSize = ConsoleGameScreen::GetMainScreen().GetScreenSize();
 
-	int FullSize = ScreenSize.X * ScreenSize.Y;
+	std::vector<std::vector<bool>> MapPos;
 
-	std::vector<std::vector<bool>> Map;
+	MapPos.resize(ScreenSize.Y);
 
-	Map.resize(ScreenSize.Y);
-	for (int i = 0; i < Map.size(); i++)
+	for (int i = 0; i < MapPos.size(); i++)
 	{
-		Map[i].resize(ScreenSize.X);
+		MapPos[i].resize(ScreenSize.X);
 	}
 
 	std::list<ConsoleGameObject*> HeadGroup = ConsoleObjectManager::GetGroup(ObjectOrder::Head);
+
 	for (ConsoleGameObject* HeadPtr : HeadGroup)
 	{
-		if (nullptr == HeadPtr)
+		Parts* HeadPart = dynamic_cast<Parts*>(HeadPtr);
+
+		if (nullptr == HeadPart)
 		{
-			continue;
+			break;
 		}
-		int2 HeadPos = HeadPtr->GetPos();
 
-		Map[HeadPos.Y][HeadPos.X] = true;
-	}
-
-	std::list<ConsoleGameObject*> BodyGroup = ConsoleObjectManager::GetGroup(ObjectOrder::Body);
-	for (ConsoleGameObject* BodyPtr : BodyGroup)
-	{
-		if (nullptr == BodyPtr)
+		while (nullptr != HeadPart)
 		{
-			continue;
-		}
-		int2 BodyPos = BodyPtr->GetPos();
+			int2 HeadPos = HeadPart->GetPos();
 
-		Map[BodyPos.Y][BodyPos.X] = true;
+			MapPos[HeadPos.Y][HeadPos.X] = true;
+
+			HeadPart = HeadPart->GetNext();
+		}
 	}
 
 	std::vector<int2> MapBlank;
 
-	MapBlank.reserve(FullSize);
-
-	for (int i = 0; i < Map.size(); i++)
+	for (int i = 0; i < MapPos.size(); i++)
 	{
-		for (int j = 0; j < Map[i].size(); j++)
+		for (int j = 0; j < MapPos[i].size(); j++)
 		{
-			if (false == Map[j][i])
+			if (false == MapPos[i][j])
 			{
-				MapBlank.push_back({ i, j });
+				MapBlank.reserve(MapBlank.size() + 1);
+
+				MapBlank.push_back({ j, i });
 			}
 		}
 	}
 
-	int R = GameEngineRandom::MainRandom.RandomInt(0, MapBlank.size() - 1);
+	int RandomNumber = GameEngineRandom::MainRandom.RandomInt(0, MapBlank.size() - 1);
 
-	return MapBlank[R];
+	int2 NewPos = MapBlank[RandomNumber];
+
+	return NewPos;
 }

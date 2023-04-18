@@ -10,11 +10,6 @@ Parts::~Parts()
 {
 }
 
-void Parts::Update() 
-{
-	ConsoleGameObject::Update();
-}
-
 void Parts::NextMove()
 {
 	Parts* Next = GetNext();
@@ -26,4 +21,11 @@ void Parts::NextMove()
 
 	Next->SetPos(GetPrevPos());
 	return Next->NextMove();
+}
+
+void Parts::SetPos(const int2& _Pos)
+{
+	PrevPos = GetPos();
+
+	ConsoleGameObject::SetPos(_Pos);
 }

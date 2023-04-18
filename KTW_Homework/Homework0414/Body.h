@@ -15,7 +15,9 @@ public:
 	Body& operator=(Body&& _Other) noexcept = delete;
 
 	int2 MapCheck();
+
 protected:
+	void Update() override;
 
 private:
 };
