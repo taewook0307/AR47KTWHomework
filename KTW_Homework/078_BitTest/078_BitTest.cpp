@@ -13,3 +13,5 @@ int main()
     char Test2 = CharPtr[2];
     char Test3 = CharPtr[3];
 }
+
+// big endian,     little endian

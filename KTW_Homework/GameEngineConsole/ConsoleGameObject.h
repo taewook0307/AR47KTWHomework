@@ -4,7 +4,7 @@
 class ConsoleGameObject
 {
 public:
-	inline void SetPos(const int2& _Value)
+	inline virtual void SetPos(const int2& _Value)
 	{
 		Pos = _Value;
 	}
@@ -26,7 +26,7 @@ public:
 
 	bool IsUpdate()
 	{
-		return UpdateValue;
+		return UpdateValue && false == IsDeath();
 	}
 
 	void On()

@@ -2,6 +2,7 @@
 #include "Head.h"
 #include "GameEnum.h"
 
+#include <vector>
 #include <list>
 #include <GameEngineBase/GameEngineRandom.h>
 #include <GameEngineConsole/ConsoleGameScreen.h>
@@ -15,92 +16,67 @@ Body::Body()
 {
 	RenderChar = 'F';
 
-	int X = GameEngineRandom::MainRandom.RandomInt(0, ConsoleGameScreen::GetMainScreen().GetScreenSize().X - 1);
-	int Y = GameEngineRandom::MainRandom.RandomInt(0, ConsoleGameScreen::GetMainScreen().GetScreenSize().Y - 1);
-
-	while (true)
-	{
-		if (false == SameAnotherBodyPos({ X, Y }) && false == SameHeadPos({ X, Y }))
-		{
-			break;
-		}
-		else
-		{
-			X = GameEngineRandom::MainRandom.RandomInt(0, ConsoleGameScreen::GetMainScreen().GetScreenSize().X - 1);
-			Y = GameEngineRandom::MainRandom.RandomInt(0, ConsoleGameScreen::GetMainScreen().GetScreenSize().Y - 1);
-		}
-	}
-
-	SetPos({ X, Y });
+	SetPos(MapCheck());
 }
 
 Body::~Body() 
 {
 }
 
-void Body::Update()
+int2 Body::MapCheck()
 {
-	if (true == SameHeadPos())
+	int2 ScreenSize = ConsoleGameScreen::GetMainScreen().GetScreenSize();
+
+	int FullSize = ScreenSize.X * ScreenSize.Y;
+
+	std::vector<std::vector<bool>> Map;
+
+	Map.resize(ScreenSize.Y);
+	for (int i = 0; i < Map.size(); i++)
 	{
-		RenderChar = '~';
+		Map[i].resize(ScreenSize.X);
 	}
 
-	ConsoleGameObject::Update();
-}
-
-void Body::Render()
-{
-	ConsoleGameObject::Render();
-}
-
-// 함수의 파라미터가 플레이어의 위치와 같을 경우 true
-bool Body::SameHeadPos(int2 _Pos)
-{
-	std::list<ConsoleGameObject*>& HeadGroup = ConsoleObjectManager::GetGroup(ObjectOrder::Head);
-
+	std::list<ConsoleGameObject*> HeadGroup = ConsoleObjectManager::GetGroup(ObjectOrder::Head);
 	for (ConsoleGameObject* HeadPtr : HeadGroup)
 	{
-		if (HeadPtr == nullptr)
+		if (nullptr == HeadPtr)
 		{
 			continue;
 		}
-
 		int2 HeadPos = HeadPtr->GetPos();
 
-		if (HeadPos == _Pos)
-		{
-			return true;
-		}
+		Map[HeadPos.Y][HeadPos.X] = true;
 	}
-	return false;
-}
 
-// 자신의 위치가 플레이어의 위치와 같을 경우 true
-bool Body::SameHeadPos()
-{
-	return SameHeadPos(GetPos());
-}
-
-
-
-bool Body::SameAnotherBodyPos(int2 _Pos)
-{
-	std::list<ConsoleGameObject*>& BodyGroup = ConsoleObjectManager::GetGroup(ObjectOrder::Body);
-
+	std::list<ConsoleGameObject*> BodyGroup = ConsoleObjectManager::GetGroup(ObjectOrder::Body);
 	for (ConsoleGameObject* BodyPtr : BodyGroup)
 	{
-		if (BodyPtr == nullptr)
+		if (nullptr == BodyPtr)
 		{
 			continue;
 		}
-
 		int2 BodyPos = BodyPtr->GetPos();
 
-		if (BodyPos == _Pos)
+		Map[BodyPos.Y][BodyPos.X] = true;
+	}
+
+	std::vector<int2> MapBlank;
+
+	MapBlank.reserve(FullSize);
+
+	for (int i = 0; i < Map.size(); i++)
+	{
+		for (int j = 0; j < Map[i].size(); j++)
 		{
-			return true;
+			if (false == Map[j][i])
+			{
+				MapBlank.push_back({ i, j });
+			}
 		}
 	}
 
-	return false;
+	int R = GameEngineRandom::MainRandom.RandomInt(0, MapBlank.size() - 1);
+
+	return MapBlank[R];
 }

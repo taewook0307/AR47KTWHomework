@@ -18,25 +18,11 @@ public:
 
 	static bool IsPlay;
 
-	bool CheckPos();
-
-
 protected:
 	void Update() override;
 	void IsBodyCheck();
-	void NewBodyCreate();
-	void CheckScreenFull();
 
 private:
 	int2 Dir = int2::Up;
-
-	int BodyCount = 0;
-
-	std::vector<int2> VectorPos;
-
-	inline void BodyPlus()
-	{
-		++BodyCount;
-	}
 };
 
