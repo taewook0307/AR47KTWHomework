@@ -20,12 +20,12 @@ public:
 
 	bool IsScreenOver(const int2& _Pos) const;
 
-	void SetScreenCharacter(const int2& _Pos, char _Ch);
+	void SetScreenCharacter(const int2& _Pos, wchar_t _Ch);
 
 protected:
 
 private:
-	std::vector<std::vector<char>> ArrScreen;
+	std::vector<std::vector<wchar_t>> ArrScreen;
 
 	int2 Size;
 

@@ -11,21 +11,22 @@ void ConsoleGameScreen::ScreenClear()
 	{
 		for (size_t x = 0; x < this->Size.X; x++)
 		{
-			ArrScreen[y][x] = 'a';
+			ArrScreen[y][x] = L'бр';
 		}
 	}
 }
 
 void ConsoleGameScreen::ScreenPrint() const
 {
+	setlocale(LC_ALL, "KOR");
 	for (size_t y = 0; y < this->Size.Y; y++)
 	{
 		for (size_t x = 0; x < this->Size.X; x++)
 		{
 			// Arr[y][x] = 'b';
-			printf_s("%c", ArrScreen[y][x]);
+			wprintf_s(L"%c", ArrScreen[y][x]);
 		}
-		printf_s("\n");
+		wprintf_s(L"\n");
 	}
 }
 
@@ -106,7 +107,7 @@ bool ConsoleGameScreen::IsScreenOver(const int2& _Pos) const
 	return false;
 }
 
-void ConsoleGameScreen::SetScreenCharacter(const int2& _Pos, char _Ch)
+void ConsoleGameScreen::SetScreenCharacter(const int2& _Pos, wchar_t _Ch)
 {
 	if (true == IsScreenOver(_Pos))
 	{
