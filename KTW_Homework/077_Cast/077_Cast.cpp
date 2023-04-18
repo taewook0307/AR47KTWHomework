@@ -1,5 +1,23 @@
 ﻿#include <iostream>
 
+class A
+{
+    virtual void Test()
+    {
+
+    }
+};
+
+class B : public A
+{
+
+};
+
+class C : public A
+{
+
+};
+
 int main()
 {
     // static_cast
@@ -26,8 +44,19 @@ int main()
 
     // dynamic_cast
     // 부모자식구조에서 사용됨 => 다운 캐스팅에 사용
+    // 가상함수 테이블을 참조해서 다운캐스팅이 가능한지를 확인
     {
-        // 가상함수 테이블을 참조해서 다운캐스팅이 가능한지를 확인
+        A* PtrA = new B();
+        B* PtrB = dynamic_cast<B*>(PtrA);       // 다운 캐스팅이 가능하므로 PtrB는 null이 아님
+
+        int a = 0;
+    }
+
+    {
+        A* PtrA = new C();
+        B* PtrB = dynamic_cast<B*>(PtrA);       // 다운 캐스팅이 아니므로 PtrB = null
+
+        int a = 0;
     }
 
     // const_cast

@@ -14,4 +14,7 @@ int main()
     char Test3 = CharPtr[3];
 }
 
-// big endian,     little endian
+// big endian
+// 낮은 주소에 데이터의 높은 바이트부터 저장하는 방식
+// little endian
+// 낮은 주소에 데이터의 낮은 바이트부터 저장하는 방식
