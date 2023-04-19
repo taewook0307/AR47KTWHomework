@@ -29,9 +29,12 @@ void Body::Update()
 	{
 		int2 MyPos = GetPos();
 		int2 MyPrevPos = GetPrevPos();
+
+		// 현재 위치에서 전 위치를 빼서 방향 확인
 		int2 DirPos = MyPos - MyPrevPos;
 		SetDir(DirPos);
 
+		// 방향에 따라 다른 모양을 대입
 		if (GetDir() == int2::Left)
 		{
 			RenderChar = L'◀';
