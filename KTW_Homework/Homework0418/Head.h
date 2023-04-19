@@ -23,6 +23,5 @@ protected:
 	void IsBodyCheck();
 
 private:
-	int2 Dir = int2::Up;
 };
 

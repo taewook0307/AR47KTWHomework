@@ -69,22 +69,22 @@ void Head::Update()
 	{
 	case 'a':
 	case 'A':
-		Dir = int2::Left;
+		SetDir(int2::Left);
 		RenderChar = L'◀';
 		break;
 	case 'd':
 	case 'D':
-		Dir = int2::Right;
+		SetDir(int2::Right);
 		RenderChar = L'▶';
 		break;
 	case 'w':
 	case 'W':
-		Dir = int2::Up;
+		SetDir(int2::Up);
 		RenderChar = L'▲';
 		break;
 	case 's':
 	case 'S':
-		Dir = int2::Down;
+		SetDir(int2::Down);
 		RenderChar = L'▼';
 		break;
 	case 'q':
@@ -96,7 +96,7 @@ void Head::Update()
 	}
 
 	IsBodyCheck();
-	SetPos(GetPos() + Dir);
+	SetPos(GetPos() + GetDir());
 	NextMove();
 
 	// 스크린 밖으로 나갈 경우 게임 오버
