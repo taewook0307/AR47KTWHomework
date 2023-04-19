@@ -30,20 +30,21 @@ void Body::Update()
 		int2 MyPos = GetPos();
 		int2 MyPrevPos = GetPrevPos();
 		int2 DirPos = MyPos - MyPrevPos;
+		SetDir(DirPos);
 
-		if (DirPos == int2::Left)
+		if (GetDir() == int2::Left)
 		{
 			RenderChar = L'¢¸';
 		}
-		else if (DirPos == int2::Right)
+		else if (GetDir() == int2::Right)
 		{
 			RenderChar = L'¢º';
 		}
-		else if (DirPos == int2::Up)
+		else if (GetDir() == int2::Up)
 		{
 			RenderChar = L'¡ã';
 		}
-		else if (DirPos == int2::Down)
+		else if (GetDir() == int2::Down)
 		{
 			RenderChar = L'¡å';
 		}

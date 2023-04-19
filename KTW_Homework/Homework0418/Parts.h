@@ -62,6 +62,16 @@ public:
 		_Prev->Next = this;
 	}
 
+	inline void SetDir(const int2& _Dir)
+	{
+		Dir = _Dir;
+	}
+
+	inline int2 GetDir() const
+	{
+		return Dir;
+	}
+
 	void NextMove();
 
 	void SetPos(const int2& _Pos) override;
