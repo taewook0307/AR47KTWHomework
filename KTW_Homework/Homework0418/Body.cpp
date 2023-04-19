@@ -51,10 +51,6 @@ void Body::Update()
 		{
 			RenderChar = L'¡å';
 		}
-		else
-		{
-			RenderChar = L'¡Þ';
-		}
 	}
 }
 
