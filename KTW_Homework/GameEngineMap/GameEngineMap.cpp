@@ -10,57 +10,59 @@
 int main()
 {
     {
-        //std::map<int, int> Test;
+        std::map<int, int> Test;
 
-        //// insert는 pair<int, int>를 달라고 하는 함수
-        //// 키가 겹칠때는 무시하면서 리턴해주는게 정상적으로 들어간 노드를 리턴
-        //Test.insert(std::pair<int, int>(10, rand()));
-        //Test.insert(std::pair<int, int>(7, rand()));
-        //Test.insert(std::pair<int, int>(15, rand()));
-        //Test.insert(std::pair<int, int>(25, rand()));
-        //Test.insert(std::pair<int, int>(17, rand()));
-        //Test.insert(std::pair<int, int>(15, rand()));
-        //Test.insert(std::pair<int, int>(18, rand()));
-        //Test.insert(std::pair<int, int>(6, rand()));
-        //Test.insert(std::pair<int, int>(4, rand()));
-        //Test.insert(std::pair<int, int>(5, rand()));
-        //Test.insert(std::pair<int, int>(2, rand()));
-        //Test.insert(std::pair<int, int>(9, rand()));
-        //Test.insert(std::pair<int, int>(8, rand()));
-        //Test.insert(std::pair<int, int>(1, rand()));
+        // insert는 pair<int, int>를 달라고 하는 함수
+        // 키가 겹칠때는 무시하면서 리턴해주는게 정상적으로 들어간 노드를 리턴
+        Test.insert(std::pair<int, int>(10, rand()));
+        Test.insert(std::pair<int, int>(7, rand()));
+        Test.insert(std::pair<int, int>(15, rand()));
+        Test.insert(std::pair<int, int>(25, rand()));
+        Test.insert(std::pair<int, int>(17, rand()));
+        Test.insert(std::pair<int, int>(15, rand()));
+        Test.insert(std::pair<int, int>(18, rand()));
+        Test.insert(std::pair<int, int>(6, rand()));
+        Test.insert(std::pair<int, int>(4, rand()));
+        Test.insert(std::pair<int, int>(5, rand()));
+        Test.insert(std::pair<int, int>(2, rand()));
+        Test.insert(std::pair<int, int>(9, rand()));
+        Test.insert(std::pair<int, int>(8, rand()));
+        Test.insert(std::pair<int, int>(1, rand()));
 
-        ///*
-        //                             6
+        /*
+                                     6
 
-        //             3                                10
+                     3                                10
 
-        //      1            4                   8               11
+              1            4                   8               11
 
-        //          2            5          7         9
-        //키 값이 작으면 왼쪽
-        //키 값이 크면 오른쪽
+                  2            5          7         9
+        키 값이 작으면 왼쪽
+        키 값이 크면 오른쪽
 
-        //키 값에 의해 들어오는 pair의 방향이 결정 : 키 값 변경 불가능
-        //value 값은 상관 없음
-        //*/
+        키 값에 의해 들어오는 pair의 방향이 결정 : 키 값 변경 불가능
+        value 값은 상관 없음
+        */
 
 
-        //// insert 하는 방법
-        //// Test.insert(std::pair<int, int>(1, 1));
-        //// Test.insert(std::make_pair(1, 1));
-        //// Test.insert(std::map<int, int>::value_type(1, 1));
+        // insert 하는 방법
+        // Test.insert(std::pair<int, int>(1, 1));
+        // Test.insert(std::make_pair(1, 1));
+        // Test.insert(std::map<int, int>::value_type(1, 1));
 
-        //std::map<int, int>::iterator Start = Test.begin();
-        //std::map<int, int>::iterator End = Test.end();
+        std::map<int, int>::reverse_iterator Start = Test.rbegin();
+        std::map<int, int>::reverse_iterator End = Test.rend();
 
-        //for (; Start != End; Start++)
-        //{
-        //    int Key = Start->first;
-        //    int Value = Start->second;
+        std::cout << "std::map 출력" << std::endl;
 
-        //    printf_s("Key : %d\n", Key);
-        //    // printf_s("Value : %d\n", Value);
-        //}
+        for (; Start != End; ++Start)
+        {
+            int Key = Start->first;
+            int Value = Start->second;
+
+            std::cout << "Key : " << Key << std::endl;
+            // printf_s("Value : %d\n", Value);
+        }
     }
 
     {
@@ -107,12 +109,14 @@ int main()
         GameEngineMap::iterator StartIter = Test.rbegin();
         GameEngineMap::iterator EndIter = Test.rend();
 
+        std::cout << "GameEngineMap 출력" << std::endl;
+
         for (; StartIter != EndIter; --StartIter)
         {
             int Key = StartIter->first;
             int Value = StartIter->second;
 
-            printf_s("Key : %d\n", Key);
+            std::cout << "Key : " << Key << std::endl;
             // printf_s("Value : %d\n", Value);
         }
     }
