@@ -43,7 +43,24 @@ public:
 		// LeftChild == nullptr && RightChild == nullptr => Parent
 		// Parent의 Key값이 현재 Key값보다 작으면 Parent의 Parent
 
+			if (nullptr != RightChild)
+			{
+				return RightChild->MinNode();
+			}
+
+			
+
 			return nullptr;
+		}
+
+		MapNode* MaxNode()
+		{
+			if (nullptr == RightChild)
+			{
+				return this;
+			}
+
+			return RightChild->MaxNode();
 		}
 
 		MapNode* MinNode()
@@ -141,6 +158,11 @@ public:
 		bool operator==(const iterator& _Other) const
 		{
 			return Node == _Other.Node;
+		}
+
+		iterator operator++()
+		{
+			return Node->NextNode();
 		}
 
 	private:
