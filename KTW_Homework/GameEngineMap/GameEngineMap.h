@@ -48,8 +48,6 @@ public:
 				return RightChild->MinNode();
 			}
 
-			
-
 			return nullptr;
 		}
 
