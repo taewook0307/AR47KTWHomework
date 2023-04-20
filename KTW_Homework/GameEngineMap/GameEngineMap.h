@@ -36,16 +36,75 @@ public:
 		MapNode* RightChild = nullptr;
 		GameEnginePair Pair;
 
+		MapNode* OverParentNode()
+		{
+			MapNode* ParentNode = Parent;
+
+			while (Pair.first > ParentNode->Pair.first)
+			{
+				ParentNode = ParentNode->Parent;
+
+				if (nullptr == ParentNode)
+				{
+					return nullptr;
+				}
+			}
+
+			return ParentNode;
+		}
+
 		MapNode* NextNode()
 		{
-		// Next Node의 Key값이 현재 Key값보다 커야함
-		// RightChild != nullptr => RightChild -> MinNode
-		// LeftChild == nullptr && RightChild == nullptr => Parent
-		// Parent의 Key값이 현재 Key값보다 작으면 Parent의 Parent
-
 			if (nullptr != RightChild)
 			{
 				return RightChild->MinNode();
+			}
+
+			if (nullptr != Parent)
+			{
+				return OverParentNode();
+			}
+
+			return nullptr;
+		}
+
+		MapNode* MinNode()
+		{
+			if (nullptr == LeftChild)
+			{
+				return this;
+			}
+
+			return LeftChild->MinNode();
+		}
+
+		MapNode* NotOverParentNode()
+		{
+			MapNode* ParentNode = Parent;
+
+			while (Pair.first < ParentNode->Pair.first)
+			{
+				ParentNode = ParentNode->Parent;
+
+				if (nullptr == ParentNode)
+				{
+					return nullptr;
+				}
+			}
+
+			return ParentNode;
+		}
+
+		MapNode* PrevNode()
+		{
+			if (nullptr != LeftChild)
+			{
+				return LeftChild->MaxNode();
+			}
+
+			if (nullptr != Parent)
+			{
+				return NotOverParentNode();
 			}
 
 			return nullptr;
@@ -59,16 +118,6 @@ public:
 			}
 
 			return RightChild->MaxNode();
-		}
-
-		MapNode* MinNode()
-		{
-			if (nullptr == LeftChild)
-			{
-				return this;
-			}
-
-			return LeftChild->MinNode();
 		}
 
 		bool insert(MapNode* _NewNode)
@@ -158,17 +207,23 @@ public:
 			return Node == _Other.Node;
 		}
 
-		iterator operator++()
+		iterator& operator++()
 		{
-			return Node->NextNode();
+			Node = Node->NextNode();
+
+			return *this;
+		}
+
+		iterator& operator--()
+		{
+			Node = Node->PrevNode();
+
+			return *this;
 		}
 
 	private:
-		// 전방선언
 		class MapNode* Node = nullptr;
 	};
-
-
 
 	iterator begin()
 	{
@@ -185,6 +240,21 @@ public:
 		return iterator();
 	}
 
+	iterator rbegin()
+	{
+		if (nullptr == Root)
+		{
+			return rend();
+		}
+
+		return iterator(Root->MaxNode());
+	}
+
+	iterator rend()
+	{
+		return iterator();
+	}
+
 	iterator find(KeyType _Key)
 	{
 		if (nullptr == Root)
@@ -197,8 +267,6 @@ public:
 		return iterator(FindNode);
 	}
 
-
-	// 안들어가면 false리턴
 	bool insert(const GameEnginePair& _Pair)
 	{
 		if (nullptr == Root)
