@@ -78,7 +78,7 @@ public:
 			return LeftChild->MinNode();
 		}
 
-		MapNode* NotOverParentNode()
+		MapNode* UnderParentNode()
 		{
 			MapNode* ParentNode = Parent;
 
@@ -104,7 +104,7 @@ public:
 
 			if (nullptr != Parent)
 			{
-				return NotOverParentNode();
+				return UnderParentNode();
 			}
 
 			return nullptr;
