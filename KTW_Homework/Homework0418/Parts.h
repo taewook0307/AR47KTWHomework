@@ -72,9 +72,14 @@ public:
 		return Dir;
 	}
 
-	void NextMove();
+	void SetPos(const int2& _Pos) override
+	{
+		PrevPos = GetPos();
 
-	void SetPos(const int2& _Pos) override;
+		ConsoleGameObject::SetPos(_Pos);
+	}
+
+	void NextMove();
 protected:
 
 private:

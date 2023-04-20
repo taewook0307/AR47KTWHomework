@@ -17,7 +17,6 @@ public:
 	int2 MapCheck();
 
 protected:
-	void Update() override;
 
 private:
 };

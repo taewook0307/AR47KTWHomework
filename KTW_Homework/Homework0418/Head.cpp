@@ -27,6 +27,11 @@ void Head::IsBodyCheck()
 
 	for (ConsoleGameObject* BodyPtr : BodyGroup)
 	{
+		if (nullptr == BodyPtr)
+		{
+			continue;
+		}
+
 		int2 BodyPos = BodyPtr->GetPos();
 
 		if (GetPos() == BodyPos)
@@ -94,9 +99,8 @@ void Head::Update()
 	default:
 		return;
 	}
-
-	IsBodyCheck();
 	SetPos(GetPos() + GetDir());
+	IsBodyCheck();
 	NextMove();
 
 	// 스크린 밖으로 나갈 경우 게임 오버

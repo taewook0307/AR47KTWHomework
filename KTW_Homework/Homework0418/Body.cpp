@@ -23,37 +23,6 @@ Body::~Body()
 {
 }
 
-void Body::Update()
-{
-	if (nullptr != GetPrev())
-	{
-		int2 MyPos = GetPos();
-		int2 MyPrevPos = GetPrevPos();
-
-		// 현재 위치에서 전 위치를 빼서 방향 확인
-		int2 DirPos = MyPos - MyPrevPos;
-		SetDir(DirPos);
-
-		// 방향에 따라 다른 모양을 대입
-		if (GetDir() == int2::Left)
-		{
-			RenderChar = L'◀';
-		}
-		else if (GetDir() == int2::Right)
-		{
-			RenderChar = L'▶';
-		}
-		else if (GetDir() == int2::Up)
-		{
-			RenderChar = L'▲';
-		}
-		else if (GetDir() == int2::Down)
-		{
-			RenderChar = L'▼';
-		}
-	}
-}
-
 int2 Body::MapCheck()
 {
 	int2 ScreenSize = ConsoleGameScreen::GetMainScreen().GetScreenSize();
