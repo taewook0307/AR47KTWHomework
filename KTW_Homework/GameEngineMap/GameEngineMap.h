@@ -11,6 +11,7 @@ public:
 
 public:
 	GameEnginePair()
+		: first(0), second(0)
 	{
 
 	}
@@ -37,6 +38,12 @@ public:
 
 		MapNode* NextNode()
 		{
+		// 이미 체크된 노드는 continue
+		// LeftChild == nullptr => RightChild
+		// RightChild == nullptr => Parent
+		// RightChild != nullptr => RightChild
+		// LeftChild != nullptr => LeftChild
+
 			return nullptr;
 		}
 
