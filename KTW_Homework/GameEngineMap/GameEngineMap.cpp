@@ -15,11 +15,11 @@ int main()
     Test.insert(std::pair<int, int>(3, 5));
     Test.insert(std::pair<int, int>(10, 15));
     Test.insert(std::pair<int, int>(1, 23));
+    Test.insert(std::pair<int, int>(4, 36));
     Test.insert(std::pair<int, int>(5, 45));
     Test.insert(std::pair<int, int>(8, 5));
     Test.insert(std::pair<int, int>(11, 6));
     Test.insert(std::pair<int, int>(2, 23));
-    Test.insert(std::pair<int, int>(4, 36));
     Test.insert(std::pair<int, int>(7, 25));
     Test.insert(std::pair<int, int>(9, 126));
 
@@ -28,9 +28,9 @@ int main()
 
                  3                                10
 
-          1            5                   8               11
+          1            4                   8               11
 
-              2     4                 7         9
+              2            5          7         9
     키 값이 작으면 왼쪽
     키 값이 크면 오른쪽
     
