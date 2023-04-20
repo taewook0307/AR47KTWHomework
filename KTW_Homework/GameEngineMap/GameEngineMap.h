@@ -38,7 +38,7 @@ public:
 
 		MapNode* NextNode()
 		{
-		// 이미 체크된 노드는 continue
+		// Key값이 현재 Key값보다 작으면 그 Key값의 Parent
 		// LeftChild == nullptr => RightChild
 		// RightChild == nullptr => Parent
 		// RightChild != nullptr => RightChild
