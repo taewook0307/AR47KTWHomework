@@ -14,7 +14,7 @@
 
 Body::Body() 
 {
-	RenderChar = L'¡Þ';
+	RenderChar = L'¡ß';
 
 	SetPos(MapCheck());
 }
