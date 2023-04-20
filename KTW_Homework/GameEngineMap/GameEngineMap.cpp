@@ -11,20 +11,26 @@ int main()
 
     // insert는 pair<int, int>를 달라고 하는 함수
     // 키가 겹칠때는 무시하면서 리턴해주는게 정상적으로 들어간 노드를 리턴
-    Test.insert(std::pair<int, int>(7, 1));
-    Test.insert(std::pair<int, int>(6, 5));
-    Test.insert(std::pair<int, int>(3, 15));
-    Test.insert(std::pair<int, int>(16, 23));
-    Test.insert(std::pair<int, int>(12, 45));
+    Test.insert(std::pair<int, int>(6, 1));
+    Test.insert(std::pair<int, int>(3, 5));
+    Test.insert(std::pair<int, int>(10, 15));
+    Test.insert(std::pair<int, int>(1, 23));
+    Test.insert(std::pair<int, int>(5, 45));
+    Test.insert(std::pair<int, int>(8, 5));
+    Test.insert(std::pair<int, int>(11, 6));
+    Test.insert(std::pair<int, int>(2, 23));
+    Test.insert(std::pair<int, int>(4, 36));
+    Test.insert(std::pair<int, int>(7, 25));
+    Test.insert(std::pair<int, int>(9, 126));
 
     /*
-                    7       <= R
-                    oot Node
+                                 6
 
-                6       16
-                        
-            3         12
-    
+                 3                                10
+
+          1            5                   8               11
+
+              2     4                 7         9
     키 값이 작으면 왼쪽
     키 값이 크면 오른쪽
     
@@ -37,4 +43,16 @@ int main()
     // Test.insert(std::pair<int, int>(1, 1));
     // Test.insert(std::make_pair(1, 1));
     // Test.insert(std::map<int, int>::value_type(1, 1));
+
+    std::map<int, int>::iterator Start = Test.begin();
+    std::map<int, int>::iterator End = Test.end();
+
+    for (; Start != End; Start++)
+    {
+        int Key = Start->first;
+        int Value = Start->second;
+
+        printf_s("Key : %d\n", Key);
+        // printf_s("Value : %d\n", Value);
+    }
 }

@@ -38,11 +38,11 @@ public:
 
 		MapNode* NextNode()
 		{
-		// Key값이 현재 Key값보다 작으면 그 Key값의 Parent
-		// LeftChild == nullptr => RightChild
-		// RightChild == nullptr => Parent
-		// RightChild != nullptr => RightChild
-		// LeftChild != nullptr => LeftChild
+			// 현재 Key값보다 다음노드의 Key값이 커야함
+			// LeftChild != nullptr => 무조건 LeftChild
+			// RightChild != nullptr => RightChild
+			// LeftChild == nullptr && RightChild == nullptr => Parent
+			// Parent의 Key값이 현재 Key값보다 작으면 Parent의 Parent
 
 			return nullptr;
 		}
