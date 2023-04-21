@@ -9,65 +9,65 @@
 
 int main()
 {
-    {
-        std::map<int, int> Test;
+    //{
+    //    std::map<int, int> Test;
 
-        // insert는 pair<int, int>를 달라고 하는 함수
-        // 키가 겹칠때는 무시하면서 리턴해주는게 정상적으로 들어간 노드를 리턴
-        Test.insert(std::pair<int, int>(10, rand()));
-        Test.insert(std::pair<int, int>(7, rand()));
-        Test.insert(std::pair<int, int>(15, rand()));
-        Test.insert(std::pair<int, int>(25, rand()));
-        Test.insert(std::pair<int, int>(17, rand()));
-        Test.insert(std::pair<int, int>(15, rand()));
-        Test.insert(std::pair<int, int>(18, rand()));
-        Test.insert(std::pair<int, int>(6, rand()));
-        Test.insert(std::pair<int, int>(4, rand()));
-        Test.insert(std::pair<int, int>(5, rand()));
-        Test.insert(std::pair<int, int>(2, rand()));
-        Test.insert(std::pair<int, int>(9, rand()));
-        Test.insert(std::pair<int, int>(8, rand()));
-        Test.insert(std::pair<int, int>(1, rand()));
+    //    // insert는 pair<int, int>를 달라고 하는 함수
+    //    // 키가 겹칠때는 무시하면서 리턴해주는게 정상적으로 들어간 노드를 리턴
+    //    Test.insert(std::pair<int, int>(10, rand()));
+    //    Test.insert(std::pair<int, int>(7, rand()));
+    //    Test.insert(std::pair<int, int>(15, rand()));
+    //    Test.insert(std::pair<int, int>(25, rand()));
+    //    Test.insert(std::pair<int, int>(17, rand()));
+    //    Test.insert(std::pair<int, int>(15, rand()));
+    //    Test.insert(std::pair<int, int>(18, rand()));
+    //    Test.insert(std::pair<int, int>(6, rand()));
+    //    Test.insert(std::pair<int, int>(4, rand()));
+    //    Test.insert(std::pair<int, int>(5, rand()));
+    //    Test.insert(std::pair<int, int>(2, rand()));
+    //    Test.insert(std::pair<int, int>(9, rand()));
+    //    Test.insert(std::pair<int, int>(8, rand()));
+    //    Test.insert(std::pair<int, int>(1, rand()));
 
-        /*
-                                     10
+    //    /*
+    //                                 10
 
-                     7                                15
+    //                 7                                15
 
-               6           9                                 25
+    //           6           9                                 25
 
-           4           8                                  17
+    //       4           8                                  17
 
-       2       5                                              18
+    //   2       5                                              18
 
-    1
-        키 값이 작으면 왼쪽
-        키 값이 크면 오른쪽
+    //1
+    //    키 값이 작으면 왼쪽
+    //    키 값이 크면 오른쪽
 
-        키 값에 의해 들어오는 pair의 방향이 결정 : 키 값 변경 불가능
-        value 값은 상관 없음
-        */
+    //    키 값에 의해 들어오는 pair의 방향이 결정 : 키 값 변경 불가능
+    //    value 값은 상관 없음
+    //    */
 
 
-        // insert 하는 방법
-        // Test.insert(std::pair<int, int>(1, 1));
-        // Test.insert(std::make_pair(1, 1));
-        // Test.insert(std::map<int, int>::value_type(1, 1));
+    //    // insert 하는 방법
+    //    // Test.insert(std::pair<int, int>(1, 1));
+    //    // Test.insert(std::make_pair(1, 1));
+    //    // Test.insert(std::map<int, int>::value_type(1, 1));
 
-        std::map<int, int>::reverse_iterator Start = Test.rbegin();
-        std::map<int, int>::reverse_iterator End = Test.rend();
+    //    std::map<int, int>::reverse_iterator Start = Test.rbegin();
+    //    std::map<int, int>::reverse_iterator End = Test.rend();
 
-        std::cout << "std::map 출력" << std::endl;
+    //    std::cout << "std::map 출력" << std::endl;
 
-        for (; Start != End; ++Start)
-        {
-            int Key = Start->first;
-            int Value = Start->second;
+    //    for (; Start != End; ++Start)
+    //    {
+    //        int Key = Start->first;
+    //        int Value = Start->second;
 
-            std::cout << "Key : " << Key << std::endl;
-            // printf_s("Value : %d\n", Value);
-        }
-    }
+    //        std::cout << "Key : " << Key << std::endl;
+    //        // printf_s("Value : %d\n", Value);
+    //    }
+    //}
 
     {
         GameEngineMap Test;
