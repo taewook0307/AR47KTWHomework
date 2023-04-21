@@ -13,7 +13,7 @@ bool Player::IsGameUpdate = true;
 
 Player::Player()
 {
-	RenderChar = '*';
+	RenderChar = L'★';
 	SetPos(ConsoleGameScreen::GetMainScreen().GetScreenSize().Half());
 
 }
@@ -87,7 +87,10 @@ bool Player::IsItem(int2 _Pos)
 void Player::BombPowerUpgrade()
 {
 	// 폭탄 길이 확장
-	++BombPower;
+	if (BombPower < 6)
+	{
+		++BombPower;
+	}
 	// 새로운 아이템 생성
 	ConsoleObjectManager::CreateConsoleObject<Item>(ObjectOrder::Item);
 }

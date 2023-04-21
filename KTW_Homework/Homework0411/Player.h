@@ -18,7 +18,7 @@ public:
 protected:
 
 private:
-	int BombPower = 1;
+	int BombPower = 2;
 
 	void BombPowerUpgrade();
 };
