@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <GameEngineBase/GameEngineDebug.h>
 
 typedef int KeyType;
@@ -202,6 +203,66 @@ public:
 
 			return this;
 		}
+
+		void FirstOrder()
+		{
+			std::cout << Pair.first << std::endl;
+			if (nullptr != LeftChild)
+			{
+				LeftChild->FirstOrder();
+			}
+			if (nullptr != RightChild)
+			{
+				RightChild->FirstOrder();
+			}
+		}
+
+		void MidOrder()
+		{
+			if (nullptr != LeftChild)
+			{
+				LeftChild->MidOrder();
+			}
+			std::cout << Pair.first << std::endl;
+			if (nullptr != RightChild)
+			{
+				RightChild->MidOrder();
+			}
+		}
+
+		void LastOrder()
+		{
+			if (nullptr != LeftChild)
+			{
+				LeftChild->LastOrder();
+			}
+			if (nullptr != RightChild)
+			{
+				RightChild->LastOrder();
+			}
+
+			std::cout << Pair.first << std::endl;
+		}
+
+		void DeleteNode()
+		{
+			if (nullptr != LeftChild)
+			{
+				LeftChild->DeleteNode();
+			}
+			if (nullptr != RightChild)
+			{
+				RightChild->DeleteNode();
+			}
+
+			MapNode* CurNode = this;
+
+			if (nullptr != CurNode)
+			{
+				delete CurNode;
+				CurNode = nullptr;
+			}
+		}
 	};
 
 	class iterator
@@ -345,7 +406,22 @@ public:
 		ParentNode->ChangeChild(CurNode, ChangeNode);
 
 		ChangeNode->LeftChild = LeftChild;
+		if (nullptr != LeftChild)
+		{
+			LeftChild->Parent = ChangeNode;
+		}
+
 		ChangeNode->RightChild = RightChild;
+		if (nullptr != RightChild)
+		{
+			RightChild->Parent = ChangeNode;
+		}
+
+		if (nullptr != CurNode)
+		{
+			delete CurNode;
+			CurNode = nullptr;
+		}
 
 		return NextNode;
 	}
@@ -381,6 +457,26 @@ public:
 		}
 
 		return true;
+	}
+
+	void FirstOrder()
+	{
+		Root->FirstOrder();
+	}
+
+	void MidOrder()
+	{
+		Root->MidOrder();
+	}
+
+	void LastOrder()
+	{
+		Root->LastOrder();
+	}
+
+	~GameEngineMap()
+	{
+		Root->DeleteNode();
 	}
 
 private:

@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <map>
+#include <GameEngineBase/GameEngineDebug.h>
 
 // map을 사용하는 이유
 // 탐색을 용이하게 하기 위해 != 탐색이 빠르다
@@ -9,6 +10,7 @@
 
 int main()
 {
+    GameEngineDebug::LeckCheck();
     //{
     //    std::map<int, int> Test;
 
@@ -114,26 +116,12 @@ int main()
         // Test.insert(std::make_pair(1, 1));
         // Test.insert(std::map<int, int>::value_type(1, 1));
 
-        {
-            GameEngineMap::iterator FindIter = Test.find(7);
-            GameEngineMap::iterator NextIter = Test.erase(FindIter);
-        }
-        {
-            GameEngineMap::iterator FindIter = Test.find(9);
-            GameEngineMap::iterator NextIter = Test.erase(FindIter);
-        }
-
-        {
-            GameEngineMap::iterator FindIter = Test.find(6);
-            GameEngineMap::iterator NextIter = Test.erase(FindIter);
-        }
-
-        GameEngineMap::iterator StartIter = Test.rbegin();
-        GameEngineMap::iterator EndIter = Test.rend();
+        GameEngineMap::iterator StartIter = Test.begin();
+        GameEngineMap::iterator EndIter = Test.end();
 
         std::cout << "GameEngineMap 출력" << std::endl;
 
-        for (; StartIter != EndIter; --StartIter)
+        for (; StartIter != EndIter; ++StartIter)
         {
             int Key = StartIter->first;
             int Value = StartIter->second;
@@ -141,5 +129,12 @@ int main()
             std::cout << "Key : " << Key << std::endl;
             // printf_s("Value : %d\n", Value);
         }
+
+        std::cout << "전위 순회" << std::endl;
+        Test.FirstOrder();
+        std::cout << "중위 순회" << std::endl;
+        Test.MidOrder();
+        std::cout << "후위 순회" << std::endl;
+        Test.LastOrder();
     }
 }
