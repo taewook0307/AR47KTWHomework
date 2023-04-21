@@ -112,6 +112,26 @@ public:
 
 		}
 
+		MapNode* MaxNode()
+		{
+			if (nullptr == RightChild)
+			{
+				return this;
+			}
+
+			return RightChild->MaxNode();
+		}
+
+		MapNode* MinNode()
+		{
+			if (nullptr == LeftChild)
+			{
+				return this;
+			}
+
+			return LeftChild->MinNode();
+		}
+
 		MapNode* OverParentNode()
 		{
 			MapNode* ParentNode = Parent;
@@ -144,16 +164,6 @@ public:
 			return nullptr;
 		}
 
-		MapNode* MinNode()
-		{
-			if (nullptr == LeftChild)
-			{
-				return this;
-			}
-
-			return LeftChild->MinNode();
-		}
-
 		MapNode* UnderParentNode()
 		{
 			MapNode* ParentNode = Parent;
@@ -184,16 +194,6 @@ public:
 			}
 
 			return nullptr;
-		}
-
-		MapNode* MaxNode()
-		{
-			if (nullptr == RightChild)
-			{
-				return this;
-			}
-
-			return RightChild->MaxNode();
 		}
 
 		bool insert(MapNode* _NewNode)
