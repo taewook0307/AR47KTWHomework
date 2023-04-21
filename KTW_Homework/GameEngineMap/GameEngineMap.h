@@ -3,9 +3,7 @@
 #include <iostream>
 #include <GameEngineBase/GameEngineDebug.h>
 
-typedef int KeyType;
-typedef int ValueType;
-
+template <typename KeyType, typename ValueType>
 class GameEnginePair
 {
 public:
@@ -26,7 +24,7 @@ public:
 	}
 };
 
-// Ό³Έν :
+template <typename KeyType, typename ValueType>
 class GameEngineMap
 {
 public:
@@ -37,7 +35,7 @@ public:
 		MapNode* Parent = nullptr;
 		MapNode* LeftChild = nullptr;
 		MapNode* RightChild = nullptr;
-		GameEnginePair Pair;
+		GameEnginePair<KeyType, ValueType> Pair;
 
 		bool IsLeaf()
 		{
@@ -283,7 +281,7 @@ public:
 
 		}
 
-		GameEnginePair* operator->()
+		GameEnginePair<KeyType, ValueType>* operator->()
 		{
 			return &Node->Pair;
 		}
@@ -438,7 +436,7 @@ public:
 		return iterator(FindNode);
 	}
 
-	bool insert(const GameEnginePair& _Pair)
+	bool insert(const GameEnginePair<KeyType, ValueType>& _Pair)
 	{
 		if (nullptr == Root)
 		{

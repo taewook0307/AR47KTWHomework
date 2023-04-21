@@ -72,24 +72,23 @@ int main()
     //}
 
     {
-        GameEngineMap Test;
+        GameEngineMap<int, int> Test;
 
         // insert는 pair<int, int>를 달라고 하는 함수
         // 키가 겹칠때는 무시하면서 리턴해주는게 정상적으로 들어간 노드를 리턴
-        Test.insert(GameEnginePair(10, rand()));
-        Test.insert(GameEnginePair(7, rand()));
-        Test.insert(GameEnginePair(15, rand()));
-        Test.insert(GameEnginePair(25, rand()));
-        Test.insert(GameEnginePair(17, rand()));
-        Test.insert(GameEnginePair(15, rand()));
-        Test.insert(GameEnginePair(18, rand()));
-        Test.insert(GameEnginePair(6, rand()));
-        Test.insert(GameEnginePair(4, rand()));
-        Test.insert(GameEnginePair(5, rand()));
-        Test.insert(GameEnginePair(2, rand()));
-        Test.insert(GameEnginePair(9, rand()));
-        Test.insert(GameEnginePair(8, rand()));
-        Test.insert(GameEnginePair(1, rand()));
+        Test.insert(GameEnginePair <int, int>(10, rand()));
+        Test.insert(GameEnginePair <int, int>(7, rand()));
+        Test.insert(GameEnginePair <int, int>(15, rand()));
+        Test.insert(GameEnginePair <int, int>(25, rand()));
+        Test.insert(GameEnginePair <int, int>(17, rand()));
+        Test.insert(GameEnginePair <int, int>(18, rand()));
+        Test.insert(GameEnginePair <int, int>(6, rand()));
+        Test.insert(GameEnginePair <int, int>(4, rand()));
+        Test.insert(GameEnginePair <int, int>(5, rand()));
+        Test.insert(GameEnginePair <int, int>(2, rand()));
+        Test.insert(GameEnginePair <int, int>(9, rand()));
+        Test.insert(GameEnginePair <int, int>(8, rand()));
+        Test.insert(GameEnginePair <int, int>(1, rand()));
 
         /*
                                      10
@@ -116,8 +115,8 @@ int main()
         // Test.insert(std::make_pair(1, 1));
         // Test.insert(std::map<int, int>::value_type(1, 1));
 
-        GameEngineMap::iterator StartIter = Test.begin();
-        GameEngineMap::iterator EndIter = Test.end();
+        GameEngineMap<int, int>::iterator StartIter = Test.begin();
+        GameEngineMap<int, int>::iterator EndIter = Test.end();
 
         std::cout << "GameEngineMap 출력" << std::endl;
 
