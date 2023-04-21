@@ -86,13 +86,17 @@ int main()
         Test.insert(GameEnginePair(1, rand()));
 
         /*
-                                     6
+                                     10
 
-                     3                                10
+                     7                                15
 
-              1            4                   8               11
+               6           9                                 25
 
-                  2            5          7         9
+           4           8                                  17
+
+       2       5                                              18
+
+    1
         키 값이 작으면 왼쪽
         키 값이 크면 오른쪽
 
@@ -105,6 +109,20 @@ int main()
         // Test.insert(std::pair<int, int>(1, 1));
         // Test.insert(std::make_pair(1, 1));
         // Test.insert(std::map<int, int>::value_type(1, 1));
+
+        {
+            GameEngineMap::iterator FindIter = Test.find(7);
+            GameEngineMap::iterator NextIter = Test.erase(FindIter);
+        }
+        {
+            GameEngineMap::iterator FindIter = Test.find(9);
+            GameEngineMap::iterator NextIter = Test.erase(FindIter);
+        }
+
+        {
+            GameEngineMap::iterator FindIter = Test.find(6);
+            GameEngineMap::iterator NextIter = Test.erase(FindIter);
+        }
 
         GameEngineMap::iterator StartIter = Test.rbegin();
         GameEngineMap::iterator EndIter = Test.rend();

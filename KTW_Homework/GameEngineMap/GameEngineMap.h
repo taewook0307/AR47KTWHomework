@@ -1,5 +1,7 @@
 #pragma once
 
+#include <GameEngineBase/GameEngineDebug.h>
+
 typedef int KeyType;
 typedef int ValueType;
 
@@ -35,6 +37,80 @@ public:
 		MapNode* LeftChild = nullptr;
 		MapNode* RightChild = nullptr;
 		GameEnginePair Pair;
+
+		bool IsLeaf()
+		{
+			return nullptr == LeftChild && nullptr == RightChild;
+		}
+
+		void ChangeChild(MapNode* _OldChild, MapNode* _NewChild)
+		{
+			if (_OldChild == LeftChild)
+			{
+				LeftChild = _NewChild;
+				if (nullptr != _NewChild)
+				{
+					_NewChild->Parent = this;
+				}
+				return;
+			}
+
+			if (_OldChild == RightChild)
+			{
+				RightChild = _NewChild;
+				if (nullptr != _NewChild)
+				{
+					_NewChild->Parent = this;
+				}
+				return;
+			}
+
+		}
+
+		void Detach()
+		{
+			MapNode* DetachParent = Parent;
+			MapNode* DetachLeftChild = LeftChild;
+			MapNode* DetachRightChild = RightChild;
+
+			if (nullptr != DetachParent && this == DetachParent->RightChild)
+			{
+				DetachParent->RightChild = DetachRightChild;
+				if (nullptr != DetachRightChild)
+				{
+					DetachRightChild->Parent = DetachParent;
+				}
+			}
+			else if (nullptr != DetachParent && this == DetachParent->LeftChild)
+			{
+				DetachParent->LeftChild = DetachLeftChild;
+				if (nullptr != DetachLeftChild)					
+				{
+					DetachLeftChild->Parent = DetachParent;
+				}
+			}
+		}
+
+		void Release()
+		{
+			if (nullptr == Parent)
+			{
+				return;
+			}
+
+			if (this == Parent->LeftChild)
+			{
+				Parent->LeftChild = nullptr;
+				return;
+			}
+
+			if (this == Parent->RightChild)
+			{
+				Parent->RightChild = nullptr;
+				return;
+			}
+
+		}
 
 		MapNode* OverParentNode()
 		{
@@ -253,6 +329,75 @@ public:
 	iterator rend()
 	{
 		return iterator();
+	}
+
+	iterator erase(const iterator& _EraseIter)
+	{
+		if (_EraseIter == end())
+		{
+			MsgBoxAssert("앤드를 삭제하려고 했습니다.");
+		}
+
+		MapNode* CurNode = _EraseIter.Node;
+		MapNode* ParentNode = CurNode->Parent;
+		MapNode* RightChild = CurNode->RightChild;
+		MapNode* LeftChild = CurNode->LeftChild;
+
+		MapNode* ChangeNode = nullptr;
+		MapNode* NextNode = CurNode->NextNode();
+
+		if (true == CurNode->IsLeaf())
+		{
+			CurNode->Release();
+			delete CurNode;
+			CurNode = nullptr;
+			return NextNode;
+		}
+
+		if (nullptr != RightChild)
+		{
+			ChangeNode = RightChild->MinNode();
+			ChangeNode->Detach();
+
+			if (nullptr != ParentNode)
+			{
+				ParentNode->ChangeChild(CurNode, ChangeNode);
+				ChangeNode->LeftChild = CurNode->LeftChild;
+				if (nullptr != ChangeNode->LeftChild)
+				{
+					ChangeNode->LeftChild->Parent = ChangeNode;
+				}
+				ChangeNode->RightChild = CurNode->RightChild;
+				if (nullptr != ChangeNode->RightChild)
+				{
+					ChangeNode->RightChild->Parent = ChangeNode;
+				}
+			}
+			return ChangeNode;
+		}
+		else if (nullptr != LeftChild)
+		{
+			ChangeNode = LeftChild->MaxNode();
+			ChangeNode->Detach();
+
+			if (nullptr != ParentNode)
+			{
+				ParentNode->ChangeChild(CurNode, ChangeNode);
+				ChangeNode->LeftChild = CurNode->LeftChild;
+				if (nullptr != ChangeNode->LeftChild)
+				{
+					ChangeNode->LeftChild->Parent = ChangeNode;
+				}
+				ChangeNode->RightChild = CurNode->RightChild;
+				if (nullptr != ChangeNode->RightChild)
+				{
+					ChangeNode->RightChild->Parent = ChangeNode;
+				}
+			}
+			return ChangeNode;
+		}
+
+		return NextNode;
 	}
 
 	iterator find(KeyType _Key)
