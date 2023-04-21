@@ -67,51 +67,6 @@ public:
 
 		}
 
-		void Detach()
-		{
-			MapNode* DetachParent = Parent;
-			MapNode* DetachLeftChild = LeftChild;
-			MapNode* DetachRightChild = RightChild;
-
-			if (nullptr != DetachParent && this == DetachParent->RightChild)
-			{
-				DetachParent->RightChild = DetachRightChild;
-				if (nullptr != DetachRightChild)
-				{
-					DetachRightChild->Parent = DetachParent;
-				}
-			}
-			else if (nullptr != DetachParent && this == DetachParent->LeftChild)
-			{
-				DetachParent->LeftChild = DetachLeftChild;
-				if (nullptr != DetachLeftChild)					
-				{
-					DetachLeftChild->Parent = DetachParent;
-				}
-			}
-		}
-
-		void Release()
-		{
-			if (nullptr == Parent)
-			{
-				return;
-			}
-
-			if (this == Parent->LeftChild)
-			{
-				Parent->LeftChild = nullptr;
-				return;
-			}
-
-			if (this == Parent->RightChild)
-			{
-				Parent->RightChild = nullptr;
-				return;
-			}
-
-		}
-
 		MapNode* MaxNode()
 		{
 			if (nullptr == RightChild)
@@ -344,11 +299,13 @@ public:
 		MapNode* LeftChild = CurNode->LeftChild;
 
 		MapNode* ChangeNode = nullptr;
+		MapNode* ChangeNodeParent = nullptr;
+		MapNode* ChangeChild = nullptr;
 		MapNode* NextNode = CurNode->NextNode();
 
 		if (true == CurNode->IsLeaf())
 		{
-			CurNode->Release();
+			ParentNode->ChangeChild(CurNode, nullptr);
 			delete CurNode;
 			CurNode = nullptr;
 			return NextNode;
@@ -357,45 +314,38 @@ public:
 		if (nullptr != RightChild)
 		{
 			ChangeNode = RightChild->MinNode();
-			ChangeNode->Detach();
-
-			if (nullptr != ParentNode)
-			{
-				ParentNode->ChangeChild(CurNode, ChangeNode);
-				ChangeNode->LeftChild = CurNode->LeftChild;
-				if (nullptr != ChangeNode->LeftChild)
-				{
-					ChangeNode->LeftChild->Parent = ChangeNode;
-				}
-				ChangeNode->RightChild = CurNode->RightChild;
-				if (nullptr != ChangeNode->RightChild)
-				{
-					ChangeNode->RightChild->Parent = ChangeNode;
-				}
-			}
-			return ChangeNode;
+			ChangeNodeParent = ChangeNode->Parent;
+			ChangeChild = ChangeNode->RightChild;
 		}
+
 		else if (nullptr != LeftChild)
 		{
 			ChangeNode = LeftChild->MaxNode();
-			ChangeNode->Detach();
-
-			if (nullptr != ParentNode)
-			{
-				ParentNode->ChangeChild(CurNode, ChangeNode);
-				ChangeNode->LeftChild = CurNode->LeftChild;
-				if (nullptr != ChangeNode->LeftChild)
-				{
-					ChangeNode->LeftChild->Parent = ChangeNode;
-				}
-				ChangeNode->RightChild = CurNode->RightChild;
-				if (nullptr != ChangeNode->RightChild)
-				{
-					ChangeNode->RightChild->Parent = ChangeNode;
-				}
-			}
-			return ChangeNode;
+			ChangeNodeParent = ChangeNode->Parent;
+			ChangeChild = ChangeNode->LeftChild;
 		}
+
+		if (nullptr != ChangeNodeParent)
+		{
+			ChangeNodeParent->ChangeChild(ChangeNode, ChangeChild);
+		}
+
+		else
+		{
+			Root = ChangeNode;
+			ChangeNodeParent = nullptr;
+		}
+
+		if (nullptr == ChangeNode)
+		{
+			MsgBoxAssert("ChangeNode°¡ null");
+			return nullptr;
+		}
+
+		ParentNode->ChangeChild(CurNode, ChangeNode);
+
+		ChangeNode->LeftChild = LeftChild;
+		ChangeNode->RightChild = RightChild;
 
 		return NextNode;
 	}
@@ -433,6 +383,7 @@ public:
 		return true;
 	}
 
+private:
 	MapNode* Root = nullptr;
 };
 
