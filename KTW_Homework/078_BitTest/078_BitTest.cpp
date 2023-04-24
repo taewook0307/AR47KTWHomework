@@ -12,6 +12,8 @@ int main()
     char Test1 = CharPtr[1];
     char Test2 = CharPtr[2];
     char Test3 = CharPtr[3];
+
+    std::cout << "BitTest 실행" << std::endl;
 }
 
 // big endian
