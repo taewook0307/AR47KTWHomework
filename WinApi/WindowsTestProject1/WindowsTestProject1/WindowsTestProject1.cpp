@@ -22,8 +22,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,                 // 윈도우가 
                      _In_ LPWSTR    lpCmdLine,                  // main 인자
                      _In_ int       nCmdShow)
 {
-    UNREFERENCED_PARAMETER(hPrevInstance);                      // 참조 안 한 파라미터 경고를 없애기 위한 코드
-    UNREFERENCED_PARAMETER(lpCmdLine);
+    // 참조 안 한 파라미터 경고를 없애기 위한 코드
+    UNREFERENCED_PARAMETER(hPrevInstance);                      // (hPrevInstance);
+    UNREFERENCED_PARAMETER(lpCmdLine);                          // (IpCmdLine);
 
     // TODO: 여기에 코드를 입력합니다.
 
