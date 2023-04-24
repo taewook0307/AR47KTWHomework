@@ -242,7 +242,6 @@ public:
 			std::cout << Pair.first << std::endl;
 		}
 
-		// ¼÷Á¦ -----------------------------------------------------------------
 		void DeleteNode()
 		{
 			if (nullptr != LeftChild)
@@ -473,7 +472,6 @@ public:
 		Root->LastOrder();
 	}
 
-	// ¼÷Á¦ -----------------------------------------------------------------
 	~GameEngineMap()
 	{
 		Root->DeleteNode();

@@ -71,6 +71,11 @@ int main()
     //    }
     //}
 
+    // 2진 탐색 트리
+    // binary search tree
+
+    // 문제점 : 편향 tree
+
     {
         GameEngineMap<int, int> Test;
 
