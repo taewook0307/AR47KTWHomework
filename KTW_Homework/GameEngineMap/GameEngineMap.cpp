@@ -102,18 +102,7 @@ int main()
        2       5                                              18
 
     1
-        키 값이 작으면 왼쪽
-        키 값이 크면 오른쪽
-
-        키 값에 의해 들어오는 pair의 방향이 결정 : 키 값 변경 불가능
-        value 값은 상관 없음
         */
-
-
-        // insert 하는 방법
-        // Test.insert(std::pair<int, int>(1, 1));
-        // Test.insert(std::make_pair(1, 1));
-        // Test.insert(std::map<int, int>::value_type(1, 1));
 
         GameEngineMap<int, int>::iterator StartIter = Test.begin();
         GameEngineMap<int, int>::iterator EndIter = Test.end();
