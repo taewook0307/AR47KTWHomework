@@ -3,7 +3,7 @@
 int main(int _Count, const char** _InitText)
 {
     // 내 프로세스가 다른 프로세스를 실행할 수도 있다.
-	int Result = system("C:\\Users\\user\\Desktop\\AR\\Project\\AR47KTWHomework\\KTW_Homework\\x64\\Debug\\078_BitTest.exe");
+	int Result = system("D:\\AR\\Project\\AR47KTWHomework\\KTW_Homework\\x64\\Debug\\078_BitTest.exe");
 
 	std::cout << std::endl << "main함수 경로" << std::endl;
 
