@@ -39,6 +39,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,                 // 윈도우가 
         return FALSE;
     }
 
+    // 단축키 옵션
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_WINDOWSTESTPROJECT1));
 
     MSG msg;
@@ -48,7 +49,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,                 // 윈도우가 
     // GetMessage는 윈도우에 무슨일이 생길 때만 리턴되는 함수
     while (GetMessage(&msg, nullptr, 0, 0))
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))         // 단축키가 눌렸다면
         {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
