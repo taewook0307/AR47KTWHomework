@@ -84,7 +84,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);                                             // 윈도우 색깔
     wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_WINDOWSTESTPROJECT1);                            // 메뉴
     wcex.lpszClassName  = szWindowClass;                                                        // 이 윈도우 형식의 이름 : 앞으로 윈도우를 만들 때 선택할 수 있는 형식 중 1가지로 등록
-    wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));                 // 
+    wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
     return RegisterClassExW(&wcex);                                                             // 해당 윈도우 형식을 등록
 }
@@ -125,9 +125,15 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
       return FALSE;
    }
 
+   if (!hWndTest)
+   {
+       return FALSE;
+   }
+
    ShowWindow(hWnd, nCmdShow);
    ShowWindow(hWndTest, nCmdShow);
    UpdateWindow(hWnd);                // 윈도우 한 번 갱신
+   UpdateWindow(hWndTest);
 
    return TRUE;
 }
@@ -172,7 +178,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
 
             // HDC hdc : 화면에 그리기 위한 권한
+            // 화면에 무언가를 그리기 위해서 hdc를 넘겨주고 권한을 받음
 
+            Rectangle(hdc, 10, 10, 200, 200);   // 사각형을 그리기 위해 hdc를 넘겨줌
 
             EndPaint(hWnd, &ps);
         }
