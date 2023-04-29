@@ -245,6 +245,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "083_TemplateEx", "083_Templ
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "084_DefaultParameter", "084_DefaultParameter\084_DefaultParameter.vcxproj", "{1154D220-1F5C-4E01-8AC8-AE22D7441FB1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameEngineMapEx", "GameEngineMapEx\GameEngineMapEx.vcxproj", "{24BA9210-A476-4728-9050-B515BE954F92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -1133,6 +1135,14 @@ Global
 		{1154D220-1F5C-4E01-8AC8-AE22D7441FB1}.Release|x64.Build.0 = Release|x64
 		{1154D220-1F5C-4E01-8AC8-AE22D7441FB1}.Release|x86.ActiveCfg = Release|Win32
 		{1154D220-1F5C-4E01-8AC8-AE22D7441FB1}.Release|x86.Build.0 = Release|Win32
+		{24BA9210-A476-4728-9050-B515BE954F92}.Debug|x64.ActiveCfg = Debug|x64
+		{24BA9210-A476-4728-9050-B515BE954F92}.Debug|x64.Build.0 = Debug|x64
+		{24BA9210-A476-4728-9050-B515BE954F92}.Debug|x86.ActiveCfg = Debug|Win32
+		{24BA9210-A476-4728-9050-B515BE954F92}.Debug|x86.Build.0 = Debug|Win32
+		{24BA9210-A476-4728-9050-B515BE954F92}.Release|x64.ActiveCfg = Release|x64
+		{24BA9210-A476-4728-9050-B515BE954F92}.Release|x64.Build.0 = Release|x64
+		{24BA9210-A476-4728-9050-B515BE954F92}.Release|x86.ActiveCfg = Release|Win32
+		{24BA9210-A476-4728-9050-B515BE954F92}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1164,6 +1174,7 @@ Global
 		{81FD0459-46AA-4420-836E-4C05472369E9} = {78FD3CA1-A2DE-4CAB-9E78-6C85DBA3C6C1}
 		{C68C9B8B-5A08-46D2-BECE-1D7F54508056} = {CB702286-CD62-4A88-A11A-28C66993025B}
 		{378136D3-7D4C-45D3-A6A7-5474CF2B9BD4} = {CB702286-CD62-4A88-A11A-28C66993025B}
+		{24BA9210-A476-4728-9050-B515BE954F92} = {CB702286-CD62-4A88-A11A-28C66993025B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F286CD72-DA50-41AE-ADCB-4D83D9F578E4}
