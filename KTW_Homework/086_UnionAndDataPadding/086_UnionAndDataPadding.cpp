@@ -27,8 +27,8 @@ union MyUnion
 public:
     int a;
     int b;
-    __int64 c = 3;
-};
+    __int64 c = 3;                          // 00000010 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+};                                          // Little endian으로 인해 a랑 b또한 3
 
 int main()
 {
