@@ -83,7 +83,7 @@ int main()
     }
 
     {
-        int SizeTest = sizeof(Test);
+        int SizeTest = sizeof(Test);            // SizeTest = 4
 
         Test NewTest;
 
@@ -92,12 +92,12 @@ int main()
     }
 
     {
+        int Size = sizeof(LastUnion);           // Size = 8
+
         LastUnion NewLastUnion;
 
         NewLastUnion.ValueXY.x = 3;
         NewLastUnion.ValueXY.y;
         NewLastUnion.z;
-
-        int Size = sizeof(LastUnion);
     }
 }
