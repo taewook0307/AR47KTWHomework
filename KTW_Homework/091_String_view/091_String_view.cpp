@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <string_view>
 
 class Player {
 
@@ -24,8 +25,17 @@ void StringPtrFunction(const char* Value)
 
 }
 
+void StringViewFunction(const std::string_view& Value)
+{
+	// std::string Text = Value.data();
+}
+
 
 int main()
 {
+	// string은 내부에 std::vector<char>를 들고 있는 자료형
 	StringFunction("aaaaaaaaaa");
+
+	// string_view는 내부에 const char* 를 들고 있음
+	int size = sizeof(std::string_view);		// size = 16
 }
